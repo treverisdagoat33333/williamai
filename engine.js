@@ -130,7 +130,7 @@ function extra(t){const l=t.toLowerCase().replace(/[?!]+$/,'');let m;
 const LF=path.join(__dirname,'data','learned.json');
 let learned=[];try{learned=JSON.parse(fs.readFileSync(LF,'utf8'))}catch(e){}
 function addLearned(q,a){intents.push({id:'taught:'+q.slice(0,20),ex:[q],r:()=>a})}
-const KB=[...require('./knowledge'),...require('./knowledge2')];
+const KB=[...require('./knowledge'),...require('./knowledge2'),...require('./knowledge3')];
 KB.forEach(([q,a])=>{const qs=q.split('|');intents.push({id:'kb:'+qs[0],ex:qs,r:()=>a})});
 const chain2={};KB.forEach(([q,a])=>{const w=a.replace(/\*\*/g,'').split(/\s+/);for(let i=0;i<w.length-3;i++){const k=(w[i]+' '+w[i+1]+' '+w[i+2]).toLowerCase();(chain2[k]=chain2[k]||[]).push(w[i+3])}});
 learned.forEach(l=>addLearned(l.q,l.a));build();
