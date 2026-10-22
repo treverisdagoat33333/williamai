@@ -1,4 +1,14 @@
 const e=require('./engine');
-console.log('WilliamCore training report');console.log(e.stats());
-console.log('Leave-one-out intent accuracy:',e.evaluate());
-console.log('Check data/unknown.json for questions William could not answer, then add them to knowledge.js.');
+console.log('WilliamCore training report');
+console.log(e.stats());
+const v=e.validate();
+console.log('\nKnowledge base:',v.entries,'entries,',v.wikiPassages,'ingested passages');
+console.log('By category:',v.categories);
+const dup=v.issues.filter(x=>/^(DUPLICATE|no answer|empty)/.test(x));
+console.log('\nProblems that must be fixed ('+dup.length+'):');dup.slice(0,40).forEach(x=>console.log(' -',x));
+const weak=v.issues.filter(x=>x.startsWith('only'));
+console.log('\nEntries with fewer than 3 phrasings ('+weak.length+'). Add more ways people ask these:');weak.slice(0,25).forEach(x=>console.log(' -',x.replace(/^only \d+ trigger\(s\), add more phrasings: /,'')));
+console.log('\nLeave-one-out intent accuracy:',e.evaluate());
+console.log('\nTodo lists: data/unknown.json (could not answer), data/nearmiss.json (almost matched), data/feedback.json (thumbs down).');
+console.log('Turn them into knowledge/*.json entries: {"q":["phrase 1","phrase 2"],"a":"answer","more":"optional extra"}');
+process.exitCode=dup.length?1:0;

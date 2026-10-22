@@ -1,0 +1,106 @@
+[
+ {
+  "q": [
+   "what is oop",
+   "object oriented programming",
+   "explain classes"
+  ],
+  "a": "OOP organizes code into objects bundling data and behavior. Core ideas: classes, encapsulation, inheritance, polymorphism."
+ },
+ {
+  "q": [
+   "what is a binary tree",
+   "explain trees",
+   "binary search tree"
+  ],
+  "a": "A tree is nodes with children. A binary search tree keeps smaller values left and larger right, so lookups take about O(log n)."
+ },
+ {
+  "q": [
+   "what is dynamic programming"
+  ],
+  "a": "Dynamic programming solves big problems by saving answers to repeated subproblems (memoization), like caching fibonacci results."
+ },
+ {
+  "q": [
+   "what is a framework",
+   "framework vs library"
+  ],
+  "a": "A library is code you call when you want. A framework calls your code and gives you the structure, like React, Django or Express."
+ },
+ {
+  "q": [
+   "what is binary",
+   "how does binary work"
+  ],
+  "a": "Binary uses only 0 and 1. Each place is a power of 2, so 1011 is 8+2+1 = 11."
+ },
+ {
+  "q": [
+   "what is a bit and byte"
+  ],
+  "a": "A bit is a single 0 or 1. A byte is 8 bits and can store a value from 0 to 255."
+ },
+ {
+  "q": [
+   "what is ram",
+   "ram vs storage"
+  ],
+  "a": "RAM is fast short-term memory for running programs. Storage (SSD or HDD) is slower long-term memory that keeps files when power is off."
+ },
+ {
+  "q": [
+   "what is a cpu",
+   "what is a gpu"
+  ],
+  "a": "The CPU handles general tasks in sequence very fast. The GPU has thousands of small cores that do many simple calculations at once, great for graphics and AI."
+ },
+ {
+  "q": [
+   "ssd vs hdd"
+  ],
+  "a": "An SSD has no moving parts and is much faster, quieter and more durable. An HDD is cheaper per gigabyte."
+ },
+ {
+  "q": [
+   "what is wifi",
+   "wifi vs ethernet"
+  ],
+  "a": "Ethernet is a cable and is faster and more stable. Wi-Fi is wireless and convenient but can be slower and less reliable."
+ },
+ {
+  "q": [
+   "what is an ip address"
+  ],
+  "a": "An IP address identifies a device on a network. A VPN encrypts your traffic and routes it through another server, hiding your IP from sites."
+ },
+ {
+  "q": [
+   "how to speed up my computer",
+   "computer is slow",
+   "laptop is slow"
+  ],
+  "a": "Restart, close heavy apps and browser tabs, uninstall unused programs, check startup apps, keep 15 percent of the disk free, and update the system. An SSD upgrade helps most."
+ },
+ {
+  "q": [
+   "how to speed up my phone",
+   "phone is slow",
+   "phone storage full"
+  ],
+  "a": "Restart it, clear app caches, delete unused apps and big videos, back up photos to the cloud, and keep the system updated."
+ },
+ {
+  "q": [
+   "what is 5g",
+   "4g vs 5g"
+  ],
+  "a": "5G is the newest mobile network, much faster with lower delay than 4G, but coverage is still growing."
+ },
+ {
+  "q": [
+   "iphone vs android"
+  ],
+  "a": "iPhone is simple, polished and long supported. Android offers more choice, customization and price range. Both are great, so pick the ecosystem you already use."
+ }
+]

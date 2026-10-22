@@ -3,6 +3,16 @@ services:
     name: williamai
     runtime: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install && (npm run ingest || true)
     startCommand: npm start
     healthCheckPath: /api/health
+    envVars:
+      - key: ADMIN_KEY
+        sync: false
+      # Optional: persist taught answers by committing them to a GitHub branch
+      # - key: GH_TOKEN
+      #   sync: false
+      # - key: GH_REPO
+      #   value: treverisdagoat33333/williamai
+      # - key: GH_BRANCH
+      #   value: learned-data

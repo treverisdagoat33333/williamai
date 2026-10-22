@@ -1,0 +1,1300 @@
+[
+ {
+  "q": [
+   "python list comprehension",
+   "list comprehension",
+   "comprehension python",
+   "make a list in one line python",
+   "one line for loop python"
+  ],
+  "a": "A list comprehension builds a list in one line: [x*2 for x in range(5)] gives [0, 2, 4, 6, 8]. Add a condition at the end to filter: [x for x in nums if x > 0].",
+  "more": "They are usually faster and cleaner than a for loop with append, but keep them short. If it needs two lines to read, use a normal loop."
+ },
+ {
+  "q": [
+   "map filter reduce",
+   "array methods javascript",
+   "js array methods"
+  ],
+  "a": "map transforms every item, filter keeps items that pass a test, reduce folds the whole list into one value. Example: [1,2,3].map(x=>x*2) gives [2,4,6].",
+  "more": "reduce example: [1,2,3].reduce((sum,x)=>sum+x, 0) gives 6. Chain them: nums.filter(n=>n>0).map(n=>n*2)."
+ },
+ {
+  "q": [
+   "what is a variable",
+   "explain variable",
+   "variables in programming"
+  ],
+  "a": "A variable is a named box that holds a value so you can use it later, like age = 15 or let score = 0.",
+  "more": "Names should describe the value. score beats x."
+ },
+ {
+  "q": [
+   "data types",
+   "what are data types",
+   "primitive types"
+  ],
+  "a": "Common data types are numbers (int, float), text (string), true/false (boolean), lists (array), and key-value pairs (dictionary or object). The type decides what you can do with a value.",
+  "more": "JavaScript also has null and undefined. Python has None."
+ },
+ {
+  "q": [
+   "array vs list",
+   "list vs array",
+   "dictionary vs object",
+   "what is a dictionary"
+  ],
+  "a": "An array or list holds items in order and you access them by position (0,1,2). A dictionary or object holds key-value pairs and you access values by name.",
+  "more": "Use a list when order matters and a dictionary when you look things up by name."
+ },
+ {
+  "q": [
+   "what is inheritance",
+   "explain inheritance",
+   "class inheritance"
+  ],
+  "a": "Inheritance lets one class reuse and extend another. A Dog class can inherit from Animal and get its methods for free, then add bark().",
+  "more": "Prefer composition (objects holding other objects) when the relationship is not a clear is-a."
+ },
+ {
+  "q": [
+   "what is a regex",
+   "regular expression",
+   "explain regex"
+  ],
+  "a": "A regex is a pattern for matching text. \\d+ matches digits, ^ is the start, $ is the end, [a-z] is a range. Great for validating emails or searching logs.",
+  "more": "Test your patterns on regex101.com. Keep them simple, a giant regex is hard to maintain."
+ },
+ {
+  "q": [
+   "arrow function",
+   "lambda function",
+   "what is a lambda",
+   "what is an anonymous function"
+  ],
+  "a": "An arrow function (JS) or lambda (Python) is a short function without a name. JS: x => x*2. Python: lambda x: x*2.",
+  "more": "Arrow functions in JS also keep the this value of the surrounding code, which is why they are popular in callbacks."
+ },
+ {
+  "q": [
+   "what is this in javascript",
+   "this keyword"
+  ],
+  "a": "this is the object a function is called on. In obj.run(), this is obj. Arrow functions do not have their own this, they use the one from outside.",
+  "more": "If this is undefined in a callback, use an arrow function or .bind(this)."
+ },
+ {
+  "q": [
+   "what is hoisting",
+   "explain hoisting"
+  ],
+  "a": "Hoisting means JavaScript moves declarations to the top of their scope before running. var and functions are hoisted, so you can call them early. let and const are hoisted but cannot be used before their line.",
+  "more": "This is why var causes confusing bugs and let/const are recommended."
+ },
+ {
+  "q": [
+   "let vs const vs var",
+   "difference between let and var"
+  ],
+  "a": "const cannot be reassigned, let can, and both are block scoped. var is the old way, it is function scoped and hoisted. Default to const, use let when the value changes, avoid var.",
+  "more": "const does not make objects frozen, you can still change the properties inside."
+ },
+ {
+  "q": [
+   "double equals vs triple equals",
+   "== vs ==="
+  ],
+  "a": "== compares after converting types, so 0 == '0' is true. === compares value and type, so it is false. Use === almost always.",
+  "more": "This avoids surprising results like [] == false being true."
+ },
+ {
+  "q": [
+   "null vs undefined",
+   "what is null",
+   "what is undefined"
+  ],
+  "a": "undefined means a variable exists but has no value yet. null means empty on purpose. Both are falsy.",
+  "more": "Use ?? to give a default for both: name ?? 'guest'."
+ },
+ {
+  "q": [
+   "what is the event loop",
+   "javascript event loop",
+   "explain event loop"
+  ],
+  "a": "JavaScript runs one thing at a time. The event loop checks the queue and runs waiting callbacks and promises when the current code finishes, which is how timers and fetch work without freezing the page.",
+  "more": "Promises (microtasks) run before setTimeout callbacks (macrotasks)."
+ },
+ {
+  "q": [
+   "what is the dom",
+   "explain dom",
+   "document object model"
+  ],
+  "a": "The DOM is the live tree of your page that JavaScript can read and change. document.querySelector('h1') grabs an element and you can edit its text, style or children.",
+  "more": "Frameworks like React use a virtual DOM to update only what changed."
+ },
+ {
+  "q": [
+   "what is a callback",
+   "callback function",
+   "callback hell"
+  ],
+  "a": "A callback is a function you pass to another function to be run later, like after a click or a download. Too many nested callbacks make callback hell, which promises and async/await fix.",
+  "more": "Example: setTimeout(() => console.log('done'), 1000)."
+ },
+ {
+  "q": [
+   "what is a module",
+   "import export",
+   "es modules"
+  ],
+  "a": "A module is a file that exports code so other files can import it. In JS: export const add = ... and import { add } from './math.js'. In Node you can also use require.",
+  "more": "Modules keep big projects organized and avoid name clashes."
+ },
+ {
+  "q": [
+   "what is npm",
+   "node package manager",
+   "npm install"
+  ],
+  "a": "npm is the package manager for Node. npm install name downloads a library into node_modules and lists it in package.json.",
+  "more": "npm init creates a package.json, npm run script runs your scripts."
+ },
+ {
+  "q": [
+   "what is package.json",
+   "package json file"
+  ],
+  "a": "package.json describes a Node project: its name, version, scripts like start, and the dependencies it needs. Anyone can run npm install and get the same setup.",
+  "more": "package-lock.json pins exact versions, commit both."
+ },
+ {
+  "q": [
+   "what is an ide",
+   "what is vs code",
+   "best code editor"
+  ],
+  "a": "An IDE or editor is where you write code. VS Code is free, fast and the most popular. It has extensions, a terminal, debugging and Git built in.",
+  "more": "Others: JetBrains (IntelliJ, PyCharm), Vim, Sublime."
+ },
+ {
+  "q": [
+   "what is the terminal",
+   "command line",
+   "what is bash",
+   "basic terminal commands"
+  ],
+  "a": "The terminal lets you control your computer with text. Basics: ls (list files), cd folder (move in), cd .. (move up), pwd (where am I), mkdir name (new folder), rm file (delete), cat file (show it).",
+  "more": "Press the up arrow to reuse commands and Tab to autocomplete."
+ },
+ {
+  "q": [
+   "what is ssh",
+   "explain ssh",
+   "secure shell"
+  ],
+  "a": "SSH is a secure way to log into another computer over the network and run commands. ssh user@server connects you. Keys are safer than passwords.",
+  "more": "Never share your private key file."
+ },
+ {
+  "q": [
+   "environment variable",
+   "what is env file",
+   "dotenv",
+   "what is .env"
+  ],
+  "a": "Environment variables store settings and secrets outside your code, like API keys and passwords. A .env file holds them locally and must be in .gitignore so it is never pushed to GitHub.",
+  "more": "If a secret was ever pushed, rotate it. Deleting the file later does not remove it from history."
+ },
+ {
+  "q": [
+   "git merge conflict",
+   "fix merge conflict",
+   "merge conflict"
+  ],
+  "a": "A merge conflict happens when two branches changed the same lines. Git marks them with <<<<<<<, =======, >>>>>>>. Edit the file to keep what you want, delete the markers, then git add and git commit.",
+  "more": "VS Code shows buttons to accept current, incoming or both."
+ },
+ {
+  "q": [
+   "git stash",
+   "what is git stash"
+  ],
+  "a": "git stash saves your uncommitted changes and gives you a clean working folder. git stash pop brings them back. Handy when you need to switch branches fast.",
+  "more": "git stash list shows everything you stashed."
+ },
+ {
+  "q": [
+   "git rebase vs merge",
+   "rebase vs merge"
+  ],
+  "a": "Merge joins branches and keeps the full history with a merge commit. Rebase replays your commits on top of another branch for a straight, cleaner history. Never rebase commits others already pulled.",
+  "more": "When unsure, merge. It is the safer choice."
+ },
+ {
+  "q": [
+   "git commit message",
+   "good commit message",
+   "how to write commit messages"
+  ],
+  "a": "Write short, present tense messages that say what and why: Fix login crash on empty password. Keep the first line under 50 characters.",
+  "more": "Commit small and often, one idea per commit."
+ },
+ {
+  "q": [
+   "what is a fork",
+   "fork a repo",
+   "fork vs clone"
+  ],
+  "a": "A fork is your own copy of someone else's repo on GitHub, so you can change it freely and propose changes with a pull request. A clone downloads a repo to your computer.",
+  "more": "Fork then clone is the standard open source workflow."
+ },
+ {
+  "q": [
+   "what is open source",
+   "open source software"
+  ],
+  "a": "Open source means the code is public and others can read, use and improve it, under a license. Linux, Firefox and VS Code are examples.",
+  "more": "Contributing is a great way to build a portfolio."
+ },
+ {
+  "q": [
+   "software license",
+   "mit license",
+   "what is a license"
+  ],
+  "a": "A license says what others may do with your code. MIT is very permissive (use it for anything, keep the notice). GPL requires derivative work to stay open too. No license means nobody can legally reuse it.",
+  "more": "Add a LICENSE file to every public repo."
+ },
+ {
+  "q": [
+   "what is a linked list",
+   "explain linked list"
+  ],
+  "a": "A linked list is a chain of nodes where each node stores a value and a pointer to the next one. Inserting is fast but you cannot jump to the middle, you have to walk the chain.",
+  "more": "Arrays are faster for random access, linked lists for frequent inserts at the front."
+ },
+ {
+  "q": [
+   "what is a heap",
+   "priority queue",
+   "min heap"
+  ],
+  "a": "A heap is a tree-based structure where the smallest (or largest) item is always on top. It powers priority queues, so you can always grab the most important item in O(log n).",
+  "more": "Used in Dijkstra's algorithm and task schedulers."
+ },
+ {
+  "q": [
+   "what is memoization",
+   "memoize",
+   "explain caching function results"
+  ],
+  "a": "Memoization saves a function's results so repeated calls with the same input return instantly. It turns slow recursive code like fibonacci from exponential to linear.",
+  "more": "In Python use functools.lru_cache."
+ },
+ {
+  "q": [
+   "what is hashing",
+   "hash function",
+   "explain hash"
+  ],
+  "a": "A hash function turns any input into a fixed-size fingerprint. The same input always gives the same hash, but you cannot reverse it. Used for passwords, file checks and hash maps.",
+  "more": "SHA-256 and bcrypt are common. MD5 is broken for security."
+ },
+ {
+  "q": [
+   "sql join",
+   "inner join",
+   "left join",
+   "explain joins"
+  ],
+  "a": "A JOIN combines rows from two tables using a shared column. INNER JOIN keeps only matches. LEFT JOIN keeps every row from the left table and fills blanks when nothing matches.",
+  "more": "Example: SELECT u.name, o.total FROM users u JOIN orders o ON o.user_id = u.id;"
+ },
+ {
+  "q": [
+   "primary key",
+   "foreign key",
+   "what is a primary key"
+  ],
+  "a": "A primary key uniquely identifies each row in a table, like an id. A foreign key is a column that points to another table's primary key, linking the two.",
+  "more": "This is how a database models relationships such as users and orders."
+ },
+ {
+  "q": [
+   "database index",
+   "what is an index",
+   "sql index"
+  ],
+  "a": "An index is like a book's index. It lets the database find rows without scanning the whole table, so queries on that column get much faster. The tradeoff is slower writes and extra storage.",
+  "more": "Index columns you search, filter or join on often."
+ },
+ {
+  "q": [
+   "acid",
+   "database transaction",
+   "what is a transaction"
+  ],
+  "a": "A transaction groups steps so they all succeed or none do. ACID means Atomic, Consistent, Isolated, Durable. A bank transfer must subtract and add together, or not happen at all.",
+  "more": "BEGIN, then your queries, then COMMIT or ROLLBACK."
+ },
+ {
+  "q": [
+   "sql injection",
+   "what is sql injection"
+  ],
+  "a": "SQL injection is when an attacker puts SQL code into an input and your app runs it. Prevent it with parameterized queries (placeholders) and never build SQL by joining strings with user input.",
+  "more": "Example of safe code: db.query('SELECT * FROM users WHERE id = ?', [id])."
+ },
+ {
+  "q": [
+   "what is xss",
+   "cross site scripting"
+  ],
+  "a": "XSS is when an attacker gets their JavaScript to run on your page, usually through unescaped user input. Prevent it by escaping output, using textContent instead of innerHTML, and setting a Content Security Policy.",
+  "more": "It can steal cookies and impersonate users."
+ },
+ {
+  "q": [
+   "what is csrf",
+   "cross site request forgery"
+  ],
+  "a": "CSRF tricks a logged-in user's browser into sending an unwanted request to your site. Defend with CSRF tokens and SameSite cookies.",
+  "more": "Frameworks like Django and Rails include protection by default."
+ },
+ {
+  "q": [
+   "what is https",
+   "what is ssl",
+   "what is tls",
+   "https vs http"
+  ],
+  "a": "HTTPS is HTTP encrypted with TLS, so nobody between you and the site can read or change the data. The padlock means the connection is encrypted and the site's certificate is valid.",
+  "more": "Let's Encrypt gives free certificates."
+ },
+ {
+  "q": [
+   "what is oauth",
+   "login with google",
+   "explain oauth"
+  ],
+  "a": "OAuth lets you sign in or grant access using another service, like Log in with Google, without sharing your password with the app. The service gives the app a limited token instead.",
+  "more": "OAuth is for authorization, OpenID Connect adds identity on top."
+ },
+ {
+  "q": [
+   "password hashing",
+   "bcrypt",
+   "how to store passwords"
+  ],
+  "a": "Never store passwords as plain text. Hash them with a slow, salted algorithm like bcrypt, scrypt or argon2. When the user logs in you hash their input and compare.",
+  "more": "A salt is random data added so identical passwords get different hashes."
+ },
+ {
+  "q": [
+   "two factor authentication",
+   "2fa",
+   "mfa"
+  ],
+  "a": "Two-factor authentication asks for something you know (password) plus something you have (a phone code or key). Even if your password leaks, attackers cannot log in.",
+  "more": "Authenticator apps and hardware keys are safer than SMS."
+ },
+ {
+  "q": [
+   "what is an sdk",
+   "software development kit"
+  ],
+  "a": "An SDK is a toolbox for building on a platform: libraries, docs, examples and tools. The Android SDK or a payment company's SDK are examples.",
+  "more": "An API is the interface, the SDK is the package that makes using it easier."
+ },
+ {
+  "q": [
+   "what is a webhook",
+   "explain webhook"
+  ],
+  "a": "A webhook is a URL on your server that another service calls when something happens, like a payment succeeding. It is the service calling you, instead of you asking over and over.",
+  "more": "Always verify the signature so only the real service can trigger it."
+ },
+ {
+  "q": [
+   "what is mvc",
+   "model view controller"
+  ],
+  "a": "MVC splits an app into Model (data and rules), View (what the user sees) and Controller (handles input and connects the two). It keeps code organized and testable.",
+  "more": "Rails, Django and Laravel follow versions of this idea."
+ },
+ {
+  "q": [
+   "design patterns",
+   "what is singleton",
+   "what is a design pattern"
+  ],
+  "a": "Design patterns are proven solutions to common code problems. Singleton means only one instance exists. Observer lets objects subscribe to events. Factory creates objects for you.",
+  "more": "Learn them gradually, do not force them in."
+ },
+ {
+  "q": [
+   "what is tdd",
+   "test driven development"
+  ],
+  "a": "TDD means write a failing test first, write just enough code to pass it, then clean up. The cycle is red, green, refactor.",
+  "more": "It catches bugs early and forces clear requirements."
+ },
+ {
+  "q": [
+   "what is devops",
+   "explain devops"
+  ],
+  "a": "DevOps joins development and operations so software is built, tested, deployed and monitored in an automated loop. Tools include Git, CI/CD, Docker and Kubernetes.",
+  "more": "The goal is shipping small changes safely and often."
+ },
+ {
+  "q": [
+   "docker vs vm",
+   "container vs virtual machine"
+  ],
+  "a": "A virtual machine runs a whole operating system on virtual hardware, so it is heavy. A container shares the host's kernel and only packages the app and its libraries, so it starts in seconds and is lightweight.",
+  "more": "Docker builds and runs containers."
+ },
+ {
+  "q": [
+   "api endpoint",
+   "what is an endpoint"
+  ],
+  "a": "An endpoint is one URL of an API that does one job, like GET /users/5 to fetch user 5. Each endpoint accepts certain methods and returns data.",
+  "more": "Good endpoints use nouns and let the HTTP verb be the action."
+ },
+ {
+  "q": [
+   "http status codes",
+   "status code list",
+   "what is 200 301"
+  ],
+  "a": "200 OK. 201 Created. 301 moved permanently. 400 bad request. 401 not logged in. 403 forbidden. 404 not found. 429 too many requests. 500 server error. 503 service unavailable.",
+  "more": "First digit tells the family: 2 success, 3 redirect, 4 your mistake, 5 server mistake."
+ },
+ {
+  "q": [
+   "json vs xml",
+   "what is xml",
+   "what is yaml"
+  ],
+  "a": "JSON, XML and YAML are text formats for data. JSON is the web standard and easy to read. XML uses tags and is older and wordy. YAML uses indentation and is popular for config files.",
+  "more": "Always validate data before trusting it."
+ },
+ {
+  "q": [
+   "what is markdown",
+   "markdown syntax"
+  ],
+  "a": [
+   "Markdown is simple text formatting. # Title,",
+   "Subtitle, **bold**, *italic*, - list item, [text](url), and backticks for code. README files are written in it."
+  ],
+  "more": "Triple backticks make a code block."
+ },
+ {
+  "q": [
+   "css selector",
+   "what are css selectors"
+  ],
+  "a": "A CSS selector picks which elements to style. p targets paragraphs, .card targets class card, #nav targets id nav, and div > p targets direct children.",
+  "more": "Specificity decides which rule wins: id beats class beats tag."
+ },
+ {
+  "q": [
+   "css box model",
+   "box model",
+   "margin vs padding"
+  ],
+  "a": "Every element is a box: content, then padding (space inside), border, then margin (space outside). box-sizing: border-box makes width include padding and border, which is easier to work with.",
+  "more": "Margin pushes other elements away, padding pushes content inward."
+ },
+ {
+  "q": [
+   "css grid",
+   "grid vs flexbox"
+  ],
+  "a": "CSS Grid lays things out in rows and columns at once, great for whole page layouts. Flexbox works in one direction, great for rows of buttons or navbars.",
+  "more": "They combine well. Grid for layout, flex for the pieces inside."
+ },
+ {
+  "q": [
+   "css position",
+   "position absolute relative",
+   "z index"
+  ],
+  "a": "position: relative keeps an element in flow. absolute places it relative to the nearest positioned parent. fixed sticks to the screen. z-index controls which overlapping element is on top.",
+  "more": "z-index only works on positioned elements."
+ },
+ {
+  "q": [
+   "media query",
+   "css media query"
+  ],
+  "a": "A media query applies CSS only in certain conditions, like @media (max-width: 600px) { ... } for phones. It is the core of responsive design.",
+  "more": "Start mobile first and add min-width queries for bigger screens."
+ },
+ {
+  "q": [
+   "semantic html",
+   "html semantic tags"
+  ],
+  "a": "Semantic HTML uses tags that describe meaning: header, nav, main, article, section, footer. It helps screen readers, SEO and keeps code readable compared to divs everywhere.",
+  "more": "Use button for buttons, never a clickable div."
+ },
+ {
+  "q": [
+   "accessibility",
+   "what is a11y",
+   "web accessibility"
+  ],
+  "a": "Accessibility means everyone can use your site, including people using screen readers or keyboards. Use alt text on images, good color contrast, labels on inputs, and make everything reachable with Tab.",
+  "more": "Roughly 1 in 6 people live with a disability."
+ },
+ {
+  "q": [
+   "what is a pwa",
+   "progressive web app"
+  ],
+  "a": "A PWA is a website that behaves like an app: installable, works offline through a service worker, and can send notifications. One codebase for web and mobile.",
+  "more": "It needs HTTPS, a manifest file and a service worker."
+ },
+ {
+  "q": [
+   "what is webassembly",
+   "wasm"
+  ],
+  "a": "WebAssembly is a fast binary format that browsers run next to JavaScript, so languages like C, C++ and Rust can run in the browser at near native speed.",
+  "more": "Used for games, video editing and design tools on the web."
+ },
+ {
+  "q": [
+   "python vs javascript",
+   "which language first",
+   "best programming language to learn"
+  ],
+  "a": "Start with Python if you want readable code, data or AI. Start with JavaScript if you want to build websites and apps right away. The first language matters less than building real projects.",
+  "more": "Once you know one, the second takes weeks, not years."
+ },
+ {
+  "q": [
+   "variable scope",
+   "global vs local variable",
+   "what is scope"
+  ],
+  "a": "Scope is where a variable can be used. A local variable lives inside its function or block. A global one is visible everywhere, but too many globals make bugs hard to track.",
+  "more": "Closures let inner functions use outer variables."
+ },
+ {
+  "q": [
+   "what is an operating system",
+   "what is kernel",
+   "what is os"
+  ],
+  "a": "An operating system manages the hardware and lets programs run. The kernel is its core, handling memory, processes and devices. Windows, macOS, Linux, Android and iOS are examples.",
+  "more": "Without an OS every app would have to control the hardware itself."
+ },
+ {
+  "q": [
+   "what is machine code",
+   "assembly language"
+  ],
+  "a": "Machine code is the raw 1s and 0s the CPU runs. Assembly is a readable form of it. Compilers turn higher level code into machine code for you.",
+  "more": "Most developers never write it directly."
+ },
+ {
+  "q": [
+   "what is a bug",
+   "what is technical debt"
+  ],
+  "a": "A bug is a mistake in code that makes it behave wrongly. Technical debt is the cost of quick, messy shortcuts that you must pay back later with extra work.",
+  "more": "Writing tests and small functions keeps both low."
+ },
+ {
+  "q": [
+   "what is an llm",
+   "large language model",
+   "how do llms work"
+  ],
+  "a": "An LLM is a huge neural network trained on lots of text to predict the next word. That skill lets it write, answer and code. williamAI is different, it is built from rules and retrieval, not an LLM.",
+  "more": "LLMs can sound sure and still be wrong, so verify important facts."
+ },
+ {
+  "q": [
+   "what is a neural network",
+   "how do neural networks work"
+  ],
+  "a": "A neural network is layers of simple math units. Each takes inputs, multiplies by weights, adds them and passes a result on. Training adjusts the weights until the outputs are right.",
+  "more": "Deep learning means networks with many layers."
+ },
+ {
+  "q": [
+   "what is deep learning",
+   "deep learning vs machine learning",
+   "ai vs ml"
+  ],
+  "a": "AI is the big goal of smart software. Machine learning is AI that learns from data. Deep learning is machine learning with many-layered neural networks.",
+  "more": "Each is a subset of the one before it."
+ },
+ {
+  "q": [
+   "what is overfitting",
+   "overfit model"
+  ],
+  "a": "Overfitting is when a model memorizes its training data instead of learning the pattern, so it does great on old data and badly on new data. Fix it with more data, simpler models and validation sets.",
+  "more": "Always test on data the model never saw."
+ },
+ {
+  "q": [
+   "what is nlp",
+   "natural language processing"
+  ],
+  "a": "NLP is how computers work with human language: understanding, translating, summarizing and chatting. Steps include tokenizing, finding meaning and generating replies.",
+  "more": "williamAI uses tokens, TF-IDF and trigram matching, which are classic NLP tools."
+ },
+ {
+  "q": [
+   "what are tokens",
+   "what is tokenization"
+  ],
+  "a": "Tokenization splits text into small pieces (words or word parts) so a program can work with them. 'Hello world' becomes ['hello','world'] in a simple system.",
+  "more": "LLMs use sub-word tokens, so one word may be several tokens."
+ },
+ {
+  "q": [
+   "what are embeddings",
+   "word embeddings"
+  ],
+  "a": "An embedding turns a word or sentence into a list of numbers so that similar meanings sit close together. It lets software compare meaning, not just spelling.",
+  "more": "Used for search, recommendations and chatbots."
+ },
+ {
+  "q": [
+   "what is tf idf",
+   "tfidf",
+   "term frequency"
+  ],
+  "a": "TF-IDF scores how important a word is to a document. Words that appear often in one document but rarely in others score high, and common words like the score low.",
+  "more": "It is the engine behind williamAI's matching."
+ },
+ {
+  "q": [
+   "reinforcement learning"
+  ],
+  "a": "Reinforcement learning trains an agent by reward. It tries actions, gets points for good results, and learns a strategy. It powered AI that mastered games like Go.",
+  "more": "It is used in robotics and game bots."
+ },
+ {
+  "q": [
+   "computer vision"
+  ],
+  "a": "Computer vision teaches software to understand images and video: recognizing faces, objects and text. Modern systems use convolutional neural networks.",
+  "more": "Self-driving cars and phone cameras use it."
+ },
+ {
+  "q": [
+   "how to build a website",
+   "make a website",
+   "create website"
+  ],
+  "a": "1) Plan pages. 2) Write HTML for structure, CSS for style, JS for interactivity. 3) Test on your phone. 4) Host it free on GitHub Pages, Netlify or Render. 5) Buy a domain if you want a custom address.",
+  "more": "Ask me to write a landing page in html and I will give you a starter."
+ },
+ {
+  "q": [
+   "what is a repository",
+   "what is a repo"
+  ],
+  "a": "A repository is a project folder tracked by Git, holding your files and their full history. GitHub, GitLab and others host repos online.",
+  "more": "README, LICENSE and .gitignore are the standard starter files."
+ },
+ {
+  "q": [
+   "what is a vpn",
+   "virtual private network"
+  ],
+  "a": "A VPN encrypts your internet traffic and routes it through another server, hiding your activity from your network and your IP from sites. It does not make you anonymous or stop malware.",
+  "more": "Choose providers with a clear no-logs policy."
+ },
+ {
+  "q": [
+   "what is a firewall",
+   "firewall"
+  ],
+  "a": "A firewall filters network traffic by rules and blocks unwanted connections. It can be software on your computer or a device at the network edge.",
+  "more": "It is one layer of security, not the whole thing."
+ },
+ {
+  "q": [
+   "what is phishing",
+   "how to spot phishing",
+   "phishing email"
+  ],
+  "a": "Phishing is a fake message pretending to be a trusted company to steal logins or money. Signs: urgent threats, odd sender address, misspellings, and links that go somewhere else. Go to the website directly instead of clicking.",
+  "more": "If you clicked and entered a password, change it right away and turn on 2FA."
+ },
+ {
+  "q": [
+   "what is malware",
+   "virus vs malware"
+  ],
+  "a": "Malware is any harmful software: viruses, worms, trojans, ransomware and spyware. Avoid it by updating your system, skipping cracked software, and not opening unknown attachments.",
+  "more": "A virus attaches to files, a trojan pretends to be useful."
+ },
+ {
+  "q": [
+   "what is a compiler error vs runtime error",
+   "syntax vs runtime vs logic error"
+  ],
+  "a": "A syntax error breaks language rules so the code will not run. A runtime error crashes while running, like dividing by zero. A logic error runs fine but gives the wrong answer, the hardest to find.",
+  "more": "Print statements and a debugger help with logic errors."
+ },
+ {
+  "q": [
+   "what is a debugger",
+   "how to use debugger",
+   "breakpoint"
+  ],
+  "a": "A debugger pauses your program at a breakpoint so you can look at variable values and step through line by line. VS Code has one built in, click left of the line number to set a breakpoint.",
+  "more": "It beats guessing with print statements."
+ },
+ {
+  "q": [
+   "what is an api key secret",
+   "keep api key safe"
+  ],
+  "a": "Treat API keys and tokens like passwords. Keep them in environment variables, never in code or in a public repo, give them the fewest permissions needed, and rotate them if they leak.",
+  "more": "GitHub scans for leaked tokens, but do not rely on it."
+ },
+ {
+  "q": [
+   "what is big data",
+   "data science",
+   "what is data science"
+  ],
+  "a": "Data science finds insight in data using statistics, programming and visualization. Typical steps: collect, clean, explore, model, communicate. Python with pandas and matplotlib is the common toolkit.",
+  "more": "Cleaning data usually takes most of the time."
+ },
+ {
+  "q": [
+   "what is pandas",
+   "python pandas",
+   "what is numpy"
+  ],
+  "a": "pandas is a Python library for tables of data (DataFrames), and NumPy handles fast number arrays. Together they are the base of data analysis in Python.",
+  "more": "df = pandas.read_csv('file.csv') loads a spreadsheet in one line."
+ },
+ {
+  "q": [
+   "what is flask",
+   "what is fastapi",
+   "python web framework"
+  ],
+  "a": "Flask and FastAPI are Python web frameworks for building APIs and sites. Flask is small and simple, FastAPI is modern, fast and builds docs automatically.",
+  "more": "Django is the bigger batteries-included choice."
+ },
+ {
+  "q": [
+   "what is nextjs",
+   "what is next js",
+   "server side rendering"
+  ],
+  "a": "Next.js is a React framework that adds routing, server-side rendering and API routes. SSR builds the page on the server so it loads fast and ranks well in search.",
+  "more": "Static generation builds pages ahead of time."
+ },
+ {
+  "q": [
+   "what is a state in react",
+   "react state",
+   "react hooks",
+   "usestate"
+  ],
+  "a": "State is data a React component remembers that, when changed, re-renders the screen. useState gives you the value and a setter: const [count, setCount] = useState(0).",
+  "more": "useEffect runs side effects like fetching data."
+ },
+ {
+  "q": [
+   "what is recursion",
+   "explain recursion",
+   "recursive function"
+  ],
+  "a": "Recursion is when a function calls itself on a smaller version of the problem until it hits a base case. Factorial is the classic example."
+ },
+ {
+  "q": [
+   "what is an api",
+   "explain api",
+   "define api"
+  ],
+  "a": "An API is a menu of requests one program lets another make. You send a request, it sends data back, usually JSON."
+ },
+ {
+  "q": [
+   "what is rest",
+   "restful api",
+   "explain rest"
+  ],
+  "a": "REST is an API style where URLs are resources and HTTP verbs act on them: GET reads, POST creates, PUT updates, DELETE removes."
+ },
+ {
+  "q": [
+   "what is git",
+   "explain git",
+   "git version control"
+  ],
+  "a": "Git tracks every change to your code so you can undo mistakes and work in teams. Basics: git add, git commit, git push."
+ },
+ {
+  "q": [
+   "what is github",
+   "explain github"
+  ],
+  "a": "GitHub hosts Git repositories online so you can share code, collaborate with pull requests, and deploy sites."
+ },
+ {
+  "q": [
+   "what is a database",
+   "explain database",
+   "sql vs nosql"
+  ],
+  "a": "A database stores data in an organized way. SQL databases use tables and strict schemas, NoSQL ones like MongoDB store flexible documents."
+ },
+ {
+  "q": [
+   "what is sql",
+   "explain sql",
+   "sql query"
+  ],
+  "a": "SQL is the language for relational databases. Example: SELECT name FROM users WHERE age > 18;"
+ },
+ {
+  "q": [
+   "what is big o",
+   "time complexity",
+   "explain big o notation"
+  ],
+  "a": "Big O shows how an algorithm slows as input grows. O(1) constant, O(n) linear, O(n log n) good sorting, O(n^2) gets slow fast."
+ },
+ {
+  "q": [
+   "what is a closure",
+   "explain closure"
+  ],
+  "a": "A closure is a function that remembers the variables from where it was created, even after the outer function finished."
+ },
+ {
+  "q": [
+   "what is async await",
+   "explain promise",
+   "what is a promise",
+   "asynchronous"
+  ],
+  "a": "A promise is a value that arrives later. async/await lets you wait for it without freezing the app, like waiting for a fetch."
+ },
+ {
+  "q": [
+   "what is a function",
+   "explain function"
+  ],
+  "a": "A function is a reusable block of code that takes input, does something, and can return a result."
+ },
+ {
+  "q": [
+   "what is a loop",
+   "explain loop",
+   "for loop while loop"
+  ],
+  "a": "A loop repeats code. for loops run a set number of times, while loops run until a condition turns false."
+ },
+ {
+  "q": [
+   "how to debug",
+   "debug my code",
+   "my code is not working",
+   "i have a bug",
+   "fix bug"
+  ],
+  "a": "Debug like a detective: 1) read the error, 2) find the exact line, 3) print values around it, 4) shrink the problem, 5) change one thing at a time. Paste the error and I will help."
+ },
+ {
+  "q": [
+   "what is a hash map",
+   "hash table"
+  ],
+  "a": "A hash map stores key/value pairs and finds a key in about O(1) time. It is a dict in Python and an object or Map in JS."
+ },
+ {
+  "q": [
+   "stack vs queue",
+   "what is a stack",
+   "what is a queue"
+  ],
+  "a": "A stack is last-in-first-out like a pile of plates. A queue is first-in-first-out like a line at a store."
+ },
+ {
+  "q": [
+   "status codes"
+  ],
+  "a": "HTTP is how browsers talk to servers. Codes: 200 OK, 301 redirect, 400 bad request, 401 unauthorized, 404 not found, 500 server error."
+ },
+ {
+  "q": [
+   "what is dns",
+   "explain dns"
+  ],
+  "a": "DNS is the internet phonebook. It turns names like google.com into the IP address of a server."
+ },
+ {
+  "q": [
+   "what is docker",
+   "explain docker",
+   "container"
+  ],
+  "a": "Docker packages an app with everything it needs into a container so it runs the same on every machine."
+ },
+ {
+  "q": [
+   "what is linux",
+   "linux commands"
+  ],
+  "a": "Linux is an open-source OS that runs most servers. Starter commands: ls, cd, pwd, mkdir, rm, cat, grep, chmod."
+ },
+ {
+  "q": [
+   "frontend vs backend",
+   "what is frontend",
+   "what is backend",
+   "full stack"
+  ],
+  "a": "Frontend is what users see (HTML, CSS, JS). Backend is the server logic, data and APIs behind it. Full stack means you do both."
+ },
+ {
+  "q": [
+   "what is react",
+   "explain react",
+   "react vs vue"
+  ],
+  "a": "React is a JavaScript library for building UIs from reusable components that update when data changes."
+ },
+ {
+  "q": [
+   "what is flexbox",
+   "css flexbox",
+   "center a div"
+  ],
+  "a": "Flexbox lays items in a row or column. To center anything: display:flex; justify-content:center; align-items:center;"
+ },
+ {
+  "q": [
+   "what is responsive design",
+   "make site mobile friendly"
+  ],
+  "a": "Responsive design fits any screen using flexible layouts, relative units and media queries like @media (max-width: 600px)."
+ },
+ {
+  "q": [
+   "what is seo",
+   "improve seo",
+   "rank on google"
+  ],
+  "a": "SEO helps search engines find your site: clear titles, meta descriptions, fast loading, mobile-friendly pages and useful content."
+ },
+ {
+  "q": [
+   "what is encryption",
+   "how are passwords stored"
+  ],
+  "a": "Encryption scrambles data so only a key holder can read it. Passwords should be stored only as salted hashes using bcrypt or argon2."
+ },
+ {
+  "q": [
+   "stay safe online",
+   "cybersecurity tips"
+  ],
+  "a": "Use a password manager, turn on 2FA, never click surprise links, and check sender addresses. If it creates urgency, slow down."
+ },
+ {
+  "q": [
+   "what is java",
+   "explain java"
+  ],
+  "a": "Java is a strongly typed, object-oriented language that runs on the JVM. It powers Android apps and huge enterprise backends."
+ },
+ {
+  "q": [
+   "what is c++",
+   "explain cpp"
+  ],
+  "a": "C++ is a fast, low-level language used for games, engines and performance-critical software. You manage memory yourself."
+ },
+ {
+  "q": [
+   "what is rust",
+   "explain rust"
+  ],
+  "a": "Rust is a fast systems language that guarantees memory safety without a garbage collector, using ownership rules."
+ },
+ {
+  "q": [
+   "what is golang",
+   "explain go language"
+  ],
+  "a": "Go is a simple, fast language from Google for servers and cloud tools, famous for easy concurrency with goroutines."
+ },
+ {
+  "q": [
+   "what is typescript",
+   "typescript vs javascript"
+  ],
+  "a": "TypeScript is JavaScript plus types. It catches bugs while you write and compiles down to plain JS."
+ },
+ {
+  "q": [
+   "compiler vs interpreter",
+   "what is a compiler"
+  ],
+  "a": "A compiler translates the whole program to machine code before running. An interpreter runs it line by line."
+ },
+ {
+  "q": [
+   "what is cache",
+   "explain caching"
+  ],
+  "a": "A cache stores recent results so repeated requests are fast. Browsers, CPUs and servers like Redis all use caching."
+ },
+ {
+  "q": [
+   "thread vs process",
+   "what is a thread",
+   "what is concurrency"
+  ],
+  "a": "A process is a running program with its own memory. Threads are lighter workers inside one process that share its memory."
+ },
+ {
+  "q": [
+   "what is jwt",
+   "how does login work"
+  ],
+  "a": "Login usually works like this: you prove who you are, the server issues a signed token like a JWT, and you send it with each request. OAuth lets you sign in through another service such as Google."
+ },
+ {
+  "q": [
+   "what is websocket",
+   "real time chat",
+   "websockets"
+  ],
+  "a": "WebSockets keep a two-way connection open so the server can push messages instantly, which is how live chat and games work."
+ },
+ {
+  "q": [
+   "what is ci cd",
+   "continuous integration"
+  ],
+  "a": "CI/CD automatically tests and deploys your code on every push. DevOps connects building and running software smoothly."
+ },
+ {
+  "q": [
+   "what is unit testing",
+   "how to write tests"
+  ],
+  "a": "A unit test checks one small piece of code automatically. TDD means writing the test first, then the code that makes it pass."
+ },
+ {
+  "q": [
+   "what is agile",
+   "what is scrum"
+  ],
+  "a": "Agile means building in small steps with constant feedback. Scrum organizes that into short sprints, daily standups and reviews."
+ },
+ {
+  "q": [
+   "sorting algorithms",
+   "best sorting algorithm",
+   "merge sort vs quicksort"
+  ],
+  "a": "Quicksort and merge sort average O(n log n). Merge sort is stable and predictable, quicksort is usually faster in practice. Bubble sort is O(n^2) and only for learning."
+ },
+ {
+  "q": [
+   "what is a graph",
+   "bfs vs dfs",
+   "graph algorithms"
+  ],
+  "a": "A graph is nodes connected by edges. BFS explores level by level with a queue and finds shortest paths. DFS goes deep first using a stack or recursion."
+ },
+ {
+  "q": [
+   "what is a pointer",
+   "memory management",
+   "garbage collection"
+  ],
+  "a": "A pointer stores a memory address. C makes you free memory yourself, while JS, Python and Java use a garbage collector to clean up unused data."
+ },
+ {
+  "q": [
+   "spa vs mpa",
+   "what is ssr"
+  ],
+  "a": "A single-page app loads once and updates in the browser. Server-side rendering builds the HTML on the server first, which helps SEO and first load speed."
+ },
+ {
+  "q": [
+   "what is a cdn"
+  ],
+  "a": "A CDN serves your files from servers near the user for speed. HTTPS encrypts traffic between browser and server using TLS certificates."
+ },
+ {
+  "q": [
+   "how to get a developer job",
+   "get first tech job",
+   "become a developer"
+  ],
+  "a": "Build 3 solid projects, put them on GitHub with clear READMEs, learn Git, apply widely, network, and keep shipping while you apply."
+ },
+ {
+  "q": [
+   "what is an api key",
+   "api key security"
+  ],
+  "a": "An API key is a secret password for a service. Never put it in frontend code or a public repo. Keep it in a server environment variable."
+ },
+ {
+  "q": [
+   "what is json",
+   "explain json"
+  ],
+  "a": "JSON is a text format for data: curly braces for objects and brackets for lists, like {\"name\":\"William\",\"age\":20}."
+ },
+ {
+  "q": [
+   "what is django",
+   "django vs flask"
+  ],
+  "a": "Django is a full Python web framework with everything built in. Flask is a tiny one where you choose your own parts."
+ },
+ {
+  "q": [
+   "what is vue",
+   "what is angular",
+   "what is svelte"
+  ],
+  "a": "Vue, Angular and Svelte are other frontend frameworks like React. Vue is gentle to learn, Angular is a full framework by Google, Svelte compiles away to tiny fast code."
+ },
+ {
+  "q": [
+   "what is tailwind",
+   "what is bootstrap"
+  ],
+  "a": "Bootstrap gives ready-made components. Tailwind gives small utility classes like p-4 and flex so you design directly in HTML."
+ },
+ {
+  "q": [
+   "what is mongodb",
+   "what is postgres",
+   "what is redis",
+   "what is mysql"
+  ],
+  "a": "Postgres and MySQL are SQL databases with tables. MongoDB stores JSON-like documents. Redis is an ultra-fast in-memory store used for caching."
+ },
+ {
+  "q": [
+   "what is an orm",
+   "what is prisma",
+   "what is sequelize"
+  ],
+  "a": "An ORM lets you work with database rows as objects in your language instead of writing raw SQL."
+ },
+ {
+  "q": [
+   "what is graphql",
+   "graphql vs rest"
+  ],
+  "a": "GraphQL lets the client ask for exactly the fields it needs from one endpoint, instead of many fixed REST endpoints."
+ },
+ {
+  "q": [
+   "what is a microservice",
+   "monolith vs microservices"
+  ],
+  "a": "A monolith is one big app. Microservices split it into small independent services that talk over the network. Start with a monolith."
+ },
+ {
+  "q": [
+   "what is serverless",
+   "what is aws lambda"
+  ],
+  "a": "Serverless means you upload functions and the cloud runs them on demand, so you do not manage servers and pay per use."
+ },
+ {
+  "q": [
+   "what is aws",
+   "what is azure",
+   "what is cloud computing"
+  ],
+  "a": "Cloud computing means renting servers, storage and databases over the internet from providers like AWS, Azure or Google Cloud."
+ },
+ {
+  "q": [
+   "what is kubernetes",
+   "k8s"
+  ],
+  "a": "Kubernetes runs and scales many containers automatically across machines and restarts them if they crash."
+ },
+ {
+  "q": [
+   "what is a load balancer"
+  ],
+  "a": "A load balancer spreads incoming requests across several servers so no single one is overwhelmed."
+ },
+ {
+  "q": [
+   "what is git branch",
+   "git merge",
+   "git rebase",
+   "git conflict"
+  ],
+  "a": "A branch is a separate line of work. Merge combines it back. A merge conflict means two changes touched the same lines, so you pick which to keep."
+ },
+ {
+  "q": [
+   "git undo",
+   "how to undo git commit",
+   "git reset"
+  ],
+  "a": "Undo the last commit but keep changes with git reset --soft HEAD~1. Safely undo a pushed commit with git revert."
+ },
+ {
+  "q": [
+   "what is a pull request"
+  ],
+  "a": "A pull request asks the team to review and merge your branch into the main code."
+ },
+ {
+  "q": [
+   "what is clean code",
+   "coding best practices"
+  ],
+  "a": "Use clear names, small functions that do one thing, avoid repetition, comment the why not the what, and write tests."
+ },
+ {
+  "q": [
+   "what is refactoring"
+  ],
+  "a": "Refactoring means improving code structure without changing what it does."
+ },
+ {
+  "q": [
+   "what is an algorithm"
+  ],
+  "a": "An algorithm is a step-by-step procedure for solving a problem, like a recipe for the computer."
+ },
+ {
+  "q": [
+   "what is a data structure",
+   "array vs linked list"
+  ],
+  "a": "Data structures organize data: arrays give fast index access, linked lists give fast insertion, hash maps give fast lookup, trees give ordered data."
+ }
+]

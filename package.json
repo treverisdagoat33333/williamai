@@ -1,1 +1,15 @@
-{"name":"williamai","version":"1.0.0","description":"williamAI - original AI engine, frontend + backend, zero dependencies","main":"server.js","scripts":{"start":"node server.js","train":"node train.js"},"engines":{"node":">=18"}}
+{
+  "name": "williamai",
+  "version": "2.0.0",
+  "description": "williamAI - original AI engine, frontend + backend, zero dependencies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "train": "node train.js",
+    "validate": "node train.js",
+    "ingest": "node scripts/ingest.js wiki --file scripts/topics.txt"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

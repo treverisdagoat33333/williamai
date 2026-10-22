@@ -1,0 +1,261 @@
+[
+ {
+  "q": [
+   "what is pi",
+   "value of pi"
+  ],
+  "a": "Pi is the ratio of a circle's circumference to its diameter, about 3.14159. It is irrational, so its digits never end or repeat.",
+  "more": "Circumference = 2 x pi x r."
+ },
+ {
+  "q": [
+   "what is algebra",
+   "explain algebra"
+  ],
+  "a": "Algebra uses letters for unknown numbers so you can solve problems. If x + 3 = 10, then x = 7. The rule is to do the same thing to both sides of the equation.",
+  "more": "Always check by plugging your answer back in."
+ },
+ {
+  "q": [
+   "what is geometry",
+   "explain geometry"
+  ],
+  "a": "Geometry is the math of shapes, sizes and space: lines, angles, triangles, circles and solids.",
+  "more": "Key facts: triangle angles add to 180 degrees, a rectangle has 4 right angles."
+ },
+ {
+  "q": [
+   "trigonometry",
+   "sin cos tan",
+   "soh cah toa"
+  ],
+  "a": "Trigonometry connects angles and sides of right triangles. SOH CAH TOA: sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent.",
+  "more": "Used in games, engineering, music and navigation."
+ },
+ {
+  "q": [
+   "what is calculus",
+   "explain calculus"
+  ],
+  "a": "Calculus is the math of change. Derivatives tell you how fast something changes at a moment (slope). Integrals add up tiny pieces to find totals like area.",
+  "more": "They are opposites, connected by the fundamental theorem of calculus."
+ },
+ {
+  "q": [
+   "what is an integral",
+   "integral"
+  ],
+  "a": "An integral adds up infinitely many tiny pieces. It gives the area under a curve. For example the integral of x from 0 to 2 is 2.",
+  "more": "The integral of x^n is x^(n+1)/(n+1)."
+ },
+ {
+  "q": [
+   "what is a matrix",
+   "matrix math"
+  ],
+  "a": "A matrix is a grid of numbers in rows and columns. You can add them, multiply them, and use them to transform points. They power 3D graphics and neural networks.",
+  "more": "Matrix multiplication is not commutative, A x B is not B x A."
+ },
+ {
+  "q": [
+   "mean median mode",
+   "what is the mean",
+   "what is the median"
+  ],
+  "a": "Mean is the average (add all, divide by how many). Median is the middle value when sorted. Mode is the most frequent value.",
+  "more": "Median is better than mean when there are extreme outliers."
+ },
+ {
+  "q": [
+   "standard deviation",
+   "what is standard deviation"
+  ],
+  "a": "Standard deviation measures how spread out numbers are around the average. A small value means they are close together, a large one means very spread out.",
+  "more": "In a normal distribution about 68% of values fall within one standard deviation."
+ },
+ {
+  "q": [
+   "how to calculate percentage",
+   "percentage formula",
+   "how do i find a percent"
+  ],
+  "a": "Percent of a number: multiply the number by the percent and divide by 100. 20% of 80 = 80 x 20 / 100 = 16. To get what percent a is of b: a / b x 100.",
+  "more": "Percent change = (new - old) / old x 100."
+ },
+ {
+  "q": [
+   "what is a ratio",
+   "ratio vs proportion"
+  ],
+  "a": "A ratio compares two amounts, like 2:3. A proportion says two ratios are equal. If 2 pencils cost $1, then 6 cost $3.",
+  "more": "Cross multiply to solve proportions."
+ },
+ {
+  "q": [
+   "what are exponents",
+   "exponent rules",
+   "what is a power"
+  ],
+  "a": "An exponent says how many times to multiply a number by itself: 2^3 = 2 x 2 x 2 = 8. Rules: a^m x a^n = a^(m+n), a^0 = 1, a^-n = 1/a^n.",
+  "more": "Squared means ^2, cubed means ^3."
+ },
+ {
+  "q": [
+   "what is a logarithm",
+   "log math"
+  ],
+  "a": "A logarithm answers: what power gives this number? log base 10 of 1000 is 3 because 10^3 = 1000. It is the inverse of exponents.",
+  "more": "Used for the Richter scale, decibels and pH."
+ },
+ {
+  "q": [
+   "square root",
+   "what is a square root"
+  ],
+  "a": "The square root of a number is the value that times itself gives that number. The square root of 49 is 7 because 7 x 7 = 49.",
+  "more": "Square roots of non-perfect squares like 2 are irrational."
+ },
+ {
+  "q": [
+   "what is infinity"
+  ],
+  "a": "Infinity is not a number but the idea of something without end. Some infinities are larger than others, for example there are more real numbers than whole numbers.",
+  "more": "Mathematicians use it carefully with limits."
+ },
+ {
+  "q": [
+   "even and odd numbers",
+   "what is an even number"
+  ],
+  "a": "Even numbers divide by 2 with nothing left over (2, 4, 6...). Odd numbers leave 1 (1, 3, 5...). Zero is even.",
+  "more": "Even + even = even, odd + odd = even, even + odd = odd."
+ },
+ {
+  "q": [
+   "lcm and gcf",
+   "least common multiple",
+   "greatest common factor",
+   "gcd math"
+  ],
+  "a": "GCF is the largest number that divides both numbers, LCM is the smallest number both divide into. For 12 and 18, GCF = 6 and LCM = 36.",
+  "more": "Tip: GCF x LCM = product of the two numbers."
+ },
+ {
+  "q": [
+   "order of operations",
+   "pemdas",
+   "bodmas"
+  ],
+  "a": "Do math in this order: Parentheses, Exponents, Multiplication and Division (left to right), then Addition and Subtraction (left to right). So 2 + 3 x 4 = 14, not 20.",
+  "more": "Ask me any expression and I will calculate it."
+ },
+ {
+  "q": [
+   "how to solve equations",
+   "solve for x"
+  ],
+  "a": "Get x alone by undoing operations in reverse order and doing the same to both sides. For 2x + 6 = 14: subtract 6 to get 2x = 8, then divide by 2 to get x = 4.",
+  "more": "Check your answer in the original equation."
+ },
+ {
+  "q": [
+   "area of a triangle",
+   "area of a rectangle",
+   "area formulas"
+  ],
+  "a": "Rectangle: width x height. Triangle: half x base x height. Circle: pi x r². Trapezoid: half x (a + b) x height.",
+  "more": "Area is measured in square units."
+ },
+ {
+  "q": [
+   "volume of a sphere",
+   "volume formulas"
+  ],
+  "a": "Sphere: 4/3 x pi x r³. Cylinder: pi x r² x h. Cone: 1/3 x pi x r² x h. Box: length x width x height.",
+  "more": "Volume is measured in cubic units."
+ },
+ {
+  "q": [
+   "perimeter",
+   "what is perimeter",
+   "circumference"
+  ],
+  "a": "Perimeter is the distance around a shape, so you add all the sides. For a circle it is called circumference: 2 x pi x r.",
+  "more": "A rectangle's perimeter is 2 x (length + width)."
+ },
+ {
+  "q": [
+   "slope",
+   "slope formula",
+   "linear equation",
+   "y mx b"
+  ],
+  "a": "Slope tells how steep a line is: rise over run = (y2 - y1) / (x2 - x1). A line is written y = mx + b, where m is the slope and b is where it crosses the y-axis.",
+  "more": "Positive slope goes up, negative goes down."
+ },
+ {
+  "q": [
+   "angles in a triangle",
+   "types of angles"
+  ],
+  "a": "The angles in a triangle add up to 180 degrees. Acute is under 90, right is exactly 90, obtuse is between 90 and 180, straight is 180.",
+  "more": "A quadrilateral adds to 360."
+ },
+ {
+  "q": [
+   "prime factorization"
+  ],
+  "a": "Prime factorization breaks a number into prime numbers multiplied together. 60 = 2 x 2 x 3 x 5. Divide by the smallest prime repeatedly until you reach 1.",
+  "more": "Every whole number above 1 has exactly one prime factorization."
+ },
+ {
+  "q": [
+   "fibonacci sequence",
+   "golden ratio"
+  ],
+  "a": "The Fibonacci sequence starts 0, 1, 1, 2, 3, 5, 8, 13... each number is the sum of the previous two. Ratios of neighbors approach the golden ratio, about 1.618.",
+  "more": "It appears in spirals, flowers and shells."
+ },
+ {
+  "q": [
+   "what is a vector",
+   "vectors"
+  ],
+  "a": "A vector has both size and direction, like velocity (60 km/h north). Scalars like temperature have only size. Vectors add tip to tail.",
+  "more": "Used in physics, games and machine learning."
+ },
+ {
+  "q": [
+   "compound interest",
+   "how does compound interest work"
+  ],
+  "a": "Compound interest earns interest on your interest. A = P(1 + r/n)^(nt). $1,000 at 5% for 10 years grows to about $1,629. The longer you wait the faster it grows.",
+  "more": "It works against you on debt too."
+ },
+ {
+  "q": [
+   "what is a set",
+   "set theory",
+   "venn diagram"
+  ],
+  "a": "A set is a collection of distinct things. Union combines sets, intersection is what they share. Venn diagrams draw the overlap with circles.",
+  "more": "Programming sets (in Python or JS) work the same way."
+ },
+ {
+  "q": [
+   "what is a function in math",
+   "function notation",
+   "f of x"
+  ],
+  "a": "A math function is a rule that gives exactly one output for each input. f(x) = 2x + 1 means plug in x and get 2x + 1, so f(3) = 7.",
+  "more": "The graph passes the vertical line test."
+ },
+ {
+  "q": [
+   "what is zero",
+   "history of zero"
+  ],
+  "a": "Zero is the number for nothing and a placeholder in our number system. Indian mathematicians developed it as a true number around the 5th to 7th century.",
+  "more": "Without zero, big numbers and computers would be very hard."
+ }
+]

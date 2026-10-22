@@ -1,0 +1,178 @@
+[
+ {
+  "q": [
+   "how chess pieces move",
+   "chess rules",
+   "how to play chess"
+  ],
+  "a": "Pawns move forward one (two on the first move) and capture diagonally. Rooks move straight, bishops diagonally, queens both, knights in an L shape, and kings one square any direction. Checkmate wins the game.",
+  "more": "Control the center, develop pieces early, and protect your king."
+ },
+ {
+  "q": [
+   "chess openings",
+   "best chess opening"
+  ],
+  "a": "Popular openings: the Italian Game (1.e4 e5 2.Nf3 Nc6 3.Bc4), Queen's Gambit (1.d4 d5 2.c4), and the Sicilian Defense (1.e4 c5). Beginners do well learning basic principles over memorizing lines.",
+  "more": "Control the center, develop knights before bishops, castle early."
+ },
+ {
+  "q": [
+   "checkmate",
+   "what is checkmate",
+   "stalemate"
+  ],
+  "a": "Checkmate is when a king is attacked and has no legal way to escape, so that player loses. Stalemate is when a player has no legal move but is not in check, and the game is a draw.",
+  "more": "Practice with chess puzzles."
+ },
+ {
+  "q": [
+   "castling",
+   "en passant"
+  ],
+  "a": "Castling moves the king two squares toward a rook and the rook jumps over it, allowed only if neither has moved and nothing is in between or under attack. En passant lets a pawn capture an enemy pawn that just moved two squares past it, but only immediately.",
+  "more": "These are the two special chess rules people forget."
+ },
+ {
+  "q": [
+   "how to solve a rubiks cube",
+   "rubiks cube"
+  ],
+  "a": "Beginner method: 1) white cross, 2) white corners, 3) middle layer edges, 4) yellow cross, 5) position yellow corners, 6) orient them. Learn each step with an online tutorial and practice slowly.",
+  "more": "Fast solvers use CFOP, learned after the basics."
+ },
+ {
+  "q": [
+   "how to play sudoku",
+   "sudoku tips"
+  ],
+  "a": "Fill the grid so each row, column and 3x3 box contains the digits 1 to 9 once. Look for cells with only one possible number, and note candidates in pencil. Never guess, logic always works.",
+  "more": "Start with the numbers that appear most often."
+ },
+ {
+  "q": [
+   "what is an rpg",
+   "rpg games"
+  ],
+  "a": "An RPG (role-playing game) lets you play a character who grows stronger through levels, items and story choices. Examples: Skyrim, Final Fantasy, Pokemon, The Witcher.",
+  "more": "JRPG usually means Japanese turn-based style."
+ },
+ {
+  "q": [
+   "what is esports",
+   "competitive gaming"
+  ],
+  "a": "Esports is organized competitive video gaming with teams, leagues and prizes. Popular titles include League of Legends, Counter-Strike, Valorant, Dota 2 and Fortnite.",
+  "more": "Top events draw millions of viewers."
+ },
+ {
+  "q": [
+   "what is a speedrun",
+   "speedrunning"
+  ],
+  "a": "A speedrun is finishing a game as fast as possible, often using glitches and perfect routes. Games Done Quick is a famous charity event.",
+  "more": "Speedrun.com tracks world records."
+ },
+ {
+  "q": [
+   "what is lag",
+   "what is ping",
+   "why is my game lagging"
+  ],
+  "a": "Ping is the time your device takes to reach the game server, in milliseconds. High ping causes lag. To improve it: use a wired connection, close background downloads, pick a closer server, and restart your router. FPS drops are a separate problem caused by your hardware or settings.",
+  "more": "Under 50 ms feels good, over 150 ms is noticeable."
+ },
+ {
+  "q": [
+   "what is a game engine",
+   "unity vs unreal",
+   "what is godot"
+  ],
+  "a": "A game engine is software with the tools to build games: graphics, physics, sound and scripting. Unity (C#) is popular for mobile and indie, Unreal (C++) for high-end 3D, and Godot is free, open source and great for beginners.",
+  "more": "Start with a small game like Pong."
+ },
+ {
+  "q": [
+   "how to improve aim",
+   "aim training"
+  ],
+  "a": "Use a comfortable sensitivity, keep your crosshair at head height, practice in an aim trainer like Aim Lab or Kovaak's for 15 minutes a day, and warm up before ranked. Consistency beats long sessions.",
+  "more": "Many pros use low sensitivity for precision."
+ },
+ {
+  "q": [
+   "fortnite tips",
+   "how to get better at fortnite"
+  ],
+  "a": "Land away from the crowd until you are confident, loot quickly, learn basic building (walls, ramps) in Creative, watch the storm circle, and stay near high ground. Review your deaths and play with a squad.",
+  "more": "Practice edits in a creative map."
+ },
+ {
+  "q": [
+   "cs2 tips",
+   "how to improve at cs2",
+   "counter strike tips"
+  ],
+  "a": "Crosshair placement at head level, learn to counter-strafe so shots are accurate, communicate with your team, learn the economy (when to save), and practice utility lineups for smokes and flashes. Watch your own demos.",
+  "more": "Do not rely on spraying at long distance."
+ },
+ {
+  "q": [
+   "what is roblox"
+  ],
+  "a": "Roblox is an online platform where people play and create games made by other users. Creators use Roblox Studio and the Lua language, and some earn real money from popular experiences.",
+  "more": "A good way to learn game coding."
+ },
+ {
+  "q": [
+   "what is minecraft redstone",
+   "redstone"
+  ],
+  "a": "Redstone is Minecraft's electricity-like system. Redstone dust carries signals, and levers, buttons, repeaters, comparators and pistons let you build doors, traps and even simple computers.",
+  "more": "Start with an automatic door."
+ },
+ {
+  "q": [
+   "how to improve in games",
+   "get better at gaming",
+   "how to rank up"
+  ],
+  "a": "Review your own replays, practice aim or mechanics 15 minutes a day, learn maps and callouts, stay calm after mistakes, and play with a team."
+ },
+ {
+  "q": [
+   "what is fps",
+   "frame rate"
+  ],
+  "a": "FPS is frames per second, higher means smoother. Ping is network delay in milliseconds, lower is better. Lag is when either one gets bad."
+ },
+ {
+  "q": [
+   "what is minecraft",
+   "what is fortnite"
+  ],
+  "a": "These are hugely popular games: Minecraft is a creative block-building world, Roblox is a platform of user-made games, Fortnite is a battle royale shooter with building."
+ },
+ {
+  "q": [
+   "how to make a game",
+   "game development",
+   "how to start game dev"
+  ],
+  "a": "Start tiny: make Pong or a platformer in Godot or Unity (or JS canvas for the web). Finish small games before big ones."
+ },
+ {
+  "q": [
+   "what is unity",
+   "what is unreal engine"
+  ],
+  "a": "Unity and Unreal Engine are big game engines (C# and C++). Godot is a free lightweight open-source engine with an easy language."
+ },
+ {
+  "q": [
+   "what is photoshop",
+   "best free photo editor"
+  ],
+  "a": "Photoshop is Adobe's image editor. Free alternatives: GIMP, Photopea in the browser, and Canva for easy designs."
+ }
+]

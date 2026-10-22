@@ -1,0 +1,260 @@
+[
+ {
+  "q": [
+   "oceans of the world",
+   "how many oceans",
+   "largest ocean"
+  ],
+  "a": "There are five oceans: Pacific (the largest), Atlantic, Indian, Southern (Antarctic) and Arctic (the smallest). Together they cover about 71% of Earth.",
+  "more": "The Pacific is bigger than all land combined."
+ },
+ {
+  "q": [
+   "tallest mountain",
+   "highest mountain",
+   "mount everest"
+  ],
+  "a": "Mount Everest in the Himalayas on the Nepal and Tibet border is the highest above sea level at 8,849 meters (29,032 feet). Measured from base to peak, Mauna Kea in Hawaii is taller.",
+  "more": "Over 6,000 people have climbed Everest."
+ },
+ {
+  "q": [
+   "longest river",
+   "nile vs amazon"
+  ],
+  "a": "The Nile (about 6,650 km) and the Amazon (about 6,400 km) compete for longest river. The Nile is traditionally listed as longest, while the Amazon carries the most water of any river by far.",
+  "more": "The Amazon holds about 20% of river water going to the oceans."
+ },
+ {
+  "q": [
+   "largest desert",
+   "biggest desert",
+   "sahara"
+  ],
+  "a": "The largest desert is Antarctica, since a desert is defined by little rain. The largest hot desert is the Sahara in Africa, about the size of the United States.",
+  "more": "The Arctic is also a cold desert."
+ },
+ {
+  "q": [
+   "smallest country",
+   "smallest nation"
+  ],
+  "a": "Vatican City is the smallest country in the world at about 0.44 square km, entirely inside Rome. Monaco is the second smallest.",
+  "more": "Population is around 800."
+ },
+ {
+  "q": [
+   "most populated country",
+   "largest population"
+  ],
+  "a": "India and China are the two most populous countries, each with about 1.4 billion people. India passed China around 2023.",
+  "more": "The United States is third."
+ },
+ {
+  "q": [
+   "what is the equator",
+   "equator"
+  ],
+  "a": "The equator is the imaginary line at 0 degrees latitude that splits Earth into northern and southern hemispheres. Places near it have hot weather all year.",
+  "more": "It is about 40,075 km around."
+ },
+ {
+  "q": [
+   "latitude and longitude",
+   "what is latitude"
+  ],
+  "a": "Latitude measures how far north or south you are from the equator (0 to 90 degrees). Longitude measures east or west from the Prime Meridian in Greenwich, London (0 to 180). Together they pinpoint any place.",
+  "more": "Phones read coordinates from GPS."
+ },
+ {
+  "q": [
+   "time zones",
+   "how do time zones work"
+  ],
+  "a": "Earth is divided into time zones roughly 15 degrees of longitude wide, one for each hour of the 24-hour day. UTC is the world reference time.",
+  "more": "Some countries use half-hour offsets, like India (UTC+5:30)."
+ },
+ {
+  "q": [
+   "how many countries are there"
+  ],
+  "a": "There are 195 countries recognized: 193 UN members plus the Vatican City and Palestine as observer states. Some places like Taiwan and Kosovo have disputed status.",
+  "more": "Counts vary depending on who recognizes whom."
+ },
+ {
+  "q": [
+   "how many states in the us",
+   "50 states"
+  ],
+  "a": "The United States has 50 states. The last two to join were Alaska and Hawaii, both in 1959. Washington, D.C. is the capital and is not a state.",
+  "more": "The largest state is Alaska, the smallest is Rhode Island."
+ },
+ {
+  "q": [
+   "seven wonders",
+   "seven wonders of the world"
+  ],
+  "a": "The New 7 Wonders (2007): Great Wall of China, Petra, Christ the Redeemer, Machu Picchu, Chichen Itza, the Colosseum and the Taj Mahal. The only surviving wonder of the ancient list is the Great Pyramid of Giza.",
+  "more": "The ancient list also had the Hanging Gardens and the Colossus of Rhodes."
+ },
+ {
+  "q": [
+   "great wall of china"
+  ],
+  "a": "The Great Wall of China is a series of walls built over many centuries to guard the northern border. The best-known parts were built by the Ming dynasty. It is not visible from space with the naked eye, that is a myth.",
+  "more": "All sections together stretch over 20,000 km."
+ },
+ {
+  "q": [
+   "amazon rainforest",
+   "rainforest"
+  ],
+  "a": "The Amazon rainforest in South America is the largest tropical rainforest. It covers parts of nine countries, is home to about 10% of known species, and its trees store huge amounts of carbon.",
+  "more": "Deforestation is its biggest threat."
+ },
+ {
+  "q": [
+   "antarctica"
+  ],
+  "a": "Antarctica is the coldest, driest and windiest continent, covered by ice up to 4 km thick. No one lives there permanently, only researchers. It holds about 70% of Earth's fresh water as ice.",
+  "more": "Antarctica is governed by an international treaty."
+ },
+ {
+  "q": [
+   "pacific ocean",
+   "atlantic ocean",
+   "mediterranean sea"
+  ],
+  "a": "The Pacific is the largest and deepest ocean, home to the Mariana Trench. The Atlantic separates the Americas from Europe and Africa. The Mediterranean is the sea between Europe, Africa and Asia.",
+  "more": "The deepest point is Challenger Deep, nearly 11 km down."
+ },
+ {
+  "q": [
+   "deepest ocean point",
+   "mariana trench"
+  ],
+  "a": "The Mariana Trench in the western Pacific is the deepest place in the ocean. Its lowest point, Challenger Deep, is almost 11,000 meters (about 36,000 feet) down.",
+  "more": "It is deeper than Everest is tall."
+ },
+ {
+  "q": [
+   "largest country by area"
+  ],
+  "a": "Russia is the largest country by area at about 17 million square km, followed by Canada, the United States, China and Brazil.",
+  "more": "Russia spans 11 time zones."
+ },
+ {
+  "q": [
+   "what is the continent with most countries",
+   "africa"
+  ],
+  "a": "Africa has the most countries, 54. It is the second largest and second most populated continent and the birthplace of humankind.",
+  "more": "The Sahara covers much of northern Africa."
+ },
+ {
+  "q": [
+   "what is the capital of france"
+  ],
+  "a": "Paris."
+ },
+ {
+  "q": [
+   "what is the capital of japan"
+  ],
+  "a": "Tokyo."
+ },
+ {
+  "q": [
+   "what is the capital of the usa",
+   "capital of america"
+  ],
+  "a": "Washington, D.C."
+ },
+ {
+  "q": [
+   "what is the capital of england",
+   "capital of the uk"
+  ],
+  "a": "London."
+ },
+ {
+  "q": [
+   "what is the capital of canada"
+  ],
+  "a": "Ottawa."
+ },
+ {
+  "q": [
+   "what is the capital of australia"
+  ],
+  "a": "Canberra."
+ },
+ {
+  "q": [
+   "what is the capital of germany"
+  ],
+  "a": "Berlin."
+ },
+ {
+  "q": [
+   "what is the capital of brazil"
+  ],
+  "a": "Brasilia."
+ },
+ {
+  "q": [
+   "what is the capital of india"
+  ],
+  "a": "New Delhi."
+ },
+ {
+  "q": [
+   "what is the capital of china"
+  ],
+  "a": "Beijing."
+ },
+ {
+  "q": [
+   "what is the capital of mexico"
+  ],
+  "a": "Mexico City."
+ },
+ {
+  "q": [
+   "what is the capital of italy"
+  ],
+  "a": "Rome."
+ },
+ {
+  "q": [
+   "what is the capital of spain"
+  ],
+  "a": "Madrid."
+ },
+ {
+  "q": [
+   "what is the capital of nigeria"
+  ],
+  "a": "Abuja."
+ },
+ {
+  "q": [
+   "what is the capital of egypt"
+  ],
+  "a": "Cairo."
+ },
+ {
+  "q": [
+   "biggest country",
+   "largest country"
+  ],
+  "a": "Russia is the largest country by area. China and India have the most people."
+ },
+ {
+  "q": [
+   "how many continents",
+   "list of continents"
+  ],
+  "a": "There are 7 continents: Africa, Antarctica, Asia, Australia/Oceania, Europe, North America and South America."
+ }
+]

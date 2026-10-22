@@ -1,0 +1,654 @@
+[
+ {
+  "q": [
+   "periodic table",
+   "what is the periodic table",
+   "chemical elements"
+  ],
+  "a": "The periodic table arranges all known elements by atomic number (protons). Columns share similar properties, like the noble gases on the far right. There are 118 confirmed elements.",
+  "more": "Hydrogen is 1, carbon 6, oxygen 8, iron 26, gold 79."
+ },
+ {
+  "q": [
+   "water cycle",
+   "how does the water cycle work"
+  ],
+  "a": "Water evaporates from oceans and lakes, rises and cools into clouds (condensation), falls as rain or snow (precipitation), and flows back to the sea through rivers and the ground.",
+  "more": "The sun drives the whole cycle."
+ },
+ {
+  "q": [
+   "what is energy",
+   "types of energy",
+   "kinetic vs potential energy"
+  ],
+  "a": "Energy is the ability to do work. Kinetic energy is energy of motion, potential energy is stored energy like a ball held up high. Energy cannot be created or destroyed, only changed from one form to another.",
+  "more": "Other forms: heat, light, chemical, electrical, nuclear."
+ },
+ {
+  "q": [
+   "newton laws",
+   "newtons laws of motion",
+   "laws of motion"
+  ],
+  "a": "1) An object keeps moving or staying still unless a force acts on it. 2) Force equals mass times acceleration (F = ma). 3) Every action has an equal and opposite reaction.",
+  "more": "This is why seatbelts matter: your body wants to keep moving when the car stops."
+ },
+ {
+  "q": [
+   "theory of relativity",
+   "what is relativity",
+   "e mc2"
+  ],
+  "a": "Einstein's special relativity says the speed of light is constant and that time and space change with speed. E = mc² says mass and energy are equivalent. General relativity says gravity is the bending of space and time by mass.",
+  "more": "GPS satellites must correct for relativity to stay accurate."
+ },
+ {
+  "q": [
+   "quantum mechanics",
+   "what is quantum physics",
+   "quantum computer"
+  ],
+  "a": "Quantum mechanics describes the tiny world of atoms and particles, where things act like both waves and particles and only probabilities can be predicted. Quantum computers use qubits that can be in several states at once to solve certain problems faster.",
+  "more": "Transistors in your phone rely on quantum physics."
+ },
+ {
+  "q": [
+   "big bang",
+   "what is the big bang",
+   "origin of the universe"
+  ],
+  "a": "The Big Bang theory says the universe began about 13.8 billion years ago from an extremely hot, dense state and has been expanding ever since. Evidence includes the expansion of galaxies and the cosmic microwave background.",
+  "more": "It describes how the universe grew, not what caused it."
+ },
+ {
+  "q": [
+   "how do vaccines work",
+   "what is a vaccine"
+  ],
+  "a": "A vaccine shows your immune system a harmless piece or weakened form of a germ so it learns to recognize it. If the real germ shows up later your body responds fast.",
+  "more": "Herd immunity protects people who cannot be vaccinated."
+ },
+ {
+  "q": [
+   "virus vs bacteria",
+   "what is a virus",
+   "what is bacteria"
+  ],
+  "a": "Bacteria are living single cells, and many are helpful. Viruses are much smaller, need a host cell to reproduce, and are not clearly alive. Antibiotics work on bacteria, not viruses.",
+  "more": "Your gut has trillions of helpful bacteria."
+ },
+ {
+  "q": [
+   "immune system",
+   "how does the immune system work"
+  ],
+  "a": "The immune system defends your body. White blood cells find and destroy germs, and antibodies tag invaders. It remembers past infections so the next response is faster.",
+  "more": "Sleep, food and exercise help it work well."
+ },
+ {
+  "q": [
+   "what is a cell",
+   "parts of a cell",
+   "cell structure"
+  ],
+  "a": "The cell is the basic unit of life. Key parts: nucleus (holds DNA), mitochondria (make energy), membrane (the boundary), and in plants chloroplasts (photosynthesis) and a cell wall.",
+  "more": "Your body has around 30 trillion cells."
+ },
+ {
+  "q": [
+   "mitochondria",
+   "powerhouse of the cell"
+  ],
+  "a": "Mitochondria are the parts of a cell that turn food into usable energy (ATP). That is why they are called the powerhouse of the cell.",
+  "more": "They have their own small set of DNA."
+ },
+ {
+  "q": [
+   "element vs compound",
+   "what is a compound",
+   "what is a molecule"
+  ],
+  "a": "An element is one kind of atom, like oxygen. A molecule is atoms bonded together, and a compound is a molecule made of different elements, like water (H2O).",
+  "more": "Mixtures are not bonded, like salt dissolved in water."
+ },
+ {
+  "q": [
+   "acids and bases",
+   "what is ph",
+   "ph scale"
+  ],
+  "a": "pH measures how acidic something is from 0 to 14. Below 7 is acid (lemon juice), 7 is neutral (pure water), above 7 is base (soap, bleach).",
+  "more": "Each step on the scale is a factor of ten."
+ },
+ {
+  "q": [
+   "chemical reaction",
+   "what is a chemical reaction"
+  ],
+  "a": "A chemical reaction rearranges atoms into new substances. Signs: gas bubbles, color change, heat or light, or a solid forming. Mass is conserved, nothing is lost.",
+  "more": "Rusting and cooking are chemical reactions."
+ },
+ {
+  "q": [
+   "why is the sky blue",
+   "sky color"
+  ],
+  "a": "Sunlight contains all colors. Air molecules scatter short blue wavelengths much more than red, so blue light reaches your eyes from every direction. At sunset the light travels through more air and the blue is scattered away, leaving red and orange.",
+  "more": "This is called Rayleigh scattering."
+ },
+ {
+  "q": [
+   "why is the ocean salty",
+   "ocean salt"
+  ],
+  "a": "Rivers wash tiny amounts of minerals and salts from rocks into the sea. Water evaporates but the salt stays, so over millions of years the ocean became salty.",
+  "more": "About 3.5% of seawater is salt."
+ },
+ {
+  "q": [
+   "what causes seasons",
+   "why do we have seasons"
+  ],
+  "a": "Seasons come from Earth's 23.5 degree tilt, not its distance from the sun. When your half of Earth tilts toward the sun you get summer, longer days and more direct light.",
+  "more": "When it is summer in the north it is winter in the south."
+ },
+ {
+  "q": [
+   "moon phases",
+   "phases of the moon",
+   "why does the moon change shape"
+  ],
+  "a": "The moon does not change shape. We see different amounts of its sunlit half as it orbits Earth. The cycle is about 29.5 days: new, crescent, quarter, gibbous, full, and back.",
+  "more": "Waxing means growing, waning means shrinking."
+ },
+ {
+  "q": [
+   "what are tides",
+   "why are there tides"
+  ],
+  "a": "Tides are caused mostly by the moon's gravity pulling on Earth's oceans, with the sun adding to it. Most coasts get two high tides and two low tides a day.",
+  "more": "Spring tides, the biggest ones, happen at full and new moon."
+ },
+ {
+  "q": [
+   "solar eclipse",
+   "lunar eclipse",
+   "what is an eclipse"
+  ],
+  "a": "A solar eclipse is when the moon passes between the sun and Earth and blocks the sun. A lunar eclipse is when Earth passes between the sun and moon and its shadow falls on the moon.",
+  "more": "Never look at the sun during a solar eclipse without proper eclipse glasses."
+ },
+ {
+  "q": [
+   "solar system planets",
+   "order of planets",
+   "planets in order"
+  ],
+  "a": "In order from the sun: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. Mercury to Mars are rocky, Jupiter and Saturn are gas giants, Uranus and Neptune are ice giants.",
+  "more": "Pluto is a dwarf planet."
+ },
+ {
+  "q": [
+   "what is a galaxy",
+   "milky way"
+  ],
+  "a": "A galaxy is a huge system of stars, gas, dust and dark matter held together by gravity. Our galaxy is the Milky Way, a spiral with hundreds of billions of stars, and the sun is one of them.",
+  "more": "The nearest large galaxy is Andromeda."
+ },
+ {
+  "q": [
+   "what is a star",
+   "how do stars form",
+   "life of a star"
+  ],
+  "a": "A star is a giant ball of gas that shines by fusing hydrogen into helium in its core. Stars form in clouds of gas and dust. Small ones fade quietly, massive ones end as supernovae and can leave neutron stars or black holes.",
+  "more": "Our sun is about 4.6 billion years old, roughly halfway through its life."
+ },
+ {
+  "q": [
+   "dwarf planet",
+   "is pluto a planet"
+  ],
+  "a": "In 2006 the International Astronomical Union reclassified Pluto as a dwarf planet because it has not cleared its orbit of other objects. It is still a real world with moons and mountains.",
+  "more": "Other dwarf planets: Ceres, Eris, Haumea, Makemake."
+ },
+ {
+  "q": [
+   "mars facts",
+   "tell me about mars"
+  ],
+  "a": "Mars is the fourth planet, the red planet, colored by iron oxide. It has a thin atmosphere, the tallest volcano in the solar system (Olympus Mons), and evidence of ancient water. A day is about 24.6 hours.",
+  "more": "Several rovers explore it, including Curiosity and Perseverance."
+ },
+ {
+  "q": [
+   "distance to the moon",
+   "how far is the moon"
+  ],
+  "a": "The moon is about 384,400 km (238,855 miles) from Earth on average. Light takes about 1.3 seconds to get there.",
+  "more": "Apollo astronauts took around three days to reach it."
+ },
+ {
+  "q": [
+   "what is an earthquake",
+   "why do earthquakes happen"
+  ],
+  "a": "Earthquakes happen when tectonic plates that were stuck suddenly slip along a fault, releasing energy as seismic waves. Magnitude measures the size.",
+  "more": "Most happen along plate edges like the Pacific Ring of Fire."
+ },
+ {
+  "q": [
+   "how do volcanoes work",
+   "what is a volcano"
+  ],
+  "a": "A volcano is an opening where molten rock (magma) reaches the surface as lava, ash and gas. Pressure from gas builds up underground and can cause eruptions.",
+  "more": "Many sit above where plates meet or over hot spots."
+ },
+ {
+  "q": [
+   "plate tectonics",
+   "continental drift"
+  ],
+  "a": "Earth's outer shell is split into plates that slowly move a few centimeters a year. Where they collide, separate or slide past each other we get mountains, ocean trenches, volcanoes and earthquakes.",
+  "more": "Pangaea was a supercontinent that broke apart about 200 million years ago."
+ },
+ {
+  "q": [
+   "weather vs climate",
+   "difference between weather and climate"
+  ],
+  "a": "Weather is what the atmosphere does today or this week. Climate is the average weather of a region over about 30 years or more.",
+  "more": "One cold day does not disprove climate change."
+ },
+ {
+  "q": [
+   "how do clouds form",
+   "what are clouds"
+  ],
+  "a": "Warm air rises and cools. When it cools enough, its water vapor condenses onto tiny particles and forms droplets, which we see as clouds.",
+  "more": "Different heights and conditions give cumulus, stratus and cirrus clouds."
+ },
+ {
+  "q": [
+   "how do rainbows form",
+   "what is a rainbow"
+  ],
+  "a": "A rainbow forms when sunlight enters raindrops, bends, reflects inside and bends again, splitting into colors. You need the sun behind you and rain in front.",
+  "more": "The order is red, orange, yellow, green, blue, indigo, violet."
+ },
+ {
+  "q": [
+   "thunder and lightning",
+   "what causes lightning"
+  ],
+  "a": "Lightning is a huge spark of static electricity released between clouds or from cloud to ground. It heats the air so fast that it expands explosively, which we hear as thunder.",
+  "more": "Count the seconds between flash and bang, every 3 seconds is about 1 km."
+ },
+ {
+  "q": [
+   "what is sound",
+   "how does sound travel"
+  ],
+  "a": "Sound is vibrations that travel as waves through air, water or solids. It cannot travel through a vacuum. In air it moves at about 343 meters per second.",
+  "more": "It is faster in water and much faster in steel."
+ },
+ {
+  "q": [
+   "heat vs temperature"
+  ],
+  "a": "Temperature measures how fast the particles in something are moving on average. Heat is the energy that flows from a hotter thing to a colder one.",
+  "more": "A bathtub of warm water holds more heat than a cup of boiling water."
+ },
+ {
+  "q": [
+   "what is magnetism",
+   "how do magnets work"
+  ],
+  "a": "Magnetism is a force from moving electric charges. Magnets have two poles, north and south. Opposites attract and the same poles repel. Earth itself is a giant magnet, which is why compasses work.",
+  "more": "Electricity and magnetism are two sides of electromagnetism."
+ },
+ {
+  "q": [
+   "how do batteries work",
+   "what is a battery"
+  ],
+  "a": "A battery turns chemical energy into electricity. Chemical reactions push electrons from one terminal through your device to the other. Lithium-ion batteries are rechargeable because the reaction can be reversed.",
+  "more": "Voltage is the push, current is the flow."
+ },
+ {
+  "q": [
+   "solar power",
+   "how do solar panels work"
+  ],
+  "a": "Solar panels use photovoltaic cells that release electrons when sunlight hits them, producing electric current. An inverter converts it to the AC power your home uses.",
+  "more": "Panels still produce some power on cloudy days."
+ },
+ {
+  "q": [
+   "nuclear energy",
+   "nuclear power",
+   "fission vs fusion"
+  ],
+  "a": "Nuclear power plants split heavy atoms like uranium (fission) to release heat that makes steam and electricity. It is low in carbon emissions. Fusion joins light atoms like the sun does and is still being researched.",
+  "more": "Waste storage and cost are the main challenges."
+ },
+ {
+  "q": [
+   "renewable energy",
+   "renewable vs nonrenewable"
+  ],
+  "a": "Renewable energy comes from sources that replenish: sun, wind, water, geothermal and biomass. Non-renewable ones like coal, oil and gas take millions of years to form and run out.",
+  "more": "Storage is the main challenge for solar and wind."
+ },
+ {
+  "q": [
+   "speed of sound"
+  ],
+  "a": "The speed of sound in air is about 343 meters per second (1,235 km/h or 767 mph) at 20 degrees Celsius.",
+  "more": "Mach 1 is the speed of sound."
+ },
+ {
+  "q": [
+   "density",
+   "what is density"
+  ],
+  "a": "Density is how much mass is packed into a space: density = mass / volume. Things denser than water sink, less dense ones float.",
+  "more": "Ice floats because it is less dense than liquid water."
+ },
+ {
+  "q": [
+   "what is friction",
+   "what is momentum"
+  ],
+  "a": "Friction is the force that resists sliding between two surfaces, which turns motion into heat. Momentum is mass times velocity, how hard something is to stop.",
+  "more": "Heavier and faster means more momentum."
+ },
+ {
+  "q": [
+   "what is entropy",
+   "second law of thermodynamics"
+  ],
+  "a": "Entropy measures disorder. The second law says that in a closed system entropy tends to increase, which is why heat flows from hot to cold and a broken cup does not fix itself.",
+  "more": "It is also why perpetual motion machines are impossible."
+ },
+ {
+  "q": [
+   "how does the heart work",
+   "what does the heart do"
+  ],
+  "a": "The heart is a muscle that pumps blood. The right side sends blood to the lungs to pick up oxygen, the left side pumps it to the rest of the body. It beats about 100,000 times a day.",
+  "more": "Four chambers: two atria on top, two ventricles below."
+ },
+ {
+  "q": [
+   "how does the brain work",
+   "what does the brain do"
+  ],
+  "a": "The brain is made of about 86 billion neurons that send electrical and chemical signals. It controls thought, movement, memory, emotion and automatic things like breathing.",
+  "more": "Different regions specialize, but they work together."
+ },
+ {
+  "q": [
+   "how many bones",
+   "bones in the human body"
+  ],
+  "a": "Adults have 206 bones. Babies are born with about 300, and many fuse as they grow. The smallest bone is the stapes in the ear, the largest is the femur.",
+  "more": "Bones also make blood cells in the marrow."
+ },
+ {
+  "q": [
+   "blood types",
+   "what are blood types"
+  ],
+  "a": "The main blood groups are A, B, AB and O, each either Rh positive or negative. O negative can be given to almost anyone, AB positive can receive from anyone.",
+  "more": "Your type is set by genes from your parents."
+ },
+ {
+  "q": [
+   "how does digestion work",
+   "digestive system"
+  ],
+  "a": "Digestion starts in the mouth with chewing and enzymes, food goes through the esophagus to the stomach where acid breaks it down, then the small intestine absorbs nutrients and the large intestine absorbs water.",
+  "more": "It takes roughly 24 to 72 hours."
+ },
+ {
+  "q": [
+   "why do we sleep",
+   "what happens when we sleep"
+  ],
+  "a": "Sleep lets the brain clear waste, store memories and the body repair itself. Lack of sleep hurts mood, focus and health. Teens need about 8 to 10 hours, adults 7 to 9.",
+  "more": "Dreams mostly happen in REM sleep."
+ },
+ {
+  "q": [
+   "why do we dream",
+   "what are dreams"
+  ],
+  "a": "Scientists are not certain. Dreams are linked to memory processing and emotions, mostly during REM sleep, when the brain is very active.",
+  "more": "Most dreams are forgotten within minutes of waking."
+ },
+ {
+  "q": [
+   "dna vs rna",
+   "what are genes"
+  ],
+  "a": "DNA is the double-stranded molecule that stores genetic instructions. A gene is a section of DNA that codes for a protein. RNA is a single-stranded copy that carries those instructions out to build proteins.",
+  "more": "You get half your DNA from each parent."
+ },
+ {
+  "q": [
+   "what killed the dinosaurs",
+   "dinosaur extinction"
+  ],
+  "a": "Most scientists agree an asteroid about 10 km wide hit Earth near Mexico 66 million years ago, causing fires, a long cold darkness and mass extinction. Birds are living dinosaurs that survived.",
+  "more": "The crater is called Chicxulub."
+ },
+ {
+  "q": [
+   "what is an ecosystem",
+   "food chain",
+   "food web"
+  ],
+  "a": "An ecosystem is all the living things and non-living parts of an area interacting. A food chain shows who eats whom: producers (plants) are eaten by herbivores, which are eaten by carnivores. Decomposers recycle everything.",
+  "more": "Remove one species and the whole web can change."
+ },
+ {
+  "q": [
+   "ozone layer",
+   "what is the ozone layer"
+  ],
+  "a": "The ozone layer is a part of the atmosphere that absorbs most of the sun's harmful ultraviolet light. Chemicals called CFCs damaged it, and a global agreement (the Montreal Protocol) has let it slowly recover.",
+  "more": "It is one of the biggest environmental success stories."
+ },
+ {
+  "q": [
+   "scientific method",
+   "what is a hypothesis"
+  ],
+  "a": "The scientific method: ask a question, research, make a testable hypothesis, run an experiment, analyze the results, and share them. A hypothesis is an educated guess that can be proven wrong.",
+  "more": "Good science welcomes being wrong."
+ },
+ {
+  "q": [
+   "how do airplanes fly",
+   "how do planes fly"
+  ],
+  "a": "Wings are shaped so air moving over them creates lower pressure above and higher below, and they also push air downward. This produces lift. Engines give thrust to overcome drag, and lift beats weight.",
+  "more": "Four forces: lift, weight, thrust, drag."
+ },
+ {
+  "q": [
+   "how does the internet work",
+   "how do websites work"
+  ],
+  "a": "Your device asks a DNS server for the site's address, connects to that server through your internet provider, and sends an HTTP request. The server sends back HTML, CSS and JS and your browser draws the page.",
+  "more": "Data travels in small packets that can take different routes."
+ },
+ {
+  "q": [
+   "how does gps work",
+   "what is gps"
+  ],
+  "a": "GPS satellites broadcast their position and the exact time. Your phone measures how long each signal took to arrive from at least four satellites and calculates where you are.",
+  "more": "It needs a clear view of the sky."
+ },
+ {
+  "q": [
+   "what is a prime number",
+   "explain primes"
+  ],
+  "a": "A prime is a number greater than 1 divisible only by 1 and itself: 2, 3, 5, 7, 11, 13."
+ },
+ {
+  "q": [
+   "pythagorean theorem",
+   "pythagoras"
+  ],
+  "a": "In a right triangle, a squared plus b squared equals c squared, where c is the longest side."
+ },
+ {
+  "q": [
+   "what is probability",
+   "explain probability"
+  ],
+  "a": "Probability is how likely something is, from 0 to 1. The chance of heads on a fair coin is 1/2, or 0.5."
+ },
+ {
+  "q": [
+   "what is a derivative"
+  ],
+  "a": "A derivative is the rate of change of a function, like speed is the rate of change of position. Integrals add up change, like distance from speed."
+ },
+ {
+  "q": [
+   "what is gravity",
+   "explain gravity"
+  ],
+  "a": "Gravity is the attraction between masses. On Earth it pulls things down at about 9.8 meters per second squared."
+ },
+ {
+  "q": [
+   "speed of light",
+   "how fast is light"
+  ],
+  "a": "Light travels about 299,792 km per second, roughly 186,000 miles per second."
+ },
+ {
+  "q": [
+   "what is dna",
+   "explain dna"
+  ],
+  "a": "DNA is the molecule that stores genetic instructions, a twisted ladder made of four bases: A, T, C and G."
+ },
+ {
+  "q": [
+   "what is a black hole",
+   "explain black holes"
+  ],
+  "a": "A black hole is a region where gravity is so strong that not even light can escape once it crosses the event horizon."
+ },
+ {
+  "q": [
+   "what is photosynthesis",
+   "how do plants make food"
+  ],
+  "a": "Plants turn sunlight, water and carbon dioxide into sugar and oxygen using chlorophyll in their leaves."
+ },
+ {
+  "q": [
+   "how many planets",
+   "list of planets",
+   "solar system"
+  ],
+  "a": "The solar system has 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune."
+ },
+ {
+  "q": [
+   "biggest planet",
+   "largest planet"
+  ],
+  "a": "Jupiter is the largest planet. You could fit over 1,300 Earths inside it."
+ },
+ {
+  "q": [
+   "how old is the earth",
+   "age of earth"
+  ],
+  "a": "About 4.5 billion years old."
+ },
+ {
+  "q": [
+   "what is the sun",
+   "how hot is the sun"
+  ],
+  "a": "The sun is a star made mostly of hydrogen. Its surface is about 5,500 C and its core about 15 million C."
+ },
+ {
+  "q": [
+   "what is an atom"
+  ],
+  "a": "An atom is the tiny building block of matter with a nucleus of protons and neutrons and electrons around it. Atoms bond to form molecules like water, H2O."
+ },
+ {
+  "q": [
+   "states of matter",
+   "solid liquid gas"
+  ],
+  "a": "Matter is mainly solid, liquid or gas, depending on how fast its particles move. Heat turns solid to liquid to gas."
+ },
+ {
+  "q": [
+   "what is evolution",
+   "natural selection"
+  ],
+  "a": "Evolution is how species change over generations. Natural selection means traits that help survival get passed on more often."
+ },
+ {
+  "q": [
+   "what is electricity",
+   "how does electricity work"
+  ],
+  "a": "Electricity is the flow of electrons through a conductor. Voltage pushes, current is the flow, and resistance slows it."
+ },
+ {
+  "q": [
+   "what is climate change",
+   "global warming"
+  ],
+  "a": "Climate change is the long-term warming of Earth, mainly from burning fossil fuels that release greenhouse gases like carbon dioxide."
+ },
+ {
+  "q": [
+   "who invented the lightbulb",
+   "who invented the phone"
+  ],
+  "a": "Thomas Edison made the first practical lightbulb in 1879. Alexander Graham Bell patented the telephone in 1876."
+ },
+ {
+  "q": [
+   "what is a variable in math"
+  ],
+  "a": "Algebra uses letters for unknown numbers. To solve x + 3 = 7, do the same thing to both sides: subtract 3, so x = 4."
+ },
+ {
+  "q": [
+   "area of a circle",
+   "circumference of a circle"
+  ],
+  "a": "Pi is about 3.14159. Area = pi times radius squared. Circumference = 2 times pi times radius."
+ },
+ {
+  "q": [
+   "what is the quadratic formula"
+  ],
+  "a": "For ax^2 + bx + c = 0, x = (-b plus or minus the square root of (b^2 - 4ac)) divided by 2a."
+ },
+ {
+  "q": [
+   "what is a fraction",
+   "how to add fractions"
+  ],
+  "a": "To add fractions, give them the same bottom number (common denominator), then add the tops. 1/2 + 1/3 = 3/6 + 2/6 = 5/6."
+ }
+]

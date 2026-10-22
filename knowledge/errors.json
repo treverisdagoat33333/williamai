@@ -1,0 +1,316 @@
+[
+ {
+  "q": [
+   "segmentation fault",
+   "segfault",
+   "core dumped"
+  ],
+  "a": "A segmentation fault means your program touched memory it should not, usually in C or C++: a bad pointer, an array out of range, or use after free. Compile with -g and run in gdb or use valgrind to find the line.",
+  "more": "In higher level languages this shows up as an index or null error instead."
+ },
+ {
+  "q": [
+   "stack overflow error",
+   "maximum call stack size exceeded",
+   "recursionerror"
+  ],
+  "a": "You have infinite or too deep recursion. Every call needs a base case that stops it, and each call must move toward that base case.",
+  "more": "Convert deep recursion to a loop if the depth can be huge."
+ },
+ {
+  "q": [
+   "infinite loop",
+   "my program freezes",
+   "program is stuck"
+  ],
+  "a": "An infinite loop means the stop condition never becomes false. Check that the loop variable changes every pass and that your condition is right. Press Ctrl+C in the terminal to stop it.",
+  "more": "Add a print inside the loop to see the values change."
+ },
+ {
+  "q": [
+   "undefined is not a function",
+   "is not a function",
+   "typeerror not a function"
+  ],
+  "a": "You are calling something that is not a function. Check spelling, that the import worked, and that the value is not undefined. console.log(typeof thing) shows what it really is.",
+  "more": "Often caused by a wrong import or calling a method on the wrong object."
+ },
+ {
+  "q": [
+   "cannot find module",
+   "error cannot find module",
+   "module not found node"
+  ],
+  "a": "Node cannot find that package or file. Run npm install, check the package name, and for your own files check the path starts with ./ and the filename is exact.",
+  "more": "Case matters on Linux servers like Render."
+ },
+ {
+  "q": [
+   "x is not defined",
+   "referenceerror",
+   "is not defined javascript"
+  ],
+  "a": "A ReferenceError means you used a name that does not exist in this scope. Check for typos, a missing let/const, or code that runs before the variable is created.",
+  "more": "In browsers, scripts also fail if the file loads after the code that needs it."
+ },
+ {
+  "q": [
+   "unexpected end of json input",
+   "json parse error",
+   "syntaxerror json"
+  ],
+  "a": "JSON.parse got empty or broken text. Log the raw response first. The server may have returned HTML, an error page, or nothing. Also check for trailing commas and single quotes.",
+  "more": "Use response.ok before calling response.json()."
+ },
+ {
+  "q": [
+   "failed to fetch",
+   "fetch failed",
+   "networkerror"
+  ],
+  "a": "The request never reached a server. Common causes: wrong URL, server down, no internet, blocked by CORS, or mixed http and https. Check the Network tab in browser dev tools.",
+  "more": "If it works in Postman but not the browser, it is almost always CORS."
+ },
+ {
+  "q": [
+   "keyerror python",
+   "python keyerror"
+  ],
+  "a": "KeyError means that key is not in the dictionary. Use d.get('key') for a default, or check with if 'key' in d first.",
+  "more": "Print d.keys() to see what you actually have."
+ },
+ {
+  "q": [
+   "indexerror",
+   "list index out of range"
+  ],
+  "a": "You asked for a position that does not exist. Lists start at 0 and the last valid index is len(list)-1. Check the list is not empty and that your loop does not run too far.",
+  "more": "Off-by-one errors are the most common cause."
+ },
+ {
+  "q": [
+   "valueerror python",
+   "invalid literal for int"
+  ],
+  "a": "ValueError means the type is right but the value is not, like int('abc'). Validate input first or wrap the call in try/except ValueError.",
+  "more": "input() always returns text, convert it on purpose."
+ },
+ {
+  "q": [
+   "nameerror",
+   "name is not defined python"
+  ],
+  "a": "Python does not know that name. You may have a typo, forgot to define or import it, or used it before the line that creates it.",
+  "more": "Variable names are case sensitive."
+ },
+ {
+  "q": [
+   "typeerror python",
+   "unsupported operand type",
+   "can only concatenate str"
+  ],
+  "a": "You mixed types, like adding a string and a number. Convert first: str(5) or int('5'), or use an f-string: f'Age: {age}'.",
+  "more": "print(type(x)) tells you what you really have."
+ },
+ {
+  "q": [
+   "zerodivisionerror",
+   "division by zero"
+  ],
+  "a": "You divided by 0. Check the divisor before dividing: if b != 0. In JavaScript you get Infinity instead of an error.",
+  "more": "Handle it explicitly rather than hiding it."
+ },
+ {
+  "q": [
+   "permission denied",
+   "eacces",
+   "operation not permitted"
+  ],
+  "a": "Your user is not allowed to do that. Check the file permissions with ls -l, use chmod to fix them, or run the command as the right user. With npm, avoid sudo and fix the global folder instead.",
+  "more": "Never chmod 777 on a server."
+ },
+ {
+  "q": [
+   "command not found",
+   "is not recognized as an internal or external command"
+  ],
+  "a": "The terminal cannot find that program. It is not installed, or its folder is not in your PATH. Install it, then restart the terminal.",
+  "more": "On Windows, reinstall and tick Add to PATH."
+ },
+ {
+  "q": [
+   "npm err missing script",
+   "missing script start"
+  ],
+  "a": "npm cannot find that script in package.json. Open it and add the script inside \"scripts\", for example \"start\": \"node server.js\".",
+  "more": "npm run lists the scripts you have."
+ },
+ {
+  "q": [
+   "git push rejected",
+   "failed to push some refs",
+   "non fast forward"
+  ],
+  "a": "Your remote has commits you do not have. Run git pull --rebase (or git pull), fix any conflicts, then push again. Do not force push on shared branches.",
+  "more": "git status shows where you stand."
+ },
+ {
+  "q": [
+   "detached head",
+   "detached head state"
+  ],
+  "a": "Detached HEAD means you checked out a commit instead of a branch. To keep your work run git switch -c new-branch-name. To go back run git switch main.",
+  "more": "Commits made while detached are lost if you do not save them to a branch."
+ },
+ {
+  "q": [
+   "401 unauthorized",
+   "403 forbidden",
+   "error 401",
+   "error 403"
+  ],
+  "a": "401 means the server does not know who you are, so check your login or token. 403 means it knows you but you are not allowed, so check permissions and roles.",
+  "more": "Check you sent the Authorization header correctly."
+ },
+ {
+  "q": [
+   "502 bad gateway",
+   "503 service unavailable",
+   "504 gateway timeout"
+  ],
+  "a": "502 and 504 mean the server in front could not get a good answer from your app, often because it crashed or is too slow. 503 means it is overloaded or restarting. Check your app logs and whether it starts correctly.",
+  "more": "On free hosts, a sleeping app can return 503 for the first request."
+ },
+ {
+  "q": [
+   "request timeout",
+   "connection timed out",
+   "etimedout"
+  ],
+  "a": "The server did not answer in time. Check the URL and port, your firewall, whether the server is running, and add retries with a sensible timeout.",
+  "more": "A firewall dropping traffic often looks like a timeout."
+ },
+ {
+  "q": [
+   "out of memory",
+   "heap out of memory",
+   "memoryerror"
+  ],
+  "a": "Your program used more memory than allowed. Process data in chunks or streams, free big objects you no longer need, and look for lists that grow forever. Node: node --max-old-space-size=4096.",
+  "more": "A memory leak is usually something stored in a global that never gets cleared."
+ },
+ {
+  "q": [
+   "off by one error",
+   "off by one"
+  ],
+  "a": "An off-by-one error is when a loop runs one time too many or too few. Remember that arrays start at 0, and decide whether your end is inclusive or exclusive.",
+  "more": "Test with the smallest and largest inputs."
+ },
+ {
+  "q": [
+   "my website is not updating",
+   "css not updating",
+   "changes not showing"
+  ],
+  "a": "Your browser is probably using a cached copy. Hard refresh with Ctrl+Shift+R (Cmd+Shift+R on Mac), or open dev tools and tick Disable cache. Also confirm you saved the file and deployed.",
+  "more": "Add a version query like style.css?v=2 to force a refresh."
+ },
+ {
+  "q": [
+   "render deploy failed",
+   "build failed",
+   "deploy failed"
+  ],
+  "a": "Open the deploy logs and read the first red error, not the last. Common causes: wrong start command, missing dependency in package.json, wrong Node version, or the app not listening on process.env.PORT.",
+  "more": "Make sure the file names match exactly, Linux is case sensitive."
+ },
+ {
+  "q": [
+   "port already in use",
+   "address already in use"
+  ],
+  "a": "Another program is using that port. Stop it, or start yours on another port. Mac/Linux: lsof -i :3000 shows the process, then kill it. Windows: netstat -ano | findstr :3000.",
+  "more": "Sometimes it is just your old server still running in another terminal."
+ },
+ {
+  "q": [
+   "what is node",
+   "explain nodejs"
+  ],
+  "a": "Node.js runs JavaScript outside the browser so you can build servers. npm is its package manager."
+ },
+ {
+  "q": [
+   "what is cors",
+   "cors error"
+  ],
+  "a": "CORS is a browser rule that blocks a page from calling a different domain unless that server allows it with Access-Control-Allow-Origin headers."
+ },
+ {
+  "q": [
+   "what is cannot read property of undefined",
+   "typeerror undefined",
+   "cannot read properties of undefined"
+  ],
+  "a": "You are using a value that is undefined. Check the variable is set before use, log it, and use optional chaining like obj?.name."
+ },
+ {
+  "q": [
+   "what is syntax error",
+   "unexpected token",
+   "syntaxerror"
+  ],
+  "a": "A syntax error means the code breaks the language rules, usually a missing bracket, quote, comma or colon near the line it reports."
+ },
+ {
+  "q": [
+   "what is indentationerror",
+   "python indentation"
+  ],
+  "a": "Python uses indentation to group code. Use 4 spaces consistently and never mix tabs and spaces."
+ },
+ {
+  "q": [
+   "what is modulenotfounderror",
+   "no module named"
+  ],
+  "a": "Python cannot find that library. Install it with pip install name, and make sure you are in the right virtual environment."
+ },
+ {
+  "q": [
+   "what is 404 error",
+   "why 404 not found"
+  ],
+  "a": "404 means the server has no page at that URL. Check the spelling, the route and that the file is deployed."
+ },
+ {
+  "q": [
+   "what is 500 error",
+   "internal server error"
+  ],
+  "a": "500 means the server crashed while handling the request. Check the server logs for the real error message."
+ },
+ {
+  "q": [
+   "what is npm install error",
+   "npm err",
+   "eaddrinuse"
+  ],
+  "a": "EADDRINUSE means that port is taken by another program. Stop the other process or run on a different port."
+ },
+ {
+  "q": [
+   "what is a virtual environment",
+   "python venv"
+  ],
+  "a": "A virtual environment is an isolated Python setup per project so libraries do not clash. Create one with python -m venv venv."
+ },
+ {
+  "q": [
+   "what is pip",
+   "install python package"
+  ],
+  "a": "pip installs Python libraries, for example pip install requests."
+ }
+]

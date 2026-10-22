@@ -1,0 +1,44 @@
+[
+ {
+  "q": [
+   "how to make money coding",
+   "freelance coding"
+  ],
+  "a": "Pick a real problem for real people, build a small version fast, charge early, and improve from feedback. Local businesses make good first clients."
+ },
+ {
+  "q": [
+   "what is inflation"
+  ],
+  "a": "Inflation is when prices rise over time, so each dollar buys less."
+ },
+ {
+  "q": [
+   "what is a stock",
+   "what is the stock market"
+  ],
+  "a": "A stock is a small ownership share in a company. A simple long-term approach is low-cost index funds. This is general info, not financial advice."
+ },
+ {
+  "q": [
+   "how to save money",
+   "budgeting tips"
+  ],
+  "a": "Track your spending, pay yourself first by saving a fixed amount when you get paid, cut subscriptions you do not use, and build a small emergency fund."
+ },
+ {
+  "q": [
+   "what is credit score",
+   "how does credit work"
+  ],
+  "a": "A credit score shows lenders how reliably you repay debt. Pay on time, keep card balances low, and do not open many accounts at once."
+ },
+ {
+  "q": [
+   "what is crypto",
+   "what is bitcoin",
+   "what is blockchain"
+  ],
+  "a": "A blockchain is a shared ledger of records chained together with hashes so it is hard to alter. Bitcoin is the first cryptocurrency built on one. It is very volatile."
+ }
+]

@@ -107,7 +107,10 @@ function think(text){
  if(out=tools(text))skill='tool',conf=.99;
  else if(out=mathSkill(text))skill='math',conf=.99;
  else if(out=codeSkill(text))skill='codegen',conf=.95;
- else{const c=classify(text);if(c.id&&c.s>.27){const it=intents.find(i=>i.id===c.id);out=it.r();skill='intent:'+c.id;conf=c.s}}
+ else{const c=classify(text);const tt=fix(tok(text)),unk=tt.filter(w=>!df[w]&&!w.includes('_')).length;
+  if(c.id&&c.s>.27&&!(c.s<.55&&tt.length&&unk/tt.length>=.5)){const it=intents.find(i=>i.id===c.id);
+   if(c.s<.8&&c.id.startsWith("kb:")&&unk){const w=wikiAnswer(text);if(w&&w.conf>.2){ctx.lastMore=w.more;return{out:w.out,skill:'wiki',conf:w.conf}}}
+   out=it.r();skill='intent:'+c.id;conf=c.s}}
  if(!out){const k=tok(text).slice(0,3).join(', ')||'that';
   out=pick([`I am still learning about "${k}". I am strongest at code, math and tools. Try "write a todo app in html" or "what is 25*4".`,`Not in my brain yet: ${k}. Teach me by asking about code, math, or say "what can you do".`]);conf=.1}
  return{out,skill,conf}}
@@ -127,23 +130,34 @@ function extra(t){const l=t.toLowerCase().replace(/[?!]+$/,'');let m;
  if(m=t.match(/(uppercase|lowercase)[:\s]+(.+)/i))return m[1].toLowerCase()==='uppercase'?m[2].toUpperCase():m[2].toLowerCase();
  return null}
 /* ---------- Learning (persistent) ---------- */
-const LF=path.join(__dirname,'data','learned.json');
+const DATA=process.env.DATA_DIR||path.join(__dirname,'data');try{fs.mkdirSync(DATA,{recursive:true})}catch(e){}
+const GH={tok:process.env.GH_TOKEN,repo:process.env.GH_REPO,br:process.env.GH_BRANCH||'learned-data'};
+const LF=GH.tok?path.join(__dirname,'learned','learned.json'):path.join(DATA,'learned.json');
 let learned=[];try{learned=JSON.parse(fs.readFileSync(LF,'utf8'))}catch(e){}
 function addLearned(q,a){intents.push({id:'taught:'+q.slice(0,20),ex:[q],r:()=>a})}
-const KB=[...require('./knowledge'),...require('./knowledge2'),...require('./knowledge3')];
-KB.forEach(([q,a])=>{const qs=q.split('|');intents.push({id:'kb:'+qs[0],ex:qs,r:()=>a})});
+const pickA=a=>Array.isArray(a)?pick(a):a;
+const KBE=[];try{const kd=path.join(__dirname,'knowledge');fs.readdirSync(kd).filter(f=>f.endsWith('.json')&&f!=='facts.json').sort().forEach(f=>{try{JSON.parse(fs.readFileSync(path.join(kd,f),'utf8')).forEach(e=>{if(e&&Array.isArray(e.q)&&e.q.length&&e.a)KBE.push({...e,cat:f.replace('.json','')})})}catch(err){console.error('knowledge load error',f,err.message)}})}catch(e){}
+const KB=KBE.map(e=>[e.q.join('|'),Array.isArray(e.a)?e.a[0]:e.a]);
+KBE.forEach(e=>intents.push({id:'kb:'+e.q[0],ex:e.q,r:()=>{ctx.lastMore=e.more||null;return pickA(e.a)}}));
 const chain2={};KB.forEach(([q,a])=>{const w=a.replace(/\*\*/g,'').split(/\s+/);for(let i=0;i<w.length-3;i++){const k=(w[i]+' '+w[i+1]+' '+w[i+2]).toLowerCase();(chain2[k]=chain2[k]||[]).push(w[i+3])}});
 learned.forEach(l=>addLearned(l.q,l.a));build();
 function learn(q,a){learned.push({q,a});addLearned(q,a);build();
- try{fs.writeFileSync(LF,JSON.stringify(learned,null,1))}catch(e){}}
+ try{fs.mkdirSync(path.dirname(LF),{recursive:true});fs.writeFileSync(LF,JSON.stringify(learned,null,1))}catch(e){}ghSave()}
+let ghT=null;function ghSave(){if(!GH.tok||!GH.repo)return;clearTimeout(ghT);ghT=setTimeout(async()=>{try{const u='https://api.github.com/repos/'+GH.repo+'/contents/learned/learned.json',h={Authorization:'Bearer '+GH.tok,'User-Agent':'williamai'};
+ const g=await fetch(u+'?ref='+GH.br,{headers:h}),sha=g.ok?(await g.json()).sha:undefined;
+ await fetch(u,{method:'PUT',headers:h,body:JSON.stringify({message:'williamAI learned '+learned.length+' answers',content:Buffer.from(JSON.stringify(learned,null,1)).toString('base64'),branch:GH.br,sha})})}catch(e){}},30000)}
+(async()=>{if(!GH.tok||!GH.repo)return;try{const r=await fetch('https://api.github.com/repos/'+GH.repo+'/contents/learned/learned.json?ref='+GH.br,{headers:{Authorization:'Bearer '+GH.tok,Accept:'application/vnd.github.raw','User-Agent':'williamai'}});
+ if(!r.ok)return;const a=await r.json();const have=new Set(learned.map(x=>x.q));let n=0;a.forEach(x=>{if(x&&x.q&&x.a&&!have.has(x.q)){learned.push(x);addLearned(x.q,x.a);n++}});if(n)build()}catch(e){}})();
 function gen(seed){const ws=(seed.toLowerCase().match(/[a-z0-9+#]{4,}/g)||[]).filter(w=>!stop.has(w));
  for(const w of ws){const ks=Object.keys(chain2).filter(k=>k.split(' ')[0].replace(/[^a-z0-9+#]/g,'')===w);if(!ks.length)continue;
   let k=pick(ks);const o=k.split(' ');for(let i=0;i<22;i++){const n=chain2[k];if(!n)break;const x=pick(n);o.push(x);if(/[.!?]$/.test(x)&&o.length>8)break;k=o.slice(-3).join(' ').toLowerCase()}
   const t=o.join(' ');return t[0].toUpperCase()+t.slice(1)}return null}
 function followup(t){const l=t.toLowerCase().trim().replace(/[?.!]+$/,''),a=ctx.lastAns,first=x=>x.split(/(?<=[.!?])\s/)[0].replace(/\*\*/g,'');let m;
  if(a&&!a.includes(F)){
+  if(/^(what do you mean|wdym|what does that mean|i dont get it|i do not get it|i dont understand|still confused|huh)$/.test(l))return 'Let me put it simpler: '+first(a)+'\n\nWhich part is confusing? Say "tell me more" for details.';
   if(/^(shorter|make it shorter|tldr|short version|summarize that)$/.test(l))return first(a);
   if(/^(simpler|eli5|explain simpler|explain like i.?m 5|dumb it down)$/.test(l))return 'Simply put: '+first(a);
+  if(/^(more|tell me more|go on|continue|elaborate|explain more)$/.test(l)&&ctx.prevMore)return ctx.prevMore;
   if(/^(more|tell me more|go on|continue|elaborate|explain more)$/.test(l)){const c=classify(a),it=c.alt&&c.alt.id&&c.alt.id.startsWith('kb:')&&intents.find(i=>i.id===c.alt.id);return it?'Related topic: '+it.r():'That is the core of it. Ask a narrower question and I will go deeper.'}}
  if(a&&/^(again|repeat|say that again)$/.test(l))return a;
  if(ctx.last&&/^(convert|translate|switch|now|also|and|same|do it|in|to)\b/.test(l)&&(m=l.match(/\b(?:in|to|into)\s+(python|js|javascript|html)\b/)))return codeSkill('write '+ctx.last.topic+' in '+m[1]);
@@ -167,22 +181,72 @@ function analyze(text){
   return f.length?'**Bug check found '+f.length+' thing'+(f.length>1?'s':'')+':**\n'+f.map((x,i)=>(i+1)+'. '+x).join('\n'):'My checks found no obvious problems. Run it and paste any error message and I will dig in.'}
  const h=EX.filter(e=>e[0].test(code)).map(e=>'- '+e[1]);
  return '**Code breakdown** ('+code.trim().split('\n').length+' lines, '+(py?'Python':'JavaScript')+')\n'+(h.join('\n')||'- I could not spot clear patterns.')+'\nSay "find bugs:" before your code and I will check it for problems.'}
+function clean(t){let c=t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,' ').replace(/\b(bro|bruh|dude|pls|plz|please|fr|ngl|tbh)\b/gi,' ').replace(/\s+/g,' ').trim();return c.length>1?c:t}
 function respond(text,session){
- ctx=session;ctx.turns=(ctx.turns||0)+1;
+ const raw=text,m0=text.trim().match(/^(hey|hi|hello|yo|sup|hola|howdy)\b[,!.\s]+(.{4,})$/i);let pre='';
+ if(m0&&!/^(there|william|williamai|bro|man|dude|buddy|friend|everyone|guys|team|ai|again)\W*$/i.test(m0[2])&&!/^(how are you|how r u|whats up|what's up|how's it going|hows it going)/i.test(m0[2])){pre=pick(['Hey! ','Hi! ','Yo! '])+'\n\n';text=m0[2]}
+ text=clean(text);
+ const r=respond0(text,session);if(pre&&r&&r.out)r.out=pre+r.out;return r}
+function respond0(text,session){
+ ctx=session;ctx.turns=(ctx.turns||0)+1;ctx.prevMore=ctx.lastMore||null;ctx.lastMore=null;
  const m=text.match(/^teach[:\s]+(.+?)\s*(?:=>|->|=)\s*(.+)$/i);
  if(m&&m[1].length<200&&m[2].length<1000){learn(m[1].trim(),m[2].trim());return{out:'Learned it. Ask me "'+m[1].trim()+'" anytime.',skill:'teach',conf:1}}
  const O=(r)=>{ctx.lastAns=r.out;return r};let x;
  if(x=followup(text))return O({out:x,skill:'context',conf:.9});
  if(x=analyze(text))return O({out:x,skill:'code-analyzer',conf:.9});
  if(x=extra(text))return O({out:x,skill:'tool',conf:.98});
+ if(x=factsSkill(text))return O({out:x,skill:'facts',conf:.97});
  const r=think(text);
  if(r.skill==='fallback'){
-  try{const UF=path.join(__dirname,'data','unknown.json');let u=[];try{u=JSON.parse(fs.readFileSync(UF,'utf8'))}catch(e){}u.push(text.slice(0,200));fs.writeFileSync(UF,JSON.stringify(u.slice(-500)))}catch(e){}
+  const w=wikiAnswer(text);if(w){ctx.lastMore=w.more;return O({out:w.out,skill:'wiki',conf:w.conf})}
+  try{const UF=path.join(DATA,'unknown.json');let u=[];try{u=JSON.parse(fs.readFileSync(UF,'utf8'))}catch(e){}u.push(text.slice(0,200));fs.writeFileSync(UF,JSON.stringify(u.slice(-500)))}catch(e){}
   if(/(sad|angry|annoyed|stress|tired|frustrat|hate|stuck|anxious|lonely|depress)/i.test(text))return O({out:'That sounds rough. Tell me what is going on, or paste the problem and I will help you work through it.',skill:'empathy',conf:.6});
   const c=classify(text);
-  if(c.id&&c.s>.12){const it=intents.find(i=>i.id===c.id);return O({out:'Did you mean: **"'+it.ex[0]+'"**? Ask me that and I will answer.',skill:'did-you-mean',conf:c.s})}
+  if(c.id&&c.s>.12){const it=intents.find(i=>i.id===c.id),al=c.alt&&c.alt.id&&c.alt.s>.1&&intents.find(i=>i.id===c.alt.id);
+   try{const NF=path.join(DATA,'nearmiss.json');let u=[];try{u=JSON.parse(fs.readFileSync(NF,'utf8'))}catch(e){}u.push({q:text.slice(0,200),best:it.ex[0],s:+c.s.toFixed(2)});fs.writeFileSync(NF,JSON.stringify(u.slice(-500)))}catch(e){}
+   return O({out:'Did you mean: **"'+it.ex[0]+'"**'+(al?' or **"'+al.ex[0]+'"**':'')+'? Ask me that and I will answer.',skill:'did-you-mean',conf:c.s})}
   const g=gen(text);if(g)return O({out:'Not sure, but here is a related thought: '+g,skill:'free-form',conf:.2})}
  return O(r)}
+/* ---------- Facts tables ---------- */
+let FACTS={capitals:{},alias:{},elements:[]};try{FACTS=JSON.parse(fs.readFileSync(path.join(__dirname,'knowledge','facts.json'),'utf8'))}catch(e){}
+const ELA={aluminum:'aluminium',cesium:'caesium',sulphur:'sulfur'};
+const cname=n=>{n=n.trim().toLowerCase().replace(/^the /,'');return FACTS.alias[n]||n};
+const title=s=>s.replace(/\b\w/g,c=>c.toUpperCase());
+function factsSkill(t){const l=t.toLowerCase().replace(/[?!.]+$/,'').trim();let m;
+ if((m=l.match(/capital(?: city)? of ([a-z .'&-]+)$/))||(m=l.match(/^(?:what(?:'s| is) )?(?:the )?([a-z .'-]+?)(?:'s)? capital(?: city)?$/))){const k=cname(m[1]),c=FACTS.capitals[k];if(c)return 'The capital of **'+title(k)+'** is **'+c+'**.'}
+ const E=n=>{n=n.trim().toLowerCase();n=ELA[n]||n;return FACTS.elements.find(e=>e.name.toLowerCase()===n||e.sym.toLowerCase()===n)};
+ if(m=l.match(/(?:symbol|abbreviation) (?:for|of) ([a-z]+)$/)){const e=E(m[1]);if(e&&e.name.toLowerCase()===(ELA[m[1]]||m[1]))return 'The symbol for **'+e.name+'** is **'+e.sym+'** (atomic number '+e.z+').'}
+ if(m=l.match(/atomic number (?:of|for) ([a-z]+)$/)){const e=E(m[1]);if(e)return '**'+e.name+'** has atomic number **'+e.z+'** and symbol '+e.sym+'.'}
+ if(m=l.match(/(?:which |what )?element (?:has )?(?:atomic )?number (\d{1,3})$/)||(m=l.match(/(?:which |what )?element has atomic number (\d{1,3})$/))){const e=FACTS.elements[+m[1]-1];if(e)return 'Element **'+e.z+'** is **'+e.name+'** ('+e.sym+').'}
+ if(m=l.match(/(?:what|which) element (?:is|has symbol) ([a-z]{1,2})$/)){const e=FACTS.elements.find(x=>x.sym.toLowerCase()===m[1]);if(e)return '**'+e.sym+'** is **'+e.name+'**, atomic number '+e.z+'.'}
+ return null}
+
+/* ---------- Wikipedia / ingested sources (BM25) ---------- */
+const WIKI=[],wdf={};let wavg=1;const wtok=x=>tok(x).map(w=>{while(w.length>4&&/[es]$/.test(w))w=w.slice(0,-1);return w});
+(function loadWiki(){const d=path.join(__dirname,'knowledge','wiki');let files=[];try{files=fs.readdirSync(d).filter(f=>f.endsWith('.json'))}catch(e){return}
+ files.forEach(f=>{try{const a=JSON.parse(fs.readFileSync(path.join(d,f),'utf8'));(Array.isArray(a)?a:[a]).forEach(art=>(art.passages||[]).forEach((p,i)=>{const t=wtok(p),tf={};t.forEach(w=>tf[w]=(tf[w]||0)+1);WIKI.push({title:art.title,url:art.url,lic:art.license||'',i,p,tf,len:t.length||1,tt:new Set(wtok(art.title))})}))}catch(e){}});
+ WIKI.forEach(x=>Object.keys(x.tf).forEach(w=>wdf[w]=(wdf[w]||0)+1));wavg=WIKI.reduce((s,x)=>s+x.len,0)/(WIKI.length||1)})();
+const sents=p=>p.split(/(?<=[.!?])\s+/);
+const srcName=d=>/wikipedia\.org/.test(d.url||'')?'Wikipedia':(()=>{try{return new URL(d.url).hostname}catch(e){return 'web'}})();
+const attr=d=>'\n\n_Source: '+srcName(d)+', "'+d.title+'"'+(d.lic?' ('+d.lic+')':'')+(d.url?' - '+d.url:'')+'_';
+function wikiAnswer(text){if(!WIKI.length)return null;
+ const q=text.toLowerCase().replace(/\b(who|whom|when|where|which|was|were|tell|me|about|info|information|on|give|explain|define|describe|what|is|are|the|a|an|of|did|do|does|how|why|many|much|have|has|had|there|their|its|can|could|would|should|you|we|they|just|really|some|any|get|make|work|works)\b/g,' ');
+ const qt=[...new Set(wtok(q))];if(!qt.length||qt.length>8)return null;let best=null,bs=0;
+ for(const d of WIKI){let sc=0,hit=0;for(const w of qt){const f=d.tf[w]||0,inT=d.tt.has(w);if(f||inT)hit++;if(f){const idf=Math.log(1+(WIKI.length-wdf[w]+.5)/(wdf[w]+.5));sc+=idf*(f*2.2)/(f+1.2*(.25+.75*d.len/wavg))}if(inT)sc+=3}
+  if(qt.every(w=>d.tt.has(w)))sc+=8;if(d.i===0)sc+=1;
+  if(hit<(qt.length<=2?qt.length:Math.ceil(qt.length*.6)))continue;if(sc>bs){bs=sc;best=d}}
+ if(!best||bs<4)return null;
+ let ss=sents(best.p),out=ss.slice(0,3).join(' ');if(out.length>650)out=out.slice(0,650).replace(/\s+\S*$/,'')+'...';
+ const nxt=WIKI.find(x=>x.title===best.title&&x.i===best.i+1);
+ return{out:out+attr(best),more:nxt?nxt.p.slice(0,700)+attr(nxt):null,conf:Math.min(.9,bs/20)}}
+/* ---------- Validation ---------- */
+function validate(){const issues=[],seen={};
+ KBE.forEach(e=>{if(!e.a||(Array.isArray(e.a)&&!e.a.length))issues.push('no answer: '+e.q[0]);
+  if(e.q.length<3)issues.push('only '+e.q.length+' trigger(s), add more phrasings: '+e.q[0]);
+  e.q.forEach(q=>{const k=tok(q).join(' ');if(!k){issues.push('empty trigger: '+q);return}
+   if(seen[k]&&seen[k]!==e.q[0])issues.push('DUPLICATE trigger "'+q+'" used by "'+e.q[0]+'" and "'+seen[k]+'"');else seen[k]=e.q[0]})});
+ const cats={};KBE.forEach(e=>cats[e.cat]=(cats[e.cat]||0)+1);
+ return{entries:KBE.length,categories:cats,wikiPassages:WIKI.length,issues}}
 function evaluate(){let ok=0,tot=0;const by={};docs.forEach(d=>by[d.id]=(by[d.id]||0)+1);
  docs.forEach(d=>{if(by[d.id]<2)return;tot++;if(classify(d.t,docs.filter(x=>x!==d)).id===d.id)ok++});return{tested:tot,correct:ok,accuracy:tot?Math.round(1000*ok/tot)/10:0}}
-module.exports={respond,evaluate,stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};
+module.exports={respond,evaluate,validate,stats:()=>({intents:intents.length,kbEntries:KBE.length,wikiPassages:WIKI.length,learned:learned.length,vocab:Object.keys(df).length})};

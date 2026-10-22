@@ -1,0 +1,420 @@
+[
+ {
+  "q": [
+   "roman empire",
+   "rise and fall of rome",
+   "ancient rome"
+  ],
+  "a": "Rome grew from a city into an empire that ruled the Mediterranean. Augustus became the first emperor in 27 BCE. The western empire fell in 476 CE, while the eastern (Byzantine) half lasted until 1453.",
+  "more": "Roman law, roads, Latin and engineering shaped Europe."
+ },
+ {
+  "q": [
+   "ancient egypt",
+   "pyramids",
+   "who built the pyramids"
+  ],
+  "a": "Ancient Egypt grew along the Nile for over 3,000 years. The great pyramids at Giza were royal tombs built about 4,500 years ago by paid, organized workers, not slaves as the myth says.",
+  "more": "Hieroglyphs were decoded using the Rosetta Stone."
+ },
+ {
+  "q": [
+   "ancient greece",
+   "greek history",
+   "athens vs sparta"
+  ],
+  "a": "Ancient Greece was a group of city-states. Athens gave us early democracy, philosophy and theater. Sparta was a military society. The Greeks also invented the Olympics.",
+  "more": "Socrates, Plato and Aristotle came from Athens."
+ },
+ {
+  "q": [
+   "the renaissance",
+   "renaissance period"
+  ],
+  "a": "The Renaissance was a rebirth of art, science and learning in Europe from about the 14th to 17th century, starting in Italy. Leonardo da Vinci, Michelangelo and Galileo are famous names. The printing press spread the ideas.",
+  "more": "It followed the Middle Ages."
+ },
+ {
+  "q": [
+   "industrial revolution"
+  ],
+  "a": "The Industrial Revolution began in Britain in the late 1700s. Steam power, factories and railways replaced hand production and moved people to cities. It raised living standards over time but with harsh conditions at first.",
+  "more": "It started the modern world economy."
+ },
+ {
+  "q": [
+   "american revolution",
+   "declaration of independence"
+  ],
+  "a": "The American Revolution (1775 to 1783) was when the thirteen colonies broke from British rule. The Declaration of Independence was adopted on July 4, 1776, and George Washington led the army.",
+  "more": "The war ended with the Treaty of Paris in 1783."
+ },
+ {
+  "q": [
+   "french revolution"
+  ],
+  "a": "The French Revolution began in 1789 when people rose against the monarchy and unfair taxes. It ended the old order, produced the Declaration of the Rights of Man, and led to Napoleon taking power.",
+  "more": "Its slogan was liberty, equality, fraternity."
+ },
+ {
+  "q": [
+   "american civil war",
+   "us civil war"
+  ],
+  "a": "The US Civil War (1861 to 1865) was fought between the Union and the Southern Confederacy mainly over slavery. The Union won, and the 13th Amendment ended slavery. Abraham Lincoln was president.",
+  "more": "Over 600,000 soldiers died."
+ },
+ {
+  "q": [
+   "cold war"
+  ],
+  "a": "The Cold War (about 1947 to 1991) was the rivalry between the United States and the Soviet Union. It involved an arms race, space race and proxy wars but no direct war between them. It ended when the USSR dissolved.",
+  "more": "Key events: Berlin Wall, Cuban Missile Crisis."
+ },
+ {
+  "q": [
+   "moon landing",
+   "apollo 11",
+   "first man on the moon"
+  ],
+  "a": "Apollo 11 landed on the moon on July 20, 1969. Neil Armstrong was the first person to walk on it, followed by Buzz Aldrin, while Michael Collins stayed in orbit.",
+  "more": "Six Apollo missions landed people on the moon."
+ },
+ {
+  "q": [
+   "berlin wall",
+   "fall of the berlin wall"
+  ],
+  "a": "The Berlin Wall divided East and West Berlin from 1961. It fell on November 9, 1989, and Germany reunified in 1990.",
+  "more": "It became a symbol of the end of the Cold War."
+ },
+ {
+  "q": [
+   "black death",
+   "bubonic plague"
+  ],
+  "a": "The Black Death was a plague that killed about a third or more of Europe's people between 1347 and 1351. It was spread by fleas on rats. It changed society and the economy for generations.",
+  "more": "It came along trade routes from Asia."
+ },
+ {
+  "q": [
+   "vikings",
+   "who were the vikings"
+  ],
+  "a": "The Vikings were seafaring Norse people from Scandinavia who raided, traded and settled across Europe from about 793 to 1066. They reached Iceland, Greenland and North America.",
+  "more": "Leif Erikson reached North America around the year 1000."
+ },
+ {
+  "q": [
+   "mongol empire",
+   "genghis khan"
+  ],
+  "a": "Genghis Khan united the Mongol tribes in 1206 and built the largest connected land empire in history, stretching from China to Eastern Europe. Mongol rule also protected trade on the Silk Road.",
+  "more": "His grandson Kublai Khan founded the Yuan dynasty in China."
+ },
+ {
+  "q": [
+   "silk road"
+  ],
+  "a": "The Silk Road was a network of trade routes linking China, Central Asia, the Middle East and Europe. Silk, spices, paper and ideas, and sadly diseases, traveled along it.",
+  "more": "It was active for about 1,500 years."
+ },
+ {
+  "q": [
+   "ottoman empire"
+  ],
+  "a": "The Ottoman Empire lasted from about 1299 to 1922 and at its peak controlled southeast Europe, the Middle East and North Africa. It captured Constantinople in 1453, which became Istanbul.",
+  "more": "Modern Turkey was founded in 1923."
+ },
+ {
+  "q": [
+   "civil rights movement",
+   "martin luther king"
+  ],
+  "a": "The US civil rights movement of the 1950s and 60s fought segregation and discrimination against Black Americans. Leaders included Martin Luther King Jr., Rosa Parks and many others. It led to the Civil Rights Act of 1964 and the Voting Rights Act of 1965.",
+  "more": "King's I Have a Dream speech was in 1963."
+ },
+ {
+  "q": [
+   "abraham lincoln",
+   "who was lincoln"
+  ],
+  "a": "Abraham Lincoln was the 16th US president (1861 to 1865). He led the Union in the Civil War, issued the Emancipation Proclamation and supported the 13th Amendment. He was assassinated in 1865.",
+  "more": "He was born in a log cabin in Kentucky."
+ },
+ {
+  "q": [
+   "george washington"
+  ],
+  "a": "George Washington commanded the Continental Army in the American Revolution and was the first US president, serving 1789 to 1797. He chose to step down after two terms, setting an important example.",
+  "more": "Washington, D.C. is named after him."
+ },
+ {
+  "q": [
+   "napoleon",
+   "napoleon bonaparte"
+  ],
+  "a": "Napoleon Bonaparte rose during the French Revolution, became emperor of France in 1804 and conquered much of Europe. He was defeated at Waterloo in 1815 and exiled. His legal code still influences many countries.",
+  "more": "He was not unusually short, that is a myth."
+ },
+ {
+  "q": [
+   "cleopatra"
+  ],
+  "a": "Cleopatra VII was the last active ruler of Ptolemaic Egypt. She was smart, spoke several languages, and allied with Julius Caesar and then Mark Antony. She died in 30 BCE and Egypt became a Roman province.",
+  "more": "She was of Greek Macedonian descent."
+ },
+ {
+  "q": [
+   "alexander the great"
+  ],
+  "a": "Alexander the Great was king of Macedon who, by age 30, had built an empire from Greece to Egypt to India. He never lost a major battle and died in 323 BCE at age 32.",
+  "more": "He was taught by Aristotle."
+ },
+ {
+  "q": [
+   "leonardo da vinci"
+  ],
+  "a": "Leonardo da Vinci (1452 to 1519) was an Italian painter, inventor and scientist. He painted the Mona Lisa and The Last Supper and filled notebooks with designs and studies of anatomy and flight.",
+  "more": "He was left-handed and wrote in mirror writing."
+ },
+ {
+  "q": [
+   "william shakespeare",
+   "who was shakespeare"
+  ],
+  "a": "Shakespeare (1564 to 1616) was an English playwright and poet who wrote about 37 plays, including Romeo and Juliet, Hamlet and Macbeth, plus 154 sonnets. He is widely seen as the greatest writer in English.",
+  "more": "He added many words and phrases to English."
+ },
+ {
+  "q": [
+   "mahatma gandhi",
+   "who was gandhi"
+  ],
+  "a": "Mohandas Gandhi led India's nonviolent independence movement against British rule, using peaceful protest and civil disobedience. India became independent in 1947.",
+  "more": "His methods inspired civil rights leaders around the world."
+ },
+ {
+  "q": [
+   "nelson mandela"
+  ],
+  "a": "Nelson Mandela fought apartheid in South Africa, spent 27 years in prison, and became the country's first Black president in 1994. He worked for reconciliation and won the Nobel Peace Prize in 1993.",
+  "more": "He passed away in 2013."
+ },
+ {
+  "q": [
+   "christopher columbus"
+  ],
+  "a": "Christopher Columbus was an Italian explorer sailing for Spain who reached the Caribbean in 1492. His voyages began lasting contact between Europe and the Americas, and also brought great harm to native peoples.",
+  "more": "The Americas were already home to millions of people."
+ },
+ {
+  "q": [
+   "nikola tesla",
+   "who was tesla"
+  ],
+  "a": "Nikola Tesla (1856 to 1943) was a Serbian-American inventor who developed alternating current (AC) electrical systems, the Tesla coil and early radio and wireless ideas.",
+  "more": "AC is how electricity is sent to your home."
+ },
+ {
+  "q": [
+   "steve jobs",
+   "who was steve jobs"
+  ],
+  "a": "Steve Jobs co-founded Apple in 1976 with Steve Wozniak. He helped launch the Macintosh, iPod, iPhone and iPad, and led Pixar. He died in 2011.",
+  "more": "He was known for pushing simple, polished design."
+ },
+ {
+  "q": [
+   "bill gates",
+   "who is bill gates"
+  ],
+  "a": "Bill Gates co-founded Microsoft in 1975 with Paul Allen, which made Windows and Office. He later focused on philanthropy through the Gates Foundation, working on health and education.",
+  "more": "Microsoft started in a small office in Albuquerque."
+ },
+ {
+  "q": [
+   "us constitution",
+   "what is the constitution"
+  ],
+  "a": "The US Constitution, written in 1787, sets up the government and the rights of citizens. It has a Preamble, 7 articles and 27 amendments. The first ten amendments are the Bill of Rights.",
+  "more": "It begins with the words We the People."
+ },
+ {
+  "q": [
+   "bill of rights"
+  ],
+  "a": "The Bill of Rights is the first ten amendments to the US Constitution. It protects freedom of speech, religion, press and assembly, the right to bear arms, fair trials and more.",
+  "more": "Ratified in 1791."
+ },
+ {
+  "q": [
+   "branches of government",
+   "three branches"
+  ],
+  "a": "The US government has three branches. Congress (legislative) makes laws, the President (executive) carries them out, and the courts (judicial) interpret them. Checks and balances keep any one from having too much power.",
+  "more": "Congress has two chambers: the Senate and House of Representatives."
+ },
+ {
+  "q": [
+   "how a bill becomes a law"
+  ],
+  "a": "A bill is introduced in the House or Senate, goes through committee, and must pass a vote in both chambers. Then the president signs it into law or vetoes it. Congress can override a veto with a two-thirds vote.",
+  "more": "Most bills never make it out of committee."
+ },
+ {
+  "q": [
+   "electoral college"
+  ],
+  "a": "In US presidential elections, each state gets electors equal to its House seats plus two senators (538 in total). A candidate needs 270 electoral votes to win. Most states give all their votes to whoever wins the state.",
+  "more": "A candidate can win the popular vote and still lose."
+ },
+ {
+  "q": [
+   "what is the un",
+   "united nations"
+  ],
+  "a": "The United Nations was founded in 1945 to keep peace and encourage cooperation. It has 193 member states, and the Security Council has 5 permanent members: the US, UK, France, Russia and China.",
+  "more": "It is headquartered in New York."
+ },
+ {
+  "q": [
+   "what is nato"
+  ],
+  "a": "NATO is a military alliance formed in 1949 between North American and European countries. Its core idea is collective defense: an attack on one member is treated as an attack on all.",
+  "more": "It has more than 30 members."
+ },
+ {
+  "q": [
+   "what is the eu",
+   "european union"
+  ],
+  "a": "The European Union is a political and economic union of 27 European countries with a single market. Many use the euro. The United Kingdom left in 2020.",
+  "more": "Citizens can generally live and work in any member country."
+ },
+ {
+  "q": [
+   "capitalism vs socialism",
+   "what is capitalism",
+   "what is socialism"
+  ],
+  "a": "Capitalism is an economic system where private owners run businesses for profit and markets set prices. Socialism puts more ownership or control of production in the community or state. Most countries today mix both.",
+  "more": "Economists and voters disagree about the right balance."
+ },
+ {
+  "q": [
+   "what is gdp"
+  ],
+  "a": "GDP is the total value of goods and services a country produces in a year. It is the most common way to measure the size of an economy.",
+  "more": "GDP per person gives a better picture of average income."
+ },
+ {
+  "q": [
+   "what is a recession"
+  ],
+  "a": "A recession is a significant, widespread drop in economic activity lasting months, usually shown by falling GDP, rising unemployment and lower spending.",
+  "more": "A common rule of thumb is two quarters of falling GDP."
+ },
+ {
+  "q": [
+   "supply and demand"
+  ],
+  "a": "Supply and demand explains prices. If demand rises and supply stays the same, prices go up. If supply rises and demand stays the same, prices fall. The market price is where the two balance.",
+  "more": "This is why rare things cost more."
+ },
+ {
+  "q": [
+   "what is tax",
+   "how do taxes work"
+  ],
+  "a": "Taxes are money people and companies pay to the government to fund services like roads, schools and defense. Common types: income tax, sales tax, property tax.",
+  "more": "A progressive tax takes a higher percent from higher incomes."
+ },
+ {
+  "q": [
+   "how do banks work",
+   "what is a bank"
+  ],
+  "a": "Banks keep your deposits safe and lend out part of the money to others, charging interest. They pay you a smaller interest rate than they charge borrowers and keep the difference.",
+  "more": "In the US deposits are insured up to $250,000 by the FDIC."
+ },
+ {
+  "q": [
+   "what are interest rates",
+   "what is interest"
+  ],
+  "a": "Interest is the cost of borrowing money or the reward for saving it, as a percent per year. When central banks raise rates, loans get more expensive and spending slows, which helps cool inflation.",
+  "more": "APR is the yearly cost of a loan."
+ },
+ {
+  "q": [
+   "what is a mortgage"
+  ],
+  "a": "A mortgage is a loan to buy a home, repaid over many years (often 15 or 30) with interest. The home is collateral, so if you stop paying the bank can take it.",
+  "more": "A bigger down payment means a smaller loan."
+ },
+ {
+  "q": [
+   "how to make a budget",
+   "what is a budget"
+  ],
+  "a": "List your monthly income, then your fixed costs (rent, bills), then your variable costs. A simple split is 50% needs, 30% wants, 20% savings and debt. Track it for a month and adjust.",
+  "more": "Pay yourself first by automating savings."
+ },
+ {
+  "q": [
+   "index fund",
+   "what is an etf",
+   "what is investing"
+  ],
+  "a": "An index fund or ETF holds many stocks at once to track a market index like the S&P 500, which spreads risk and keeps fees low. Investing means putting money into assets hoping they grow over time.",
+  "more": "Prices can go down as well as up. I am not a financial advisor."
+ },
+ {
+  "q": [
+   "who was albert einstein",
+   "einstein"
+  ],
+  "a": "Albert Einstein was a physicist who developed the theory of relativity and the famous equation E = mc squared."
+ },
+ {
+  "q": [
+   "who was isaac newton",
+   "newton"
+  ],
+  "a": "Isaac Newton described the laws of motion and universal gravitation, and helped invent calculus."
+ },
+ {
+  "q": [
+   "who invented the internet",
+   "history of internet"
+  ],
+  "a": "The internet grew from ARPANET in the 1960s. Tim Berners-Lee invented the World Wide Web in 1989."
+ },
+ {
+  "q": [
+   "world war 2",
+   "when was ww2"
+  ],
+  "a": "World War II lasted from 1939 to 1945 and involved most of the world's nations. It ended with the defeat of Nazi Germany and Japan."
+ },
+ {
+  "q": [
+   "world war 1",
+   "when was ww1"
+  ],
+  "a": "World War I lasted from 1914 to 1918, triggered by the assassination of Archduke Franz Ferdinand."
+ },
+ {
+  "q": [
+   "who was the first president"
+  ],
+  "a": "George Washington was the first president of the United States, serving from 1789 to 1797."
+ },
+ {
+  "q": [
+   "what is democracy"
+  ],
+  "a": "Democracy is a system where citizens choose their leaders and laws, usually by voting."
+ }
+]

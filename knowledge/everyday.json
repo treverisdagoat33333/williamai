@@ -1,0 +1,618 @@
+[
+ {
+  "q": [
+   "how to wake up early",
+   "wake up early",
+   "morning person"
+  ],
+  "a": "Move your wake time 15 minutes earlier every few days, keep the same sleep schedule on weekends, put your alarm across the room, and get light and water right away. Going to bed on time matters more than the alarm.",
+  "more": "Skip screens for the last 30 minutes before bed."
+ },
+ {
+  "q": [
+   "how to focus",
+   "improve focus",
+   "how to concentrate"
+  ],
+  "a": "Remove distractions (phone in another room), work in 25 minute blocks with 5 minute breaks, write down the one task you are doing, and sleep enough. Start with just 5 minutes, momentum follows.",
+  "more": "Noise-canceling headphones or instrumental music help some people."
+ },
+ {
+  "q": [
+   "how to stop procrastinating",
+   "procrastination",
+   "i procrastinate"
+  ],
+  "a": "Procrastination is usually about avoiding a feeling, not laziness. Shrink the task until it is almost silly (open the document, write one sentence), use a timer, and start with the easiest part. Done imperfectly beats not started.",
+  "more": "Tell a friend your deadline for accountability."
+ },
+ {
+  "q": [
+   "pomodoro technique",
+   "pomodoro"
+  ],
+  "a": "Pomodoro: work for 25 minutes with full focus, take a 5 minute break, and after four rounds take a longer 15 to 30 minute break. It makes big tasks feel manageable.",
+  "more": "Adjust the timing, 50 and 10 works well for some."
+ },
+ {
+  "q": [
+   "how to memorize",
+   "memorization tips",
+   "study techniques"
+  ],
+  "a": "Active recall beats rereading: close the book and test yourself. Space your reviews over days (spaced repetition), explain it out loud like you are teaching someone, and sleep after studying.",
+  "more": "Apps like Anki do the spacing for you."
+ },
+ {
+  "q": [
+   "how to take notes",
+   "note taking tips"
+  ],
+  "a": "Write in your own words, not word for word. Try the Cornell method: notes on the right, keywords on the left, a summary at the bottom. Review within 24 hours.",
+  "more": "Questions in the margins make great study prompts."
+ },
+ {
+  "q": [
+   "how to prepare for exams",
+   "exam tips",
+   "how to study for a test"
+  ],
+  "a": "Start early, list every topic, do practice questions and past papers, review what you got wrong, sleep well the night before, and eat breakfast. Focus on weak spots, not what you already know.",
+  "more": "Teaching a friend the topic shows what you really know."
+ },
+ {
+  "q": [
+   "how to read faster",
+   "reading tips"
+  ],
+  "a": "Read with a purpose, preview headings first, avoid saying every word in your head, and use a finger or pointer as a pace guide. Comprehension matters more than raw speed.",
+  "more": "Reading daily for 20 minutes improves speed naturally."
+ },
+ {
+  "q": [
+   "time management",
+   "manage my time",
+   "how to be productive"
+  ],
+  "a": "List your tasks, pick the 1 to 3 that matter most today, block time for them on a calendar, and do the hardest first. Say no to things that do not matter. Review your week every Sunday.",
+  "more": "Break big goals into steps you can do in one sitting."
+ },
+ {
+  "q": [
+   "how to build habits",
+   "habit building",
+   "how to form a habit"
+  ],
+  "a": "Make it tiny (two push-ups, one page), attach it to something you already do (after brushing teeth), track it with a streak, and never miss twice in a row. Consistency beats intensity.",
+  "more": "Habits take weeks to months, not 21 days exactly."
+ },
+ {
+  "q": [
+   "how to meditate",
+   "meditation",
+   "mindfulness"
+  ],
+  "a": "Sit comfortably, close your eyes, and focus on your breathing. When your mind wanders (it will) gently bring it back. Start with 3 to 5 minutes a day. The skill is returning, not having an empty mind.",
+  "more": "Apps like Headspace or Insight Timer can guide you."
+ },
+ {
+  "q": [
+   "breathing exercise",
+   "how to calm down",
+   "box breathing"
+  ],
+  "a": "Try box breathing: inhale for 4 seconds, hold for 4, exhale for 4, hold for 4, and repeat for a minute or two. Long slow exhales help your body relax.",
+  "more": "If anxiety is constant or intense, talking to a doctor or counselor is a good step."
+ },
+ {
+  "q": [
+   "how to deal with anxiety",
+   "i have anxiety"
+  ],
+  "a": "Anxiety is common and manageable. Slow your breathing, name what you are worried about, separate what you can control from what you cannot, and move your body. If it is frequent or blocks your life, talk to a doctor or counselor, it works.",
+  "more": "I am here to listen too. What is on your mind?"
+ },
+ {
+  "q": [
+   "how to start working out",
+   "beginner workout",
+   "workout routine for beginners"
+  ],
+  "a": "Start 3 days a week with full body basics: squats, push-ups (or incline push-ups), rows or pull-ups, a plank, and 20 minutes of walking or jogging. Add a little each week and rest between sessions.",
+  "more": "Form first, weight second, and get a doctor's okay if you have health issues."
+ },
+ {
+  "q": [
+   "how to do push ups",
+   "pushup form"
+  ],
+  "a": "Hands under shoulders, body in a straight line from head to heels, lower until your chest is near the floor with elbows about 45 degrees from your body, then push up. Do them on your knees or an incline until you can do full ones.",
+  "more": "Do not let your hips sag."
+ },
+ {
+  "q": [
+   "how to run a 5k",
+   "couch to 5k",
+   "start running"
+  ],
+  "a": "Alternate running and walking, like 1 minute run and 2 minutes walk for 20 minutes, 3 times a week, and slowly increase the running. Most people reach 5k in 8 to 9 weeks. Run at a pace where you can talk.",
+  "more": "Good shoes and rest days prevent injury."
+ },
+ {
+  "q": [
+   "stretching",
+   "how to stretch"
+  ],
+  "a": "Warm up with light movement first, then hold each stretch for 20 to 30 seconds without bouncing. Never stretch to sharp pain. Stretch after workouts to reduce stiffness.",
+  "more": "Gentle daily stretching helps posture and flexibility."
+ },
+ {
+  "q": [
+   "what is protein",
+   "how much protein do i need",
+   "protein foods"
+  ],
+  "a": "Protein builds and repairs muscle and tissue. Good sources: meat, fish, eggs, dairy, beans, lentils, tofu and nuts. Most adults need roughly 0.8 g per kg of body weight, more if very active.",
+  "more": "Spread protein across meals."
+ },
+ {
+  "q": [
+   "what is a calorie",
+   "how many calories"
+  ],
+  "a": "A calorie is a unit of energy in food. Your body needs a certain number each day to function, which depends on age, size and activity. Eating more than you burn leads to weight gain, less leads to loss.",
+  "more": "Food quality matters, not just calories."
+ },
+ {
+  "q": [
+   "what are vitamins",
+   "which vitamins do i need"
+  ],
+  "a": "Vitamins are nutrients your body needs in small amounts. A varied diet with fruits, vegetables, grains and protein usually covers them. Vitamin D (sun, fish), vitamin C (citrus), and B12 (animal foods) are commonly discussed.",
+  "more": "Ask a doctor before taking supplements."
+ },
+ {
+  "q": [
+   "healthy breakfast ideas",
+   "breakfast ideas"
+  ],
+  "a": "Oatmeal with fruit, eggs and toast, Greek yogurt with berries and granola, peanut butter on whole grain bread, or a smoothie with banana and spinach. Protein plus fiber keeps you full.",
+  "more": "Prep overnight oats the night before."
+ },
+ {
+  "q": [
+   "sunscreen",
+   "how to prevent sunburn"
+  ],
+  "a": "Use broad-spectrum SPF 30 or higher, put it on 15 minutes before going out, and reapply every 2 hours or after swimming. Hats and shade help too.",
+  "more": "Clouds do not block most UV."
+ },
+ {
+  "q": [
+   "how to treat a burn",
+   "first aid for burns"
+  ],
+  "a": "For a minor burn, cool it under cool (not ice cold) running water for 10 to 20 minutes, cover loosely with a clean non-stick dressing, and do not pop blisters. Seek medical help for large, deep, facial or chemical burns.",
+  "more": "Do not use butter or ice."
+ },
+ {
+  "q": [
+   "how to treat a cold",
+   "common cold remedies"
+  ],
+  "a": "Rest, fluids, warm soup, and honey for a sore throat (not for babies under one). Over-the-counter medicine can ease symptoms. See a doctor if you have trouble breathing, a high fever, or symptoms over 10 days.",
+  "more": "Antibiotics do not work on colds."
+ },
+ {
+  "q": [
+   "headache remedies",
+   "how to get rid of a headache"
+  ],
+  "a": "Drink water, rest in a quiet dark room, and try a cool cloth on your forehead. Common headaches often come from dehydration, stress or lack of sleep. See a doctor for sudden severe pain, vision changes or fever.",
+  "more": "This is general info, not medical advice."
+ },
+ {
+  "q": [
+   "posture tips",
+   "how to fix posture"
+  ],
+  "a": "Keep your screen at eye level, feet flat on the floor, back supported, shoulders relaxed. Stand up and move every 30 to 60 minutes. Strengthening your back and core helps in the long run.",
+  "more": "Neck pain often comes from looking down at phones."
+ },
+ {
+  "q": [
+   "eye strain",
+   "20 20 20 rule"
+  ],
+  "a": "The 20-20-20 rule: every 20 minutes look at something 20 feet (6 meters) away for 20 seconds. Also blink often, adjust brightness, and reduce glare.",
+  "more": "See an optometrist if the strain keeps happening."
+ },
+ {
+  "q": [
+   "how to meet new people",
+   "make new friends",
+   "how to get friends"
+  ],
+  "a": "Join clubs, teams or classes with a shared interest, say yes to invitations, ask people questions about themselves, and follow up with a message. Friendship takes repeated time together.",
+  "more": "Everyone feels awkward at first, you are not alone."
+ },
+ {
+  "q": [
+   "how to apologize",
+   "how to say sorry"
+  ],
+  "a": "A good apology: say what you did, own it without excuses, say you understand how it affected them, and say what you will do differently. Then give them space to respond.",
+  "more": "Do not say sorry if you feel bad, instead say sorry I hurt you."
+ },
+ {
+  "q": [
+   "how to give a compliment",
+   "how to compliment someone"
+  ],
+  "a": "Be specific and sincere: instead of nice shirt, say that color looks great on you. Compliment effort and choices, not just looks. Say it, then let it land without adding more.",
+  "more": "Praise in public, give feedback in private."
+ },
+ {
+  "q": [
+   "how to handle conflict",
+   "how to resolve an argument"
+  ],
+  "a": "Pause if you are heated, talk about the issue not the person, use I statements (I felt ignored when...), listen without interrupting, and look for a solution you both can live with.",
+  "more": "Sometimes the goal is understanding, not winning."
+ },
+ {
+  "q": [
+   "how to ask someone out",
+   "how to ask a girl out",
+   "how to ask a guy out"
+  ],
+  "a": "Be direct, kind and relaxed. Spend a little time getting to know them, then ask for something simple like coffee or a walk. Be ready to take either answer well. A no is not a failure.",
+  "more": "Confidence is mostly being okay with any answer."
+ },
+ {
+  "q": [
+   "how to write an email",
+   "email tips",
+   "professional email"
+  ],
+  "a": "Use a clear subject, greet by name, state your point in the first line, keep it short, say exactly what you need and by when, and end politely. Proofread before sending.",
+  "more": "Example ending: Thanks, I appreciate your help."
+ },
+ {
+  "q": [
+   "small talk tips",
+   "how to start a conversation",
+   "conversation starters"
+  ],
+  "a": "Ask open questions (What are you working on lately?), listen, follow up on what they say, and share something about yourself. Compliments and shared surroundings are easy openers.",
+  "more": "Curiosity is more attractive than trying to be interesting."
+ },
+ {
+  "q": [
+   "body language",
+   "what is body language"
+  ],
+  "a": "Body language is nonverbal communication: posture, eye contact, gestures and facial expressions. Open posture, relaxed shoulders, and natural eye contact show confidence and interest.",
+  "more": "Read the whole cluster, not one signal alone."
+ },
+ {
+  "q": [
+   "active listening",
+   "how to be a good listener"
+  ],
+  "a": "Give your full attention, do not interrupt, nod, ask follow-up questions, and reflect back what you heard (So you felt left out?). Do not rush to fix things, sometimes they just want to be heard.",
+  "more": "Put your phone away."
+ },
+ {
+  "q": [
+   "how to say no",
+   "setting boundaries"
+  ],
+  "a": "Keep it short, kind and firm: Thanks for asking, but I cannot do that. You do not owe a long explanation. Offer an alternative if you want. Saying no to something lets you say yes to what matters.",
+  "more": "Practice out loud, it gets easier."
+ },
+ {
+  "q": [
+   "how to make decisions",
+   "how to decide"
+  ],
+  "a": "Write down your options, what matters most, and the worst realistic outcome of each. If it is reversible, decide quickly. If not, sleep on it. Ask what you would regret not doing.",
+  "more": "Good enough decisions made on time beat perfect ones made too late."
+ },
+ {
+  "q": [
+   "how to build confidence",
+   "self confidence"
+  ],
+  "a": "Confidence comes from doing things, not waiting to feel ready. Set small challenges, keep promises to yourself, prepare, and speak to yourself like a friend. Posture and eye contact help your mind catch up.",
+  "more": "Everyone fails, confident people just keep going."
+ },
+ {
+  "q": [
+   "how to be happy",
+   "how to be happier"
+  ],
+  "a": "Research points to sleep, exercise, time outdoors, close relationships, a sense of purpose, and gratitude. Spend less time comparing yourself on social media and more doing things you enjoy.",
+  "more": "Writing down three good things a day helps."
+ },
+ {
+  "q": [
+   "how to journal",
+   "journaling",
+   "gratitude journal"
+  ],
+  "a": "Write for 5 to 10 minutes about your day, your thoughts, or three things you are grateful for. No rules, no one else reads it. It helps clear your mind and spot patterns.",
+  "more": "Prompts: What went well today? What am I worried about?"
+ },
+ {
+  "q": [
+   "what to pack for a trip",
+   "travel packing list"
+  ],
+  "a": "Passport or ID, tickets, phone and charger, wallet, medications, toiletries, clothes for the weather (mix and match), comfortable shoes, and a small first aid kit. Pack light, and put a copy of key documents in your email.",
+  "more": "Roll clothes to save space."
+ },
+ {
+  "q": [
+   "how to learn guitar",
+   "how to play guitar"
+  ],
+  "a": "Learn a few basic open chords (Em, Am, C, G, D), practice 15 to 20 minutes daily, and play along with simple songs. Finger pain fades after a couple of weeks. Use free resources like JustinGuitar.",
+  "more": "Slow and steady practice beats long rare sessions."
+ },
+ {
+  "q": [
+   "how to learn piano",
+   "how to play piano"
+  ],
+  "a": "Learn the keys and hand position, practice scales and simple songs, and use a metronome. 15 to 30 minutes a day is enough. Start with hands separately, then combine.",
+  "more": "Apps like Simply Piano or YouTube lessons are a great start."
+ },
+ {
+  "q": [
+   "how to learn to draw",
+   "how to draw"
+  ],
+  "a": "Practice basic shapes, lines and shading daily. Draw from real life, not just photos. Fill a sketchbook with quick studies and do not worry about it looking good. Copying artists you like teaches a lot.",
+  "more": "Drawing is a skill, not talent."
+ },
+ {
+  "q": [
+   "how to do laundry",
+   "laundry tips"
+  ],
+  "a": "Sort by color (whites, darks, colors), check labels, use the right temperature (cold for most), do not overload the machine, and dry or air-dry as the label says. Wash new dark clothes separately the first time.",
+  "more": "Empty pockets first."
+ },
+ {
+  "q": [
+   "how to change a tire",
+   "flat tire"
+  ],
+  "a": "Park on flat ground with the hazards on, loosen the lug nuts slightly, jack up the car, remove the nuts and the wheel, put on the spare, tighten the nuts in a star pattern, lower the car and tighten again. Spares are for short trips only.",
+  "more": "Check the owner's manual for the jack points."
+ },
+ {
+  "q": [
+   "how to start a business",
+   "start my own business"
+  ],
+  "a": "Find a problem people will pay to solve, test it cheaply with real customers before building much, make a simple plan for costs and pricing, register the business as your area requires, and keep your day job until it earns.",
+  "more": "Start small and learn fast."
+ },
+ {
+  "q": [
+   "how to freelance",
+   "how to start freelancing"
+  ],
+  "a": "Pick a skill people pay for (coding, design, writing), build 3 sample projects, make a simple portfolio, and find clients on platforms like Upwork or through your network. Price fairly, agree on scope and payment in writing.",
+  "more": "Always get part of the money upfront."
+ },
+ {
+  "q": [
+   "how to start a youtube channel",
+   "start a youtube channel"
+  ],
+  "a": "Pick a topic you enjoy that has an audience, make 10 videos before judging results, work on strong titles and thumbnails, and keep your audio clear. Upload consistently and learn from your analytics.",
+  "more": "Most growth comes from improving each video a little."
+ },
+ {
+  "q": [
+   "how to cook pasta",
+   "cook spaghetti"
+  ],
+  "a": "Boil water with a good pinch of salt, add the pasta, cook following the package time (taste it a minute early), save a cup of pasta water, drain, and toss with sauce, adding a splash of the water to make it silky.",
+  "more": "Do not rinse pasta, the starch helps sauce stick."
+ },
+ {
+  "q": [
+   "how to bake cookies",
+   "chocolate chip cookies"
+  ],
+  "a": "Mix 1 cup softened butter with 3/4 cup each of white and brown sugar, add 2 eggs and vanilla, then stir in 2 1/4 cups flour, 1 tsp baking soda, 1 tsp salt and 2 cups chocolate chips. Bake at 190°C (375°F) for 9 to 11 minutes.",
+  "more": "Chill the dough for 30 minutes for thicker cookies."
+ },
+ {
+  "q": [
+   "how to make scrambled eggs",
+   "scrambled eggs"
+  ],
+  "a": "Whisk eggs with a pinch of salt, melt butter in a pan on low-medium heat, pour in the eggs, and stir gently until just set but still glossy. Pull them off the heat a little early because they keep cooking.",
+  "more": "Low heat makes them creamy."
+ },
+ {
+  "q": [
+   "how to clean my room",
+   "clean my room",
+   "room cleaning"
+  ],
+  "a": "Throw trash away first, gather dishes, sort clothes into clean and dirty, put things back where they belong, then wipe surfaces and vacuum last. Set a 15 minute timer and play music.",
+  "more": "Do a quick 5 minute reset each day."
+ },
+ {
+  "q": [
+   "how to save electricity",
+   "reduce energy bill"
+  ],
+  "a": "Turn off lights and unplug chargers, use LED bulbs, wash clothes in cold water, set the thermostat a couple degrees lower in winter and higher in summer, and air-dry laundry.",
+  "more": "Standby devices still use power."
+ },
+ {
+  "q": [
+   "how to deal with a bully",
+   "bullied at school"
+  ],
+  "a": "You do not deserve it and it is not your fault. Stay calm, do not retaliate, stay near friends, and tell a trusted adult such as a parent, teacher or counselor. Keep records of what happened. If you feel unsafe, get help right away.",
+  "more": "You can also talk to me about it."
+ },
+ {
+  "q": [
+   "how to deal with a breakup",
+   "breakup advice",
+   "my girlfriend broke up with me",
+   "my boyfriend broke up with me"
+  ],
+  "a": "I am sorry, that hurts. Let yourself feel it, lean on friends and family, avoid checking their social media for a while, and keep a routine with sleep, food and movement. It gets lighter with time.",
+  "more": "Want to talk about what happened?"
+ },
+ {
+  "q": [
+   "i failed my test",
+   "i failed an exam",
+   "bad grade"
+  ],
+  "a": "That stings, and it does not define you. Look at what went wrong (not enough time? unclear topic?), ask your teacher what to improve, and make a plan for next time. One test is one data point.",
+  "more": "Many successful people failed exams."
+ },
+ {
+  "q": [
+   "i am nervous",
+   "nervous about presentation",
+   "stage fright"
+  ],
+  "a": "Nerves mean you care. Practice out loud a few times, breathe slowly before you start, plan your first sentence, and focus on helping your audience rather than being judged. A little shaking is normal and people rarely notice.",
+  "more": "Drink water and arrive early."
+ },
+ {
+  "q": [
+   "what is machine learning"
+  ],
+  "a": "Machine learning lets software learn patterns from examples instead of hand-written rules. A neural network stacks layers of tiny math units that adjust weights to reduce error."
+ },
+ {
+  "q": [
+   "how to learn coding",
+   "learn to code",
+   "coding roadmap",
+   "where do i start programming"
+  ],
+  "a": "Roadmap: 1) HTML/CSS, 2) JavaScript, 3) tiny projects, 4) Git, 5) a backend in Node or Python, 6) a database, 7) deploy something real. Build every week."
+ },
+ {
+  "q": [
+   "how to study",
+   "study tips",
+   "productivity tips"
+  ],
+  "a": "Work in 25 minute focus blocks, phone out of reach, one clear goal per session, and test yourself instead of rereading."
+ },
+ {
+  "q": [
+   "can you learn",
+   "how do you learn",
+   "train you",
+   "how were you trained"
+  ],
+  "a": "Two ways: you teach me with teach: question => answer and I remember forever, and my builder expands my knowledge base and runs npm run train to measure my accuracy."
+ },
+ {
+  "q": [
+   "cookie vs localstorage",
+   "what are cookies",
+   "what is localstorage"
+  ],
+  "a": "Cookies are small data sent to the server with every request. localStorage stays in the browser, holds about 5MB, and is never sent automatically."
+ },
+ {
+  "q": [
+   "how to buy a domain",
+   "what is hosting",
+   "how do i host a website"
+  ],
+  "a": "Buy a domain from a registrar like Namecheap or Cloudflare, host the site on Render, Netlify or Vercel, then point the domain's DNS records at the host."
+ },
+ {
+  "q": [
+   "resume tips",
+   "how to write a resume",
+   "cv tips"
+  ],
+  "a": "Keep it to one page, lead with impact, use numbers like cut load time 40 percent, link your GitHub and projects, and tailor it to each job."
+ },
+ {
+  "q": [
+   "interview tips",
+   "coding interview",
+   "how to pass interview"
+  ],
+  "a": "Explain your thinking out loud, practice LeetCode style problems, know your projects deeply, and ask good questions at the end."
+ },
+ {
+  "q": [
+   "how to learn fast",
+   "learn faster",
+   "memory tips"
+  ],
+  "a": "Learn by doing, test yourself from memory, space practice over days, teach it to someone, and sleep well because sleep locks learning in."
+ },
+ {
+  "q": [
+   "public speaking tips",
+   "nervous presenting"
+  ],
+  "a": "Practice out loud, start with a clear opening line, slow down, pause instead of saying um, and remember the audience wants you to do well."
+ },
+ {
+  "q": [
+   "how to cook rice",
+   "cook rice"
+  ],
+  "a": "Rinse the rice, use about 1 cup rice to 2 cups water, bring to a boil, cover and simmer on low for 15 to 18 minutes, then rest 5 minutes."
+ },
+ {
+  "q": [
+   "how to boil an egg",
+   "boil egg"
+  ],
+  "a": "Place eggs in boiling water: 6 to 7 minutes for soft, 10 to 12 for hard. Then move them to cold water."
+ },
+ {
+  "q": [
+   "easy dinner ideas",
+   "what should i cook"
+  ],
+  "a": "Easy ideas: fried rice, pasta with garlic and veggies, chicken wraps, scrambled egg sandwiches, or a sheet-pan chicken and potatoes."
+ },
+ {
+  "q": [
+   "how to learn a language",
+   "learn english",
+   "learn spanish"
+  ],
+  "a": "Study a little every day, learn the 1000 most common words, listen to real content, speak from the start, and use spaced repetition apps."
+ },
+ {
+  "q": [
+   "how to write an essay",
+   "essay tips"
+  ],
+  "a": "State your main point in a thesis, give one idea per paragraph with evidence, then end by tying it back to the thesis. Edit after a break."
+ },
+ {
+  "q": [
+   "how to learn math",
+   "im bad at math"
+  ],
+  "a": "Math is built in layers, so fix the shaky basics first. Do problems daily, check mistakes carefully, and use free resources like Khan Academy."
+ }
+]

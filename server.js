@@ -1,8 +1,9 @@
 const http=require('http'),fs=require('fs'),path=require('path');
+try{require("fs").mkdirSync(process.env.DATA_DIR||require("path").join(__dirname,"data"),{recursive:true})}catch(e){}
 const {respond,stats}=require('./engine');
-const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),SF=path.join(__dirname,'data','sessions.json');
+const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),DD=process.env.DATA_DIR||path.join(__dirname,'data'),SF=path.join(DD,'sessions.json');
 let sessions={};try{sessions=JSON.parse(fs.readFileSync(SF,'utf8'))}catch(e){}
-const DF=f=>path.join(__dirname,'data',f),rd=(f,d)=>{try{return JSON.parse(fs.readFileSync(DF(f),'utf8'))}catch(e){return d}},wr=(f,o)=>{try{fs.writeFileSync(DF(f),JSON.stringify(o))}catch(e){}};
+const DF=f=>path.join(DD,f),rd=(f,d)=>{try{return JSON.parse(fs.readFileSync(DF(f),'utf8'))}catch(e){return d}},wr=(f,o)=>{try{fs.writeFileSync(DF(f),JSON.stringify(o))}catch(e){}};
 let st=rd('stats.json',{total:0,skills:{},up:0,down:0});setInterval(()=>wr('stats.json',st),5000);
 const E=x=>String(x).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 let dirty=false;setInterval(()=>{if(dirty){dirty=false;try{fs.writeFileSync(SF,JSON.stringify(sessions))}catch(e){}}},5000);
@@ -11,7 +12,7 @@ const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png
 const json=(res,c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
 http.createServer((req,res)=>{
  const url=req.url.split('?')[0];
- if(req.method==='GET'&&url==='/api/health')return json(res,200,{ok:true,engine:'WilliamCore v1',...stats()});
+ if(req.method==='GET'&&url==='/api/health')return json(res,200,{ok:true,engine:'WilliamCore v2',...stats()});
  if(req.method==='POST'&&url==='/api/chat'){
   const ip=req.headers['x-forwarded-for']||req.socket.remoteAddress;hits[ip]=(hits[ip]||0)+1;
   if(hits[ip]>60)return json(res,429,{out:'Slow down a little.',skill:'limit',conf:1});

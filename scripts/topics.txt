@@ -1,0 +1,211 @@
+# Starter Wikipedia topics. Add one title per line, then run: npm run ingest
+Photosynthesis
+Black hole
+Solar System
+Milky Way
+Big Bang
+Albert Einstein
+Isaac Newton
+Marie Curie
+Charles Darwin
+Nikola Tesla
+Leonardo da Vinci
+William Shakespeare
+Napoleon
+Alexander the Great
+Julius Caesar
+Cleopatra
+Abraham Lincoln
+George Washington
+Martin Luther King Jr.
+Nelson Mandela
+Mahatma Gandhi
+World War I
+World War II
+Cold War
+French Revolution
+American Revolution
+Industrial Revolution
+Roman Empire
+Ancient Egypt
+Ancient Greece
+Renaissance
+Middle Ages
+Viking Age
+Mongol Empire
+Ottoman Empire
+Silk Road
+Internet
+World Wide Web
+Computer
+Artificial intelligence
+Machine learning
+Neural network
+Programming language
+Python (programming language)
+JavaScript
+HTML
+CSS
+Git
+Linux
+Operating system
+Algorithm
+Data structure
+Database
+Cryptography
+Blockchain
+Bitcoin
+Cloud computing
+Video game
+Chess
+Minecraft
+Fortnite
+Counter-Strike 2
+Roblox
+Esports
+Music
+Hip hop
+Rock music
+Film
+Photography
+Painting
+Mathematics
+Algebra
+Geometry
+Calculus
+Statistics
+Probability
+Physics
+Chemistry
+Biology
+Cell (biology)
+DNA
+Evolution
+Human body
+Brain
+Heart
+Immune system
+Vaccine
+Nutrition
+Exercise
+Sleep
+Climate change
+Global warming
+Renewable energy
+Solar energy
+Nuclear power
+Electricity
+Gravity
+Speed of light
+Atom
+Periodic table
+Water
+Oxygen
+Carbon dioxide
+Earth
+Moon
+Sun
+Mars
+Jupiter
+Saturn
+Venus
+Mercury (planet)
+Pluto
+Asteroid
+Comet
+Space exploration
+NASA
+SpaceX
+Apollo 11
+International Space Station
+Africa
+Asia
+Europe
+North America
+South America
+Antarctica
+Australia
+United States
+China
+India
+Japan
+Germany
+France
+United Kingdom
+Canada
+Brazil
+Russia
+Mexico
+Egypt
+Pacific Ocean
+Atlantic Ocean
+Amazon rainforest
+Sahara
+Mount Everest
+Nile
+Great Wall of China
+Pyramids of Giza
+Democracy
+Republic
+Constitution
+United Nations
+European Union
+Capitalism
+Socialism
+Economy
+Inflation
+Stock market
+Money
+Tax
+Education
+Language
+English language
+Spanish language
+Psychology
+Philosophy
+Religion
+Sociology
+Communication
+Public speaking
+Friendship
+Emotion
+Happiness
+Stress (biology)
+Meditation
+Dog
+Cat
+Horse
+Dolphin
+Elephant
+Shark
+Eagle
+Dinosaur
+Tyrannosaurus
+Tree
+Flower
+Coffee
+Tea
+Pizza
+Chocolate
+Rice
+Bread
+Football (soccer)
+Basketball
+American football
+Baseball
+Tennis
+Olympic Games
+FIFA World Cup
+Smartphone
+Electric car
+Robot
+Telescope
+Microscope
+Airplane
+Train
+Ship
+Printing press
+Electricity generation
+Telephone
+Television
+Light bulb
