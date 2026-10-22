@@ -80,3 +80,31 @@ test('fallback models: a rate-limited main model falls through to the next one (
   const s=await app.stream('why is the ocean salty and deep');assert.equal(s.done.out,'Qwen answer to: why is the ocean salty and deep');
   assert.ok(m.state.models.includes('main-free')&&m.state.models.includes('second-free'));assert.ok(!m.state.models.includes('third-free'));
  }finally{await app.stop();await m.close()}});
+
+test('smart mode: coding requests go to Qwen (with the brain template as reference), small talk and exact tools stay with the brain',async()=>{
+ const m=await mockLLM(),app=await startApp({LLM_BASE_URL:m.url});
+ try{
+  const c=await app.chat('write a todo app in html');assert.match(c.skill,/^llm:/);
+  const sys=m.state.last.messages[0].content;assert.match(sys,/CODING RULES/);assert.match(sys,/REFERENCE CODE/);
+  assert.equal(m.state.last.temperature,0.2);assert.ok(m.state.last.max_tokens>=3500);
+  const calls=m.state.calls;
+  const g=await app.chat('hello');assert.ok(!/^llm:/.test(g.skill));
+  const x=await app.chat('what is 12*(8+3)');assert.equal(x.skill,'math');
+  assert.equal(m.state.calls,calls,'greetings and math cost nothing');
+  const bug=await app.chat('find bugs:\nif (a = 5) { var x = 1 }');assert.match(bug.skill,/^llm:/);assert.match(m.state.last.messages[0].content,/STATIC CHECK RESULTS/);
+ }finally{await app.stop();await m.close()}});
+
+test('LLM_MODE=fallback keeps the old behaviour (brain codegen)',async()=>{
+ const m=await mockLLM(),app=await startApp({LLM_BASE_URL:m.url,LLM_MODE:'fallback'});
+ try{const c=await app.chat('write a todo app in html');assert.equal(c.skill,'codegen');assert.equal(m.state.calls,0);
+ }finally{await app.stop();await m.close()}});
+
+test('provider chain: when provider 1 is down, provider 2 answers (normal + streaming)',async()=>{
+ const bad=await mockLLM(),good=await mockLLM();bad.state.fail=true;
+ const app=await startApp({LLM_BASE_URL:bad.url,LLM_API_KEY:'k1',LLM_MODEL:'a',LLM2_BASE_URL:good.url,LLM2_API_KEY:'k2',LLM2_MODEL:'b'});
+ try{
+  const h=await fetch(app.base+'/api/health').then(r=>r.json());assert.equal(h.llm.providers,2);
+  const a=await app.chat(Q);assert.equal(a.out,'Qwen answer to: '+Q);
+  const s=await app.stream('why is the ocean salty and deep');assert.equal(s.done.out,'Qwen answer to: why is the ocean salty and deep');
+  assert.equal(good.state.last.model,'b');assert.ok(bad.state.calls>=2);
+ }finally{await app.stop();await bad.close();await good.close()}});

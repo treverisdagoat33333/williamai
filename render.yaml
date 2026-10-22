@@ -16,7 +16,13 @@ services:
       - key: LLM_FALLBACK_MODELS
         sync: false
       - key: LLM_MODE
-        value: fallback
+        value: smart
+      - key: LLM2_BASE_URL
+        sync: false
+      - key: LLM2_API_KEY
+        sync: false
+      - key: LLM2_MODEL
+        sync: false
       - key: LLM_DAILY_CAP
         value: "500"
       - key: LLM_IP_HOURLY

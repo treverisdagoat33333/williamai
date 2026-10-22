@@ -17,9 +17,9 @@ Put these in the environment or in a `.env` file (see `.env.example`), then run 
 - `LLM_BASE_URL`  endpoint ending in /v1 (setting this turns the LLM on)
 - `LLM_API_KEY`   key for hosted providers (not needed for local Ollama)
 - `LLM_MODEL`     model name as the provider spells it
-- `LLM_MODE`      `fallback` (default: Qwen only when the brain is unsure), `always` (Qwen phrases every knowledge answer using the brain's answer as a fact), `off`
+- `LLM_MODE`      `smart` (default: Qwen does the thinking and ALL the coding, the brain keeps exact tools, math, small talk, learned answers and supplies facts), `fallback` (Qwen only when the brain is unsure), `off`
 - `LLM_FALLBACK_MODELS` comma-separated model ids tried in order when the main model errors or is rate limited
-- `LLM_TEMPERATURE` (0.5), `LLM_MAX_TOKENS` (700), `LLM_TIMEOUT_MS` (30000)
+- `LLM_TEMPERATURE` (0.5), `LLM_MAX_TOKENS` (1500), `LLM_CODE_TEMPERATURE` (0.2), `LLM_CODE_MAX_TOKENS` (3500), `LLM_TIMEOUT_MS` (45000)
 
 Examples (check each provider's docs for current model names):
 - Ollama (local): `LLM_BASE_URL=http://localhost:11434/v1 LLM_MODEL=qwen2.5:7b-instruct`
@@ -28,6 +28,15 @@ Examples (check each provider's docs for current model names):
 - Alibaba DashScope: `LLM_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1 LLM_API_KEY=... LLM_MODEL=qwen-plus`
 
 Reasoning models that emit `<think>...</think>` are handled: the thinking is hidden, also while streaming.
+
+### Make it as smart as possible for free: chain free providers
+Every free provider needs one free key (email signup). You can chain several: williamAI tries provider 1, and if it is rate limited or down it tries provider 2, then 3 (up to 5). Provider 1 uses `LLM_*`, provider 2 uses `LLM2_*`, provider 3 `LLM3_*` ... each with `BASE_URL`, `API_KEY`, `MODEL` and optional `FALLBACK_MODELS`.
+Suggested free stack (model ids change, copy the exact id from each provider's model list):
+1. Groq (fast, free, no card): `LLM_BASE_URL=https://api.groq.com/openai/v1`, key from console.groq.com/keys, model: the Qwen3 32B id listed at console.groq.com/docs/models
+2. OpenRouter free: `LLM2_BASE_URL=https://openrouter.ai/api/v1`, `LLM2_MODEL=qwen/qwen3-coder:free`, `LLM2_FALLBACK_MODELS=openrouter/free`
+3. Google Gemini (strongest free model, but free-tier prompts may be used by Google to improve products, and free use is restricted in the EU/UK/Switzerland): `LLM3_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai`, key from aistudio.google.com, model: a current Flash model id
+Other free options: Cerebras (`https://api.cerebras.ai/v1`, about 1M tokens/day), Cloudflare Workers AI, Mistral.
+In `smart` mode coding requests get a dedicated coding prompt, low temperature, a bigger token budget, the brain's template as reference, and the static bug-check results as hints.
 
 ### Put Qwen on your website with no local setup (OpenRouter free tier)
 1. Make a free account at openrouter.ai and create an API key.
