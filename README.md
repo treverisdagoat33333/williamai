@@ -1,17 +1,20 @@
 # williamAI
-Frontend (public/index.html) + Node backend (server.js) + WilliamCore brain (engine.js) + Qwen language layer (llm.js, core.js).
+Frontend (public/index.html) + Node backend (server.js) + WilliamCore brain (engine.js) + Qwen language layer (llm.js, core.js) + storage (store.js).
+Zero npm dependencies. Node 18+ (22 recommended).
+
 Run: `npm start` then open http://localhost:3000
-API: POST /api/chat {text,sid} -> {out,skill,conf} | GET /api/health
-Teach him: `teach: question => answer` (saved to data/learned.json)
+API: `POST /api/chat {text,sid,stream?}` -> `{out,skill,conf}` (with `stream:true` it replies as server-sent events: `{delta}` ... `{done,out,skill,conf}`) | `POST /api/feedback` | `GET /api/health` | `GET /admin?key=ADMIN_KEY`
+Teach him by hand: `teach: question => answer`
+Tests: `npm test` (10 end-to-end tests with fake Qwen and fake Upstash servers)
 
 ## How the brain and Qwen fit together
 WilliamCore always runs first. Exact skills (tools, math, code generation, code analyzer, follow-ups, teach) are answered by the brain and never handed to the LLM.
-When the brain is unsure, Qwen answers, grounded in the closest things the brain knows (its "brain notes") plus the last few turns of the conversation.
-If the LLM is down or slow, williamAI silently falls back to the brain's own answer. With no LLM configured it behaves exactly as before (zero dependencies, no keys).
+When the brain is unsure, Qwen answers, grounded in the closest things the brain knows ("brain notes") plus the last few turns of conversation, and the reply streams to the UI word by word.
+If the LLM is down, slow or capped, williamAI silently falls back to the brain's own answer. With no LLM configured it behaves exactly as the original zero-key brain.
 
-## Connect Qwen (any OpenAI-compatible endpoint)
-Environment variables:
-- `LLM_BASE_URL`  endpoint ending in /v1 (required to enable the LLM)
+## 1. Connect Qwen
+Put these in the environment or in a `.env` file (see `.env.example`), then run `npm run check:llm` to verify auth, model name, latency and streaming.
+- `LLM_BASE_URL`  endpoint ending in /v1 (setting this turns the LLM on)
 - `LLM_API_KEY`   key for hosted providers (not needed for local Ollama)
 - `LLM_MODEL`     model name as the provider spells it
 - `LLM_MODE`      `fallback` (default: Qwen only when the brain is unsure), `always` (Qwen phrases every knowledge answer using the brain's answer as a fact), `off`
@@ -23,5 +26,20 @@ Examples (check each provider's docs for current model names):
 - Together: `LLM_BASE_URL=https://api.together.xyz/v1 LLM_API_KEY=... LLM_MODEL=Qwen/Qwen2.5-72B-Instruct-Turbo`
 - Alibaba DashScope: `LLM_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1 LLM_API_KEY=... LLM_MODEL=qwen-plus`
 
-Check `/api/health` to confirm: it shows the LLM mode, model and host (never the key).
-Deploy: push to GitHub, create a Render Web Service, start: `npm start`, and set the LLM_* variables in Render (Render's free plan cannot run Ollama, so use a hosted provider there).
+Reasoning models that emit `<think>...</think>` are handled: the thinking is hidden, also while streaming.
+
+## 2. The learn loop (the brain grows)
+A thumbs-up on an answer that came from Qwen saves that question and answer into the brain (`learned.json`), so next time the brain answers instantly and for free. A thumbs-down removes it again.
+Safeguards: the server only accepts feedback for answers that session really received from Qwen (forged feedback is ignored); context-dependent questions ("explain that again"), "I don't know" answers and code questions are never learned; `LEARN_MIN_UPS=2` requires thumbs-ups from two different sessions. `/admin` lists what was learned from Qwen.
+Caveat: learned answers are matched by similarity, so a very similar but different question can get a learned answer. Review `/admin` now and then.
+
+## 3. Streaming
+Qwen replies appear live in the UI. Brain answers (instant) keep the typing animation. If the stream breaks midway, the partial reply is kept.
+
+## 4. Cost protection and persistence
+- `LLM_DAILY_CAP` (default 500 Qwen calls per UTC day) and `LLM_IP_HOURLY` (default 20 per IP): when hit, williamAI keeps working brain-only. `/admin` shows calls, errors, blocked calls and a rough token estimate.
+- Render's free plan wipes the disk on restart. Create a free Upstash Redis database and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`: learned answers, feedback, unknown questions, stats and usage then persist there (and are mirrored to local files). Sessions stay local-only. `/api/health` shows `storage: upstash` when it is active.
+- Security: user text only ever goes in the user role, the system prompt tells the model to treat it as untrusted, the UI escapes all output, and `/api/chat` is rate-limited.
+
+## Deploy (Render)
+Push to GitHub, create a Render Web Service, start command `npm start`, then set the LLM_*, UPSTASH_* and ADMIN_KEY variables in the Render dashboard (they are declared in `render.yaml` with `sync: false` so no secrets live in the repo). Render's free plan cannot run Ollama, so use a hosted Qwen provider there.

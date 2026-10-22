@@ -127,15 +127,18 @@ function extra(t){const l=t.toLowerCase().replace(/[?!]+$/,'');let m;
  if(m=t.match(/(uppercase|lowercase)[:\s]+(.+)/i))return m[1].toLowerCase()==='uppercase'?m[2].toUpperCase():m[2].toLowerCase();
  return null}
 /* ---------- Learning (persistent) ---------- */
-const LF=path.join(__dirname,'data','learned.json');
-let learned=[];try{learned=JSON.parse(fs.readFileSync(LF,'utf8'))}catch(e){}
+const db=require('./store');
+let learned=[];
 function addLearned(q,a){intents.push({id:'taught:'+q.slice(0,20),ex:[q],r:()=>a})}
 const KB=[...require('./knowledge'),...require('./knowledge2'),...require('./knowledge3')];
 KB.forEach(([q,a])=>{const qs=q.split('|');intents.push({id:'kb:'+qs[0],ex:qs,r:()=>a})});
 const chain2={};KB.forEach(([q,a])=>{const w=a.replace(/\*\*/g,'').split(/\s+/);for(let i=0;i<w.length-3;i++){const k=(w[i]+' '+w[i+1]+' '+w[i+2]).toLowerCase();(chain2[k]=chain2[k]||[]).push(w[i+3])}});
-learned.forEach(l=>addLearned(l.q,l.a));build();
-function learn(q,a){learned.push({q,a});addLearned(q,a);build();
- try{fs.writeFileSync(LF,JSON.stringify(learned,null,1))}catch(e){}}
+build();
+const qk=q=>q.trim().toLowerCase();
+function dropTaught(k){for(let i=intents.length-1;i>=0;i--)if(intents[i].id.startsWith('taught:')&&qk(intents[i].ex[0])===k)intents.splice(i,1)}
+function learn(q,a,src){const k=qk(q);dropTaught(k);learned=learned.filter(l=>qk(l.q)!==k);learned.push({q,a,src:src||'user'});addLearned(q,a);build();db.set('learned',learned)}
+function unlearn(q){const k=qk(q),n=learned.length;learned=learned.filter(l=>qk(l.q)!==k);dropTaught(k);if(learned.length===n)return false;build();db.set('learned',learned);return true}
+function init(){for(let i=intents.length-1;i>=0;i--)if(intents[i].id.startsWith('taught:'))intents.splice(i,1);learned=db.get('learned',[]);learned.forEach(l=>addLearned(l.q,l.a));build()}
 function gen(seed){const ws=(seed.toLowerCase().match(/[a-z0-9+#]{4,}/g)||[]).filter(w=>!stop.has(w));
  for(const w of ws){const ks=Object.keys(chain2).filter(k=>k.split(' ')[0].replace(/[^a-z0-9+#]/g,'')===w);if(!ks.length)continue;
   let k=pick(ks);const o=k.split(' ');for(let i=0;i<22;i++){const n=chain2[k];if(!n)break;const x=pick(n);o.push(x);if(/[.!?]$/.test(x)&&o.length>8)break;k=o.slice(-3).join(' ').toLowerCase()}
@@ -177,7 +180,7 @@ function respond(text,session){
  if(x=extra(text))return O({out:x,skill:'tool',conf:.98});
  const r=think(text);
  if(r.skill==='fallback'){
-  try{const UF=path.join(__dirname,'data','unknown.json');let u=[];try{u=JSON.parse(fs.readFileSync(UF,'utf8'))}catch(e){}u.push(text.slice(0,200));fs.writeFileSync(UF,JSON.stringify(u.slice(-500)))}catch(e){}
+  try{const u=db.get('unknown',[]);u.push(text.slice(0,200));db.set('unknown',u.slice(-500))}catch(e){}
   if(/(sad|angry|annoyed|stress|tired|frustrat|hate|stuck|anxious|lonely|depress)/i.test(text))return O({out:'That sounds rough. Tell me what is going on, or paste the problem and I will help you work through it.',skill:'empathy',conf:.6});
   const c=classify(text);
   if(c.id&&c.s>.12){const it=intents.find(i=>i.id===c.id);return O({out:'Did you mean: **"'+it.ex[0]+'"**? Ask me that and I will answer.',skill:'did-you-mean',conf:c.s})}
@@ -186,4 +189,4 @@ function respond(text,session){
 function evaluate(){let ok=0,tot=0;const by={};docs.forEach(d=>by[d.id]=(by[d.id]||0)+1);
  docs.forEach(d=>{if(by[d.id]<2)return;tot++;if(classify(d.t,docs.filter(x=>x!==d)).id===d.id)ok++});return{tested:tot,correct:ok,accuracy:tot?Math.round(1000*ok/tot)/10:0}}
 function retrieve(text,n=3){const c=classify(text),o=[];[c.id&&{id:c.id,s:c.s},c.alt&&c.alt.id&&{id:c.alt.id,s:c.alt.s}].filter(Boolean).forEach(x=>{if(o.length>=n||x.s<.12||!/^(kb|taught):/.test(x.id))return;const it=intents.find(i=>i.id===x.id);if(it){try{const a=it.r();if(typeof a==='string'&&!o.includes(a))o.push(a)}catch(e){}}});return o}
-module.exports={respond,retrieve,evaluate,stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};
+module.exports={respond,retrieve,evaluate,learn,unlearn,init,learnedList:()=>learned.slice(),stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};

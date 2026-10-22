@@ -1,1 +1,15 @@
-{"name":"williamai","version":"1.0.0","description":"williamAI - original brain (WilliamCore) with a Qwen language layer, zero dependencies","main":"server.js","scripts":{"start":"node server.js","train":"node train.js"},"engines":{"node":">=18"}}
+{
+ "name": "williamai",
+ "version": "1.0.0",
+ "description": "williamAI - original brain (WilliamCore) with a Qwen language layer, zero dependencies",
+ "main": "server.js",
+ "scripts": {
+  "start": "node server.js",
+  "train": "node train.js",
+  "test": "node --test test/williamai.test.js",
+  "check:llm": "node scripts/check-llm.js"
+ },
+ "engines": {
+  "node": ">=18"
+ }
+}
