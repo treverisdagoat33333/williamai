@@ -25,15 +25,18 @@ const feats=t=>t.concat(t.slice(1).map((w,i)=>t[i]+'_'+w));
 const syn={hey:'hello',hi:'hello',yo:'hello',howdy:'hello',thx:'thanks',ty:'thanks',cya:'bye',wanna:'want',gonna:'going'};
 function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const m=[];for(let i=0;i<=a.length;i++){m[i]=[i];for(let j=1;j<=b.length;j++)m[i][j]=i?Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1)):j}return m[a.length][b.length]}
 function fix(t){return t.map(w=>{w=syn[w]||w;if(df[w]||w.length<4)return w;let b=w,bd=w.length>=6?3:2;for(const k in df){if(k.includes('_'))continue;const d=lev(w,k);if(d<bd){bd=d;b=k}}return b})}
+const tri=t=>{const x=' '+t.filter(w=>!w.includes('_')).join(' ')+' ',g=new Set();for(let i=0;i<x.length-2;i++)g.add(x.slice(i,i+3));return g};
 let docs=[],df={};
 const idf=w=>Math.log(1+docs.length/(1+(df[w]||0)));
 const vec=t=>{const v={};t.forEach(w=>v[w]=(v[w]||0)+idf(w));return v};
 const norm=v=>Math.sqrt(Object.values(v).reduce((a,b)=>a+b*b,0))||1;
 function build(){docs=intents.flatMap(i=>i.ex.map(e=>({id:i.id,t:feats(tok(e).map(w=>syn[w]||w))})));df={};
- docs.forEach(d=>new Set(d.t).forEach(w=>df[w]=(df[w]||0)+1));docs.forEach(d=>{d.v=vec(d.t);d.n=norm(d.v)})}
+ docs.forEach(d=>new Set(d.t).forEach(w=>df[w]=(df[w]||0)+1));docs.forEach(d=>{d.v=vec(d.t);d.n=norm(d.v);d.g=tri(d.t)})}
 build();
-function classify(text,pool=docs){const t=Array.isArray(text)?text:feats(fix(tok(text)));if(!t.length)return{id:null,s:0};const v=vec(t),n=norm(v);let best={id:null,s:0};
- for(const d of pool){let dot=0;for(const w in v)if(d.v[w])dot+=v[w]*d.v[w];const sc=dot/(n*d.n);if(sc>best.s)best={id:d.id,s:sc}}return best}
+function classify(text,pool=docs){const t=Array.isArray(text)?text:feats(fix(tok(text)));if(!t.length)return{id:null,s:0,alt:{}};const v=vec(t),n=norm(v),g=tri(t);let best={id:null,s:0},alt={id:null,s:0};
+ for(const d of pool){let dot=0;for(const w in v)if(d.v[w])dot+=v[w]*d.v[w];let ov=0;for(const x of g)if(d.g.has(x))ov++;const sc=.75*dot/(n*d.n)+.25*ov/(g.size+d.g.size-ov||1);
+  if(sc>best.s){if(best.id!==d.id)alt=best;best={id:d.id,s:sc}}else if(sc>alt.s&&d.id!==best.id)alt={id:d.id,s:sc}}
+ best.alt=alt;return best}
 
 /* ---------- Code generator ---------- */
 const C={
@@ -61,6 +64,15 @@ express:{js:`const express = require("express");\nconst app = express();\napp.us
 class:{py:`class Animal:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f"{self.name} makes a sound"\n\nclass Dog(Animal):\n    def speak(self):\n        return f"{self.name} says woof"\n\nprint(Dog("Rex").speak())`,js:`class Animal {\n  constructor(name) { this.name = name; }\n  speak() { return this.name + " makes a sound"; }\n}\nclass Dog extends Animal {\n  speak() { return this.name + " says woof"; }\n}\nconsole.log(new Dog("Rex").speak());`}
 });
 Object.assign(topicKeys,{binsearch:['binary search'],gcd:['gcd','greatest common'],anagram:['anagram'],debounce:['debounce'],flask:['flask','python server','python api'],express:['express','node server','node api'],class:['class','oop','inheritance']});
+Object.assign(C,{
+sqlite:{py:`import sqlite3\n\ndb = sqlite3.connect("app.db")\ndb.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")\ndb.execute("INSERT INTO users (name) VALUES (?)", ("William",))\ndb.commit()\nprint(db.execute("SELECT * FROM users").fetchall())`},
+email:{py:`import re\n\npattern = r"^[\\w.+-]+@[\\w-]+\\.[\\w.]+$"\nprint(bool(re.match(pattern, "me@site.com")))`,js:`const isEmail = s => /^[\\w.+-]+@[\\w-]+\\.[\\w.]+$/.test(s);\nconsole.log(isEmail("me@site.com"));`},
+readfile:{py:`with open("notes.txt", encoding="utf-8") as f:\n    for line in f:\n        print(line.strip())`,js:`const fs = require("fs");\nconst text = fs.readFileSync("notes.txt", "utf8");\ntext.split("\\n").forEach(l => console.log(l.trim()));`},
+crud:{js:`const express = require("express");\nconst app = express();\napp.use(express.json());\nlet items = [], id = 1;\n\napp.get("/items", (req, res) => res.json(items));\napp.post("/items", (req, res) => { const it = { id: id++, ...req.body }; items.push(it); res.status(201).json(it); });\napp.put("/items/:id", (req, res) => {\n  const it = items.find(i => i.id == req.params.id);\n  if (!it) return res.sendStatus(404);\n  Object.assign(it, req.body); res.json(it);\n});\napp.delete("/items/:id", (req, res) => { items = items.filter(i => i.id != req.params.id); res.sendStatus(204); });\napp.listen(3000);`},
+card:{html:`<!DOCTYPE html>\n<html><head><style>\n.card{max-width:300px;margin:40px auto;padding:20px;border-radius:16px;background:#14161f;color:#eee;font-family:sans-serif;box-shadow:0 10px 30px #0008}\n.card button{background:#7c5cff;color:#fff;border:0;padding:10px 16px;border-radius:10px}\n</style></head>\n<body style="background:#0a0b10">\n<div class="card"><h3>Card title</h3><p>Short description goes here.</p><button>Action</button></div>\n</body></html>`},
+notes:{html:`<!DOCTYPE html>\n<html><body>\n<textarea id="t" rows="8" cols="40"></textarea>\n<script>\nt.value = localStorage.getItem("note") || "";\nt.oninput = () => localStorage.setItem("note", t.value);\n<\/script></body></html>`}
+});
+Object.assign(topicKeys,{sqlite:['sqlite','database in python'],email:['email regex','validate email','email validation'],readfile:['read file','read a file','open a file'],crud:['crud','rest api'],card:['ui card','card component'],notes:['notes app','note app','localstorage']});
 function codeSkill(text){const l=text.toLowerCase();
  if(!/(write|code|make|build|create|show|generate|program|script|function|example|how (do|to))/.test(l)&&!/\b(python|javascript|js|html)\b/.test(l))return null;
  let topic=null;for(const k in topicKeys)if(topicKeys[k].some(w=>l.includes(w))){topic=k;break}
@@ -95,7 +107,7 @@ function think(text){
  if(out=tools(text))skill='tool',conf=.99;
  else if(out=mathSkill(text))skill='math',conf=.99;
  else if(out=codeSkill(text))skill='codegen',conf=.95;
- else{const c=classify(text);if(c.id&&c.s>.3){const it=intents.find(i=>i.id===c.id);out=it.r();skill='intent:'+c.id;conf=c.s}}
+ else{const c=classify(text);if(c.id&&c.s>.27){const it=intents.find(i=>i.id===c.id);out=it.r();skill='intent:'+c.id;conf=c.s}}
  if(!out){const k=tok(text).slice(0,3).join(', ')||'that';
   out=pick([`I am still learning about "${k}". I am strongest at code, math and tools. Try "write a todo app in html" or "what is 25*4".`,`Not in my brain yet: ${k}. Teach me by asking about code, math, or say "what can you do".`]);conf=.1}
  return{out,skill,conf}}
@@ -118,20 +130,59 @@ function extra(t){const l=t.toLowerCase().replace(/[?!]+$/,'');let m;
 const LF=path.join(__dirname,'data','learned.json');
 let learned=[];try{learned=JSON.parse(fs.readFileSync(LF,'utf8'))}catch(e){}
 function addLearned(q,a){intents.push({id:'taught:'+q.slice(0,20),ex:[q],r:()=>a})}
-require('./knowledge').forEach(([q,a])=>{const qs=q.split('|');intents.push({id:'kb:'+qs[0],ex:qs,r:()=>a})});
+const KB=[...require('./knowledge'),...require('./knowledge2')];
+KB.forEach(([q,a])=>{const qs=q.split('|');intents.push({id:'kb:'+qs[0],ex:qs,r:()=>a})});
+const chain2={};KB.forEach(([q,a])=>{const w=a.replace(/\*\*/g,'').split(/\s+/);for(let i=0;i<w.length-3;i++){const k=(w[i]+' '+w[i+1]+' '+w[i+2]).toLowerCase();(chain2[k]=chain2[k]||[]).push(w[i+3])}});
 learned.forEach(l=>addLearned(l.q,l.a));build();
 function learn(q,a){learned.push({q,a});addLearned(q,a);build();
  try{fs.writeFileSync(LF,JSON.stringify(learned,null,1))}catch(e){}}
+function gen(seed){const ws=(seed.toLowerCase().match(/[a-z0-9+#]{4,}/g)||[]).filter(w=>!stop.has(w));
+ for(const w of ws){const ks=Object.keys(chain2).filter(k=>k.split(' ')[0].replace(/[^a-z0-9+#]/g,'')===w);if(!ks.length)continue;
+  let k=pick(ks);const o=k.split(' ');for(let i=0;i<22;i++){const n=chain2[k];if(!n)break;const x=pick(n);o.push(x);if(/[.!?]$/.test(x)&&o.length>8)break;k=o.slice(-3).join(' ').toLowerCase()}
+  const t=o.join(' ');return t[0].toUpperCase()+t.slice(1)}return null}
+function followup(t){const l=t.toLowerCase().trim().replace(/[?.!]+$/,''),a=ctx.lastAns,first=x=>x.split(/(?<=[.!?])\s/)[0].replace(/\*\*/g,'');let m;
+ if(a&&!a.includes(F)){
+  if(/^(shorter|make it shorter|tldr|short version|summarize that)$/.test(l))return first(a);
+  if(/^(simpler|eli5|explain simpler|explain like i.?m 5|dumb it down)$/.test(l))return 'Simply put: '+first(a);
+  if(/^(more|tell me more|go on|continue|elaborate|explain more)$/.test(l)){const c=classify(a),it=c.alt&&c.alt.id&&c.alt.id.startsWith('kb:')&&intents.find(i=>i.id===c.alt.id);return it?'Related topic: '+it.r():'That is the core of it. Ask a narrower question and I will go deeper.'}}
+ if(a&&/^(again|repeat|say that again)$/.test(l))return a;
+ if(ctx.last&&/^(convert|translate|switch|now|also|and|same|do it|in|to)\b/.test(l)&&(m=l.match(/\b(?:in|to|into)\s+(python|js|javascript|html)\b/)))return codeSkill('write '+ctx.last.topic+' in '+m[1]);
+ return null}
+const BUGS=[['js',/[^=!<>]==[^=]/,'Use === instead of == to avoid surprise type coercion.'],['js',/\bvar\s+\w/,'Prefer let or const over var.'],['js',/\bif\s*\([^=!<>)]*[^=!<>]=[^=][^)]*\)/,'A single = inside if assigns instead of compares. Did you mean === ?'],['js',/\.innerHTML\s*=/,'innerHTML with user data allows XSS. Use textContent.'],['js',/\beval\s*\(/,'eval() is dangerous. Avoid it.'],['js',/for\s*\([^)]*<=\s*\w+\.length/,'Off-by-one: <= length reads past the end. Use <.'],['js',/parseInt\([^,)]*\)/,'parseInt without a radix. Use parseInt(x, 10).'],['js',/\bconsole\.log/,'Leftover console.log. Remove before shipping.'],
+['py',/def\s+\w+\([^)]*=\s*(\[\]|\{\})/,'Mutable default argument. Use None and create the list inside.'],['py',/[=!]=\s*None/,'Use is None / is not None.'],['py',/except\s*:/,'Bare except hides real errors. Catch specific exceptions.'],['py',/^\s*print\s+[^(\s]/m,'Python 2 style print. Use print(...).'],['py',/range\(len\(/,'Use enumerate() instead of range(len(...)).'],['py',/^\s*(def|if|for|while|class|elif|else|try|except|with)\b[^:\n]*$/m,'A block line seems to be missing its colon.']];
+const EX=[[/\b(function\s+\w+|def\s+\w+|=>\s*[{(\w])/,'Defines functions (reusable blocks of code)'],[/\bclass\s+\w+/,'Defines a class (a blueprint for objects)'],[/\b(for|while)\b/,'Uses a loop to repeat work'],[/\b(if|elif|else|switch)\b/,'Makes decisions with conditions'],[/\b(import|require)\b/,'Imports libraries or modules'],[/\b(fetch|axios|requests\.)/,'Makes a network request'],[/\b(await|async)\b/,'Uses async code, waiting for slow work without freezing'],[/\.(map|filter|reduce|forEach)\(/,'Transforms lists with map, filter, reduce or forEach'],[/\b(try|catch|except)\b/,'Handles errors so the program does not crash'],[/addEventListener|onclick/,'Reacts to user events like clicks'],[/document\.|getElementById|querySelector/,'Reads or changes the web page (DOM)'],[/console\.log|\bprint\(/,'Prints output'],[/\breturn\b/,'Returns a result from a function'],[/open\(|readFile|fs\./,'Reads or writes files'],[/localStorage|sessionStorage/,'Saves data in the browser'],[/<\w+[^>]*>/,'Contains HTML markup (page structure)']];
+function analyze(text){
+ if(!/(explain|what does|review|bug|debug|check|fix|wrong|error)/i.test(text))return null;
+ const fm=text.match(/```\w*\n?([\s\S]*?)```/);
+ if(!(fm||text.includes('\n')||/:\s*(const|let|var|def|function|print|for|if|import|class)\b/.test(text)))return null;
+ const code=fm?fm[1]:text.includes('\n')?text.slice(text.indexOf('\n')+1):text.slice(text.search(/:\s*\S/)+1);
+ if(!/[{}();=]|\bdef\b|\bimport\b|=>/.test(code)||code.trim().length<12)return null;
+ const py=/\bdef\s|^\s*print\(|:\s*$/m.test(code)&&!/[{};]\s*$/m.test(code),lang=py?'py':'js';
+ if(/bug|debug|review|wrong|error|fix|check/i.test(text)){
+  const f=BUGS.filter(b=>b[0]===lang&&b[1].test(code)).map(b=>b[2]);
+  const c=x=>(code.match(new RegExp('\\'+x,'g'))||[]).length;
+  [['(',')'],['{','}'],['[',']']].forEach(([o,cl])=>{if(c(o)!==c(cl))f.push('Unbalanced '+o+cl+': '+c(o)+' opening vs '+c(cl)+' closing.')});
+  if(lang==='js'&&/\bawait\b/.test(code)&&!/\basync\b/.test(code))f.push('await is used but nothing is async.');
+  if(lang==='js'&&/\.then\(/.test(code)&&!/catch/.test(code))f.push('A promise has no .catch(). Errors will go unhandled.');
+  return f.length?'**Bug check found '+f.length+' thing'+(f.length>1?'s':'')+':**\n'+f.map((x,i)=>(i+1)+'. '+x).join('\n'):'My checks found no obvious problems. Run it and paste any error message and I will dig in.'}
+ const h=EX.filter(e=>e[0].test(code)).map(e=>'- '+e[1]);
+ return '**Code breakdown** ('+code.trim().split('\n').length+' lines, '+(py?'Python':'JavaScript')+')\n'+(h.join('\n')||'- I could not spot clear patterns.')+'\nSay "find bugs:" before your code and I will check it for problems.'}
 function respond(text,session){
  ctx=session;ctx.turns=(ctx.turns||0)+1;
  const m=text.match(/^teach[:\s]+(.+?)\s*(?:=>|->|=)\s*(.+)$/i);
  if(m&&m[1].length<200&&m[2].length<1000){learn(m[1].trim(),m[2].trim());return{out:'Learned it. Ask me "'+m[1].trim()+'" anytime.',skill:'teach',conf:1}}
- const e=extra(text);if(e)return{out:e,skill:'tool',conf:.98};
+ const O=(r)=>{ctx.lastAns=r.out;return r};let x;
+ if(x=followup(text))return O({out:x,skill:'context',conf:.9});
+ if(x=analyze(text))return O({out:x,skill:'code-analyzer',conf:.9});
+ if(x=extra(text))return O({out:x,skill:'tool',conf:.98});
  const r=think(text);
  if(r.skill==='fallback'){
-  try{const UF=path.join(__dirname,'data','unknown.json');let u=[];try{u=JSON.parse(fs.readFileSync(UF,'utf8'))}catch(x){}u.push(text.slice(0,200));fs.writeFileSync(UF,JSON.stringify(u.slice(-500)))}catch(x){}
-  if(/(sad|angry|annoyed|stress|tired|frustrat|hate|stuck|anxious|lonely|depress)/i.test(text))return{out:'That sounds rough. Tell me what is going on, or paste the problem and I will help you work through it.',skill:'empathy',conf:.6}}
- return r}
+  try{const UF=path.join(__dirname,'data','unknown.json');let u=[];try{u=JSON.parse(fs.readFileSync(UF,'utf8'))}catch(e){}u.push(text.slice(0,200));fs.writeFileSync(UF,JSON.stringify(u.slice(-500)))}catch(e){}
+  if(/(sad|angry|annoyed|stress|tired|frustrat|hate|stuck|anxious|lonely|depress)/i.test(text))return O({out:'That sounds rough. Tell me what is going on, or paste the problem and I will help you work through it.',skill:'empathy',conf:.6});
+  const c=classify(text);
+  if(c.id&&c.s>.12){const it=intents.find(i=>i.id===c.id);return O({out:'Did you mean: **"'+it.ex[0]+'"**? Ask me that and I will answer.',skill:'did-you-mean',conf:c.s})}
+  const g=gen(text);if(g)return O({out:'Not sure, but here is a related thought: '+g,skill:'free-form',conf:.2})}
+ return O(r)}
 function evaluate(){let ok=0,tot=0;const by={};docs.forEach(d=>by[d.id]=(by[d.id]||0)+1);
  docs.forEach(d=>{if(by[d.id]<2)return;tot++;if(classify(d.t,docs.filter(x=>x!==d)).id===d.id)ok++});return{tested:tot,correct:ok,accuracy:tot?Math.round(1000*ok/tot)/10:0}}
 module.exports={respond,evaluate,stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};

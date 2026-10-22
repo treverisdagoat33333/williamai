@@ -35,9 +35,9 @@ input:focus{border-color:var(--ac)}
 .dots span{display:inline-block;width:6px;height:6px;margin:0 2px;border-radius:50%;background:var(--mut);animation:d 1s infinite}
 .dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
 @keyframes d{50%{transform:translateY(-4px);background:var(--ac2)}}
-</style></head><body>
-<header><div class="logo">W</div><b>william<span>AI</span></b><div class="tag"><i class="dot"></i>WilliamCore v1 · WilliamCore backend online</div></header>
-<div id="chat"><div class="hero" id="hero"><h1>williamAI</h1><p>An original AI engine written from scratch. No API keys. No other models. Just William.</p>
+.out{white-space:pre-wrap}.menu{background:0;border:0;color:var(--tx);font-size:20px;padding:0 4px}.fb button{background:0;border:0;color:var(--mut);font-size:14px;padding:2px 6px}#dr{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--panel);border-right:1px solid var(--line);transform:translateX(-100%);transition:.2s;z-index:5;padding:calc(14px + env(safe-area-inset-top,0px)) 10px 12px;overflow-y:auto}#dr.o{transform:none}#dr button{display:block;width:100%;text-align:left;background:0;border:0;color:var(--tx);padding:9px;border-radius:8px;font-size:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}#dr button:active{background:var(--line)}</style></head><body>
+<header><button class="menu" id="mn">&#9776;</button><div class="logo">W</div><b>william<span>AI</span></b><div class="tag"><i class="dot"></i>WilliamCore v1 · WilliamCore backend online</div></header>
+<div id="dr"></div><div id="chat"><div class="hero" id="hero"><h1>williamAI</h1><p>An original AI engine written from scratch. No API keys. No other models. Just William.</p>
 <div class="chips" id="chips"></div></div></div>
 <form id="f"><input id="q" placeholder="Ask William, or teach him: teach: ping => pong" autocomplete="off"><button class="send">Send</button></form>
 <script>
@@ -53,14 +53,38 @@ const chat=$('#chat');
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function render(s){const parts=s.split(F);return parts.map((p,i)=>{if(i%2===0)return esc(p).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
  const nl=p.indexOf('\n'),lang=p.slice(0,nl).trim(),code=p.slice(nl+1).replace(/\n$/,'');
- return '<pre><button onclick="cp(this)">Copy</button><div class="lang">'+esc(lang)+'</div><code>'+esc(code)+'</code></pre>'}).join('')}
+ return '<pre><button onclick="cp(this)">Copy</button>'+(/^(js|javascript)$/.test(lang)?'<button onclick="runJS(this)" style="margin-right:6px">Run</button>':'')+'<div class="lang">'+esc(lang)+'</div><code>'+esc(code)+'</code></pre>'}).join('')}
 window.cp=b=>{const t=b.parentNode.querySelector('code').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='Copied'},()=>{b.textContent='Select + copy'});setTimeout(()=>b.textContent='Copy',1500)};
 function add(role,html){const m=document.createElement('div');m.className='m '+(role==='u'?'u':'');m.innerHTML='<div class="b">'+html+'</div>';chat.append(m);chat.scrollTop=chat.scrollHeight;return m.firstChild}
-function send(text){text=text.trim();if(!text)return;$('#hero').style.display='none';add('u',esc(text));
+function send(text){text=text.trim();if(!text)return;$('#hero').style.display='none';add('u',esc(text));rec('u',text);
  const b=add('a','<span class="dots"><span></span><span></span><span></span></span>');
- ask(text).then(r=>{let i=0;const full=r.out,step=Math.max(4,Math.ceil(full.length/40));
+ ask(text).then(r=>{rec('a',r.out);let i=0;const full=r.out,step=Math.max(4,Math.ceil(full.length/40));
   (function tick(){i=Math.min(full.length,i+step);let part=full.slice(0,i);if((part.split(F).length-1)%2)part+='\n'+F;b.innerHTML=render(part);chat.scrollTop=chat.scrollHeight;
-   if(i<full.length)setTimeout(tick,16);else b.innerHTML=render(full)+'<div class="trace">skill: '+r.skill+' · confidence '+Math.round(r.conf*100)+'%</div>'})()})}
+   if(i<full.length)setTimeout(tick,16);else{b.innerHTML=render(full)+'<div class="trace">skill: '+r.skill+' · confidence '+Math.round(r.conf*100)+'%</div>';fbRow(b,text,r)}})()})}
 $('#f').onsubmit=e=>{e.preventDefault();const q=$('#q');send(q.value);q.value=''};
-['Teach: ping => pong','Write fizzbuzz in python','Build a todo app in html','What is 12*(8+3)^2','Make a strong password','Tell me a joke','What can you do?'].forEach(t=>{const c=document.createElement('button');c.className='chip';c.textContent=t;c.onclick=()=>send(t);$('#chips').append(c)});
+['Explain this code:\nfor (x of a) { console.log(x) }','Find bugs:\nif (a = 5) { var x = 1 }','Write binary search in python','Teach: ping => pong','Write fizzbuzz in python','Build a todo app in html','What is 12*(8+3)^2','Make a strong password','Tell me a joke','What can you do?'].forEach(t=>{const c=document.createElement('button');c.className='chip';c.textContent=t;c.onclick=()=>send(t);$('#chips').append(c)});
+
+/* run JS safely in a Worker (in your browser, 3s limit) */
+window.runJS=b=>{const pre=b.parentNode,code=pre.querySelector('code').textContent;let out=pre.nextElementSibling;
+ if(!out||!out.classList.contains('out')){out=document.createElement('div');out.className='trace out';pre.after(out)}
+ out.textContent='Running...';
+ const src='const L=[];console.log=(...a)=>L.push(a.map(x=>typeof x==="object"?JSON.stringify(x):String(x)).join(" "));try{'+code+'\n}catch(e){L.push("Error: "+e.message)}postMessage(L.join("\\n"))';
+ let w;try{w=new Worker(URL.createObjectURL(new Blob([src])))}catch(e){out.textContent='Cannot run here';return}
+ const to=setTimeout(()=>{w.terminate();out.textContent='Stopped: took longer than 3 seconds'},3000);
+ w.onmessage=e=>{clearTimeout(to);out.textContent=e.data||'(no output)';w.terminate()};w.onerror=e=>{clearTimeout(to);out.textContent='Error: '+e.message}};
+/* feedback + regenerate */
+function fbRow(b,text,r){const d=document.createElement('div');d.className='fb';
+ [['\u{1F44D}','up'],['\u{1F44E}','down'],['\u21BB','redo']].forEach(([i,k])=>{const x=document.createElement('button');x.textContent=i;
+  x.onclick=()=>{if(k==='redo'){send(text);return}fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:k,text,out:r.out})}).catch(()=>{});d.innerHTML='<span class="trace">Thanks, William will learn from that.</span>'};d.append(x)});b.append(d)}
+/* chat history sidebar */
+let convs=[];try{convs=JSON.parse(store.get('wai_c')||'[]')}catch(e){}
+let cur=null;const dr=$('#dr');
+function save(){store.set('wai_c',JSON.stringify(convs.slice(0,30)))}
+function clearView(){chat.querySelectorAll('.m').forEach(n=>n.remove())}
+function newChat(){cur={id:Date.now(),title:'New chat',msgs:[]};clearView();$('#hero').style.display='';dr.classList.remove('o')}
+function loadConv(c){cur=c;clearView();$('#hero').style.display='none';c.msgs.forEach(m=>add(m.r,m.r==='u'?esc(m.t):render(m.t)));dr.classList.remove('o')}
+function draw(){dr.innerHTML='';const n=document.createElement('button');n.textContent='+ New chat';n.onclick=()=>{newChat();draw()};dr.append(n);
+ convs.forEach(c=>{const x=document.createElement('button');x.textContent=c.title;x.onclick=()=>loadConv(c);dr.append(x)})}
+function rec(role,t){if(!cur)newChat();if(!convs.includes(cur))convs.unshift(cur);cur.msgs.push({r:role,t:t.slice(0,4000)});if(role==='u'&&cur.title==='New chat')cur.title=t.slice(0,32);save();draw()}
+$('#mn').onclick=()=>{draw();dr.classList.toggle('o')};chat.addEventListener('click',()=>dr.classList.remove('o'));draw();
 </script></body></html>
