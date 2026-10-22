@@ -71,3 +71,12 @@ test('no LLM configured = original brain-only behaviour',async()=>{
  const app=await startApp();
  try{const r=await app.chat(Q);assert.ok(!/^llm:/.test(r.skill));const h=await fetch(app.base+'/api/health').then(r=>r.json());assert.equal(h.llm.enabled,false);
  }finally{await app.stop()}});
+
+test('fallback models: a rate-limited main model falls through to the next one (normal + streaming)',async()=>{
+ const m=await mockLLM();m.state.bad.add('main-free');
+ const app=await startApp({LLM_BASE_URL:m.url,LLM_MODEL:'main-free',LLM_FALLBACK_MODELS:'second-free, third-free'});
+ try{
+  const a=await app.chat(Q);assert.match(a.skill,/^llm:/);assert.equal(a.out,'Qwen answer to: '+Q);
+  const s=await app.stream('why is the ocean salty and deep');assert.equal(s.done.out,'Qwen answer to: why is the ocean salty and deep');
+  assert.ok(m.state.models.includes('main-free')&&m.state.models.includes('second-free'));assert.ok(!m.state.models.includes('third-free'));
+ }finally{await app.stop();await m.close()}});

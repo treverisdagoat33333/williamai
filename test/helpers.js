@@ -2,9 +2,10 @@ const http=require('http'),{spawn}=require('child_process'),fs=require('fs'),os=
 const free=()=>new Promise(r=>{const s=http.createServer().listen(0,()=>{const p=s.address().port;s.close(()=>r(p))})});
 /* fake OpenAI-compatible server (streaming + normal) */
 async function mockLLM(opts={}){
- const state={calls:0,last:null,fail:false},port=await free();
+ const state={calls:0,last:null,fail:false,bad:new Set(),models:[]},port=await free();
  const srv=http.createServer((q,r)=>{let b='';q.on('data',c=>b+=c);q.on('end',()=>{
-  const j=JSON.parse(b);state.calls++;state.last=j;
+  const j=JSON.parse(b);state.calls++;state.last=j;state.models.push(j.model);
+  if(state.bad.has(j.model)){r.writeHead(429);return r.end('rate limited')}
   if(state.fail){r.writeHead(500);return r.end('boom')}
   const reply='<think>secret</think>Qwen answer to: '+j.messages[j.messages.length-1].content;
   if(j.stream){r.writeHead(200,{'Content-Type':'text/event-stream'});

@@ -18,6 +18,7 @@ Put these in the environment or in a `.env` file (see `.env.example`), then run 
 - `LLM_API_KEY`   key for hosted providers (not needed for local Ollama)
 - `LLM_MODEL`     model name as the provider spells it
 - `LLM_MODE`      `fallback` (default: Qwen only when the brain is unsure), `always` (Qwen phrases every knowledge answer using the brain's answer as a fact), `off`
+- `LLM_FALLBACK_MODELS` comma-separated model ids tried in order when the main model errors or is rate limited
 - `LLM_TEMPERATURE` (0.5), `LLM_MAX_TOKENS` (700), `LLM_TIMEOUT_MS` (30000)
 
 Examples (check each provider's docs for current model names):
@@ -27,6 +28,18 @@ Examples (check each provider's docs for current model names):
 - Alibaba DashScope: `LLM_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1 LLM_API_KEY=... LLM_MODEL=qwen-plus`
 
 Reasoning models that emit `<think>...</think>` are handled: the thinking is hidden, also while streaming.
+
+### Put Qwen on your website with no local setup (OpenRouter free tier)
+1. Make a free account at openrouter.ai and create an API key.
+2. On openrouter.ai/models filter by free pricing and search "qwen". Free model ids end in `:free` and the free roster rotates, so copy the exact id you see there.
+3. In Render, open your service, go to Environment and add:
+   - `LLM_BASE_URL` = `https://openrouter.ai/api/v1`
+   - `LLM_API_KEY` = your key
+   - `LLM_MODEL` = a free Qwen id, e.g. `qwen/qwen3-coder:free` (or whichever chat-style Qwen is free that day)
+   - `LLM_FALLBACK_MODELS` = a second free id, then `openrouter/free` as the last resort (it picks any free model)
+   - `LLM_MAX_TOKENS` = `2000` and `LLM_TIMEOUT_MS` = `60000`
+4. Save (Render redeploys) and open `https://YOUR-SITE.onrender.com/api/health`: it should show the llm block as enabled.
+Free models are rate limited (about 20 requests per minute and a daily cap per account) and can disappear without notice. williamAI handles that: it tries the fallback models in order, and if all fail or the caps are hit it answers with the brain alone. For steadier service, add a few dollars of OpenRouter credit and switch to the paid (no `:free`) model id.
 
 ## 2. The learn loop (the brain grows)
 A thumbs-up on an answer that came from Qwen saves that question and answer into the brain (`learned.json`), so next time the brain answers instantly and for free. A thumbs-down removes it again.
