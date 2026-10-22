@@ -185,4 +185,5 @@ function respond(text,session){
  return O(r)}
 function evaluate(){let ok=0,tot=0;const by={};docs.forEach(d=>by[d.id]=(by[d.id]||0)+1);
  docs.forEach(d=>{if(by[d.id]<2)return;tot++;if(classify(d.t,docs.filter(x=>x!==d)).id===d.id)ok++});return{tested:tot,correct:ok,accuracy:tot?Math.round(1000*ok/tot)/10:0}}
-module.exports={respond,evaluate,stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};
+function retrieve(text,n=3){const c=classify(text),o=[];[c.id&&{id:c.id,s:c.s},c.alt&&c.alt.id&&{id:c.alt.id,s:c.alt.s}].filter(Boolean).forEach(x=>{if(o.length>=n||x.s<.12||!/^(kb|taught):/.test(x.id))return;const it=intents.find(i=>i.id===x.id);if(it){try{const a=it.r();if(typeof a==='string'&&!o.includes(a))o.push(a)}catch(e){}}});return o}
+module.exports={respond,retrieve,evaluate,stats:()=>({intents:intents.length,learned:learned.length,vocab:Object.keys(df).length})};

@@ -1,5 +1,5 @@
 const http=require('http'),fs=require('fs'),path=require('path');
-const {respond,stats}=require('./engine');
+const {respond,stats,llm}=require('./core');
 const PORT=process.env.PORT||3000,PUB=path.join(__dirname,'public'),SF=path.join(__dirname,'data','sessions.json');
 let sessions={};try{sessions=JSON.parse(fs.readFileSync(SF,'utf8'))}catch(e){}
 const DF=f=>path.join(__dirname,'data',f),rd=(f,d)=>{try{return JSON.parse(fs.readFileSync(DF(f),'utf8'))}catch(e){return d}},wr=(f,o)=>{try{fs.writeFileSync(DF(f),JSON.stringify(o))}catch(e){}};
@@ -11,15 +11,15 @@ const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png
 const json=(res,c,o)=>{res.writeHead(c,{'Content-Type':'application/json'});res.end(JSON.stringify(o))};
 http.createServer((req,res)=>{
  const url=req.url.split('?')[0];
- if(req.method==='GET'&&url==='/api/health')return json(res,200,{ok:true,engine:'WilliamCore v1',...stats()});
+ if(req.method==='GET'&&url==='/api/health')return json(res,200,{ok:true,engine:'WilliamCore v1',llm:llm(),...stats()});
  if(req.method==='POST'&&url==='/api/chat'){
   const ip=req.headers['x-forwarded-for']||req.socket.remoteAddress;hits[ip]=(hits[ip]||0)+1;
   if(hits[ip]>60)return json(res,429,{out:'Slow down a little.',skill:'limit',conf:1});
   let body='';req.on('data',c=>{body+=c;if(body.length>5000)req.destroy()});
-  req.on('end',()=>{try{const {text,sid}=JSON.parse(body);
+  req.on('end',async()=>{try{const {text,sid}=JSON.parse(body);
    if(typeof text!=='string'||!text.trim()||typeof sid!=='string'||sid.length>64)return json(res,400,{out:'Bad request',skill:'error',conf:0});
    const s=sessions[sid]||(sessions[sid]={name:null,last:null,turns:0});
-   const r=respond(text.slice(0,4000),s);dirty=true;st.total++;const sk=String(r.skill).split(':')[0];st.skills[sk]=(st.skills[sk]||0)+1;json(res,200,r)}catch(e){json(res,400,{out:'Bad request',skill:'error',conf:0})}});return}
+   const r=await respond(text.slice(0,4000),s);dirty=true;st.total++;const sk=String(r.skill).split(':')[0];st.skills[sk]=(st.skills[sk]||0)+1;json(res,200,r)}catch(e){json(res,400,{out:'Bad request',skill:'error',conf:0})}});return}
  if(req.method==='POST'&&url==='/api/feedback'){let b='';req.on('data',c=>{b+=c;if(b.length>8000)req.destroy()});req.on('end',()=>{try{const d=JSON.parse(b);
   if(d.kind==='up')st.up++;else if(d.kind==='down'){st.down++;const f=rd('feedback.json',[]);f.push({q:String(d.text).slice(0,200),a:String(d.out).slice(0,200)});wr('feedback.json',f.slice(-300))}
   json(res,200,{ok:true})}catch(e){json(res,400,{ok:false})}});return}

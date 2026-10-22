@@ -1,1 +1,1 @@
-{"name":"williamai","version":"1.0.0","description":"williamAI - original AI engine, frontend + backend, zero dependencies","main":"server.js","scripts":{"start":"node server.js","train":"node train.js"},"engines":{"node":">=18"}}
+{"name":"williamai","version":"1.0.0","description":"williamAI - original brain (WilliamCore) with a Qwen language layer, zero dependencies","main":"server.js","scripts":{"start":"node server.js","train":"node train.js"},"engines":{"node":">=18"}}
